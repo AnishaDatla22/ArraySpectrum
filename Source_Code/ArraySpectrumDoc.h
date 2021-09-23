@@ -52,7 +52,7 @@ public:
 	///
 	double m_arrdblCompoundPeakArea[NO_OF_COMPOUNDS];
 	///
-	int nDevID;
+	
 
 	// Overrides
 public:

@@ -12,7 +12,7 @@ public:
 	int m_nLineCount;
 	
 	int m_nOffset;
-	
+	int nDevID;
 	//When this flag is true, The data Grid shows an extra column to display the average of the Continuously Captured Spectrum pixels in "Capture Mode"
 	BOOL m_bShowAvg;
 	

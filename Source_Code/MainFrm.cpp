@@ -732,194 +732,24 @@ LRESULT CMainFrame::OnNotifySnapShotCompleted(WPARAM wp, LPARAM lp)
 
 void CMainFrame::OnStartCapture()
 {
-	
-	int	nWidth = 0;
-	int	nHeight = 0;
-	int	nImageSize = 0;
-	int	nFrameCount = 10;
-	int	nBitSize = 0;
-	BOOL bStat = FALSE;
-	LONG lDevCount = 0;
-	BOOL bValue = TRUE;
-	BOOL bValue2 = TRUE;
-	INT nDevID = 0;
-    //Note get nDevID??
-	
-	// Set trigger mode
-	BYTE btValue = 0;	// Internal Sync Mode
-	bStat = DcIc_SetTriggerMode(nDevID, btValue);
-	if (bStat == FALSE)
-	{
-		// Change trigger mode is failed -> Exit this function
-		OnConnectOrDisconnect();
-		return;
-	}
-	// Set trigger polarity
-	bValue = TRUE;		// High Active
-	bStat = DcIc_SetTriggerPolarity(nDevID, bValue);
-	if (bStat == FALSE)
-	{
-		// Change trigger polarity is failed -> Exit this function
-		OnConnectOrDisconnect();
-		return;
-	}
-
-	// Set trigger effective
-	bValue = FALSE;	// Disable
-	bStat = DcIc_SetTriggerEffective(nDevID, bValue);
-	if (bStat == FALSE)
-	{
-		// Change trigger effective is failed -> Exit this function
-		OnConnectOrDisconnect();
-		return;
-	}
-
-	// Set Integration cycle(= Exposure time)
-	DWORD dwValue = 1000;
-	bStat = DcIc_SetStartPulseTime(nDevID, dwValue);
-	if (bStat == FALSE)
-	{
-		//// Change exposure time is failed -> Exit this function
-		//DcIc_Disconnect(nDevID);
-		//DcIc_Terminate();	// Terminate process of library.
-		//return;
-	}
-	// Set GAIN
-	btValue = 2;
-	bStat = DcIc_SetGain(nDevID, btValue);
-	if (bStat == FALSE)
-	{
-		// Change GAIN value is failed -> Exit this function
-		OnConnectOrDisconnect();
-		return;
-	}
-	// set OFFSET
-	WORD wValue = 0;
-	bStat = DcIc_SetOffset(nDevID, wValue);
-	if (bStat == FALSE)
-	{
-		// Change OFFSET value is failed -> Exit this function
-		OnConnectOrDisconnect();
-		return;
-	}
-
-
-	wValue = 32;
-	bStat = DcIc_SetVerticalPixel(nDevID, wValue);
-	if (bStat == FALSE)
-	{
-		// Change vertical pixel size is failed -> Exit this function
-		OnConnectOrDisconnect();
-		return;
-	}
-
-
-	// Create capture buffer.
-	INT nFramCnt = 1;
-	ULONG ulTotalPixels = 0;
-	WORD wPixels = 0;
-	WORD wLines = 0;
-
-	bStat = DcIc_GetVerticalPixel(nDevID, &wLines);
-	if (bStat == FALSE)
-	{
-		// Change vertical pixel size is failed -> Exit this function
-		OnConnectOrDisconnect();
-		return;
-	}
-
-	bStat = DcIc_GetHorizontalPixel(nDevID, &wPixels);
-	if (bStat == FALSE)
-	{
-		// Change vertical pixel size is failed -> Exit this function
-		OnConnectOrDisconnect();
-		return;
-	}
-	ulTotalPixels = (ULONG)nFramCnt * (ULONG)wLines * (ULONG)wPixels;
-
-	WORD* pwMeasBuff = NULL;
-	TRY
-	{
-		pwMeasBuff = new WORD[ulTotalPixels];
-		memset(pwMeasBuff, 0x00, ulTotalPixels * sizeof(WORD));
-	}
-		CATCH(CMemoryException, e)
-	{
-		// Failed -> Exit this function
-		if (pwMeasBuff != NULL)
-		{
-			delete[] pwMeasBuff;
-			pwMeasBuff = NULL;
-		}
-		OnConnectOrDisconnect();
-		return;
-	}
-	END_CATCH
-
-	// Start Acquisition
-	bStat = DcIc_Capture(nDevID, pwMeasBuff, ulTotalPixels * sizeof(WORD));
-	if (bStat == FALSE)
-	{
-		// Capture start failed -> Exit this function
-		if (pwMeasBuff != NULL)
-		{
-			delete[] pwMeasBuff;
-			pwMeasBuff = NULL;
-		}
-		OnConnectOrDisconnect();
-		return;
-	}
-
-	// Wait to complete the capture image
-	INT nRsltStat = DcIc_WAITSTATUS_CAPTURING;
-	while (TRUE)
-	{
-		::Sleep(1000);
-		nRsltStat = DcIc_Wait(nDevID);
-		if (nRsltStat == DcIc_WAITSTATUS_CAPTURED)
-		{
-			// Data process
-			SaveData("Sample.csv", pwMeasBuff, wPixels, wLines, nFrameCount, 0);
-			break;
-		}
-	}
-
-	// Process for exit. 
-	bStat = DcIc_Abort(nDevID);
-	if (pwMeasBuff != NULL)
-	{
-		delete[] pwMeasBuff;
-		pwMeasBuff = NULL;
-	}
-	
-
 	CArraySpectrumDoc* pDoc = NULL;
-	pDoc = (CArraySpectrumDoc*)pwMeasBuff;
-	/*CArraySpectrumDoc* pDoc = NULL;
-	pDoc = (CArraySpectrumDoc*)GetActiveDocument();*/
+	pDoc = (CArraySpectrumDoc*)GetActiveDocument();
 	if(pDoc == NULL)
 		return;
 	
-	/*if(pDoc->m_objSerialComm.IsPortOpened() == FALSE)
+	if(pDoc->m_objSerialComm.IsPortOpened() == FALSE)
 	{
 	AfxMessageBox(_T("Please Connect the Communication Port"));
 	return;
-	}*//*
-#ifdef _SA165
-	if(pDoc->m_strSelectedCommPortName.IsEmpty() == TRUE)
-	{
-		AfxMessageBox(_T("Please Connect the Communication Port"));
-		return;
 	}
-#endif*/
-	/*else
+	else
 	{
 	if(pDoc->m_objSerialComm.Open(pDoc->m_strSelectedCommPortName) == FALSE)
 	{
 	AfxMessageBox(_T("Failed to Open the Communication Port"));
 	return;
 	}
-	}*/
+	}
 	/*#if _SIM
 	m_nNoOfScanCompl = 0;
 	#endif*/
@@ -929,35 +759,7 @@ void CMainFrame::OnStartCapture()
 	
 
 }
-void CMainFrame::SaveData(char* pFileName, WORD* pDataBuff, int nWidth, int nHeight, int nFrameCnt, int nDataIdx)
-{
-	errno_t err;
-	FILE* fp;
-	int  nCountW, nCountH, nCountF;
 
-	err = fopen_s(&fp, pFileName, "a+");
-	if (err != 0)
-	{
-		return;
-	}
-
-	WORD* pData = pDataBuff;
-	for (nCountF = 0; nCountF < nFrameCnt; nCountF++)
-	{
-		fprintf(fp, "[%d - %d]\n", nDataIdx, nCountF);
-		for (nCountH = 0; nCountH < nHeight; nCountH++)
-		{
-			for (nCountW = 0; nCountW < nWidth; nCountW++)
-			{
-				fprintf(fp, "%d,", *pData);
-				pData++;
-			}
-			fprintf(fp, "\n");
-		}
-	}
-
-	fclose(fp);
-}
 //Stop Continuous  Frames Capturing
 void CMainFrame::OnStopCapture(void)
 {
@@ -1249,9 +1051,9 @@ void CMainFrame::OnConnectOrDisconnect(void)
 {
 
 	CArraySpectrumDoc* pDoc = NULL;
-	//pDoc=(CArraySpectrumDoc*)GetActiveDocument();
-	//if(pDoc == NULL)
-	//	return;
+	pDoc=(CArraySpectrumDoc*)GetActiveDocument();
+	if(pDoc == NULL)
+		return;
 	BOOL bStat = FALSE;
 	LONG lDevCount = 0;
 	BOOL bValue = TRUE;
@@ -1263,8 +1065,11 @@ void CMainFrame::OnConnectOrDisconnect(void)
 	if (m_bConnected == TRUE)
 	{
 		//Disconnect
-		bStat = DcIc_Abort(nDevID);
-		bStat = DcIc_Disconnect(nDevID);
+		// Set LED mode
+		bValue = FALSE;
+		bStat = DcIc_SetLEDMode(pDoc->m_objCapturePixelBuff.nDevID, bValue);
+		bStat = DcIc_Abort(pDoc->m_objCapturePixelBuff.nDevID);
+		bStat = DcIc_Disconnect(pDoc->m_objCapturePixelBuff.nDevID);
 		bStat = DcIc_Terminate();
 		m_bConnected = FALSE;
 
@@ -1322,8 +1127,8 @@ void CMainFrame::OnConnectOrDisconnect(void)
 
 		// Connect hardware
 		UINT unTargetDevIdx = 0;
-		nDevID = DcIc_Connect(unTargetDevIdx);
-		if (nDevID <= 0)
+		pDoc->m_objCapturePixelBuff.nDevID = DcIc_Connect(unTargetDevIdx);
+		if (pDoc->m_objCapturePixelBuff.nDevID <= 0)
 		{
 			// Connection is failed -> Exit this function
 			DcIc_Terminate();	// Terminate process of library.
@@ -1331,11 +1136,11 @@ void CMainFrame::OnConnectOrDisconnect(void)
 		}
 
 		// Send ABORT command, when if hardware is BUSY.
-		bStat = DcIc_Abort(nDevID);
+		bStat = DcIc_Abort(pDoc->m_objCapturePixelBuff.nDevID);
 		if (bStat == FALSE)
 		{
 			// Send "STOP" is failed -> Exit this function
-			DcIc_Disconnect(nDevID);
+			DcIc_Disconnect(pDoc->m_objCapturePixelBuff.nDevID);
 			DcIc_Terminate();	// Terminate process of library.
 			return;
 		}
@@ -1345,11 +1150,11 @@ void CMainFrame::OnConnectOrDisconnect(void)
 
 		// Set LED mode
 		bValue = TRUE;
-		bStat = DcIc_SetLEDMode(nDevID, bValue);
+		bStat = DcIc_SetLEDMode(pDoc->m_objCapturePixelBuff.nDevID, bValue);
 		if (bStat == FALSE)
 		{
 			// Change LED condition is failed -> Exit this function
-			DcIc_Disconnect(nDevID);
+			DcIc_Disconnect(pDoc->m_objCapturePixelBuff.nDevID);
 			DcIc_Terminate();	// Terminate process of library.
 			return;
 		}

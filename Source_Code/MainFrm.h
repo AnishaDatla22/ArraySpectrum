@@ -73,7 +73,7 @@ public:
 	BOOL m_bSnapShot;	
 	///
 	int m_nNoOfScanCompl;
-	virtual void SaveData(char* pFileName, WORD* pDataBuff, int nWidth, int nHeight, int nFrameCnt, int nDataIdx);
+	//virtual void SaveData(char* pFileName, WORD* pDataBuff, int nWidth, int nHeight, int nFrameCnt, int nDataIdx);
 
 public:
 	///

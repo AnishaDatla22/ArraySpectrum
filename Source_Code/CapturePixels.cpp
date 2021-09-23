@@ -2,6 +2,7 @@
 #include "arraySpectrum.h"
 #include "capturePixels.h"
 #include "DCamUSB.h"
+#include "DcIcUSB.h"
 #include "constants.h"
 //#include "SerialComm.h"
 #include "MainFrm.h"
@@ -167,63 +168,65 @@ void SaveToFile( char* pFileName, WORD *pDataBuff, int nWidth, int nHeight, int 
 	fclose( fp );
 }
 
-void CaptureSnapFromCCD(CCapturePixels* pObjPixelData) 
+void CaptureSnapFromCCD(CCapturePixels* pObjPixelData)
 {
-	DWORD	dwRetStatus = DCAM_WAITSTATUS_UNCOMPLETED;
-	WORD*	pDataBuff   = NULL;
+	WORD* pDataBuff = NULL;
 	//double* pDataBuff = NULL;//1.3
 	int		nWidth = 0, nHeight = 0, nImageSize = 0, nLineCount = 0, nBitSize = 0;
-	BOOL bResult;
+	BOOL bResult, bStat, bValue;
 	nWidth = nHeight = nImageSize = 0;
-	nLineCount = pObjPixelData->m_nLineCount;										// Line Count( 50 line )
+	nLineCount = pObjPixelData->m_nLineCount;						 // Line Count( 50 line )
 
-	DcamInitialize();										// Initialize DLL
+	BYTE btValue = 0;	                                             // Internal Sync Mode
+	bStat = DcIc_SetTriggerMode(pObjPixelData->nDevID, btValue);
 
-	bResult=DcamOpen();												// Open the device
-	if(!bResult)
-	{
-		pObjPixelData->ClearPixelBuffer();
-		return;
-	}
-	bResult = DcamStop();												// Stop acquisition
+	bValue = TRUE;		                                             // High Active
+	bStat = DcIc_SetTriggerPolarity(pObjPixelData->nDevID, bValue);                 // Set trigger polarity
 
-	bResult=DcamSetGain(pObjPixelData->m_nGain);										// Set the gain 1
-	bResult=DcamSetOffset(pObjPixelData->m_nOffset);									// Set the offset 10
-	bResult=DcamSetExposureTime(pObjPixelData->m_nExposureTime);
-	bResult=DcamSetBinning( DCAM_BINNING_FULL );					// Set the Full line binning
-	bResult=DcamSetTriggerPolarity( DCAM_TRIGPOL_NEGATIVE );		// Set the trigger polarity negative
-	bResult=DcamSetTriggerMode( DCAM_TRIGMODE_INT2 );			// Set the trigger mode "Internal Mode"
+	bValue = FALSE;	                                                 // Disable
+	bStat = DcIc_SetTriggerEffective(pObjPixelData->nDevID, bValue);                // Set trigger effective
 
-	bResult=DcamSetMeasureDataCount(nLineCount);					// Set the line count 5
+																	 // Set Integration cycle(= Exposure time)
+	bStat = DcIc_SetStartPulseTime(pObjPixelData->nDevID, pObjPixelData->m_nExposureTime);
 
-	bResult=DcamGetBitPerPixel( &nBitSize );						// Get the bit size
+	bStat = DcIc_SetGain(pObjPixelData->nDevID, pObjPixelData->m_nGain);            // Set GAIN
 
-	bResult=DcamGetImageSize( &nWidth, &nHeight );					// Get the image size
+	bStat = DcIc_SetOffset(pObjPixelData->nDevID, pObjPixelData->m_nOffset);        // set OFFSET
+
+	int wValue = 32;
+	bStat = DcIc_SetVerticalPixel(pObjPixelData->nDevID, wValue);
+
+	// Create capture buffer.
+	INT nFramCnt = 5;
+	ULONG ulTotalPixels = 0;
+	WORD wPixels = 0;
+	WORD wLines = 0;
+
+	bStat = DcIc_GetVerticalPixel(pObjPixelData->nDevID, &wLines);
+	bStat = DcIc_GetHorizontalPixel(pObjPixelData->nDevID, &wPixels);
+	ulTotalPixels = (ULONG)nFramCnt * (ULONG)wLines * (ULONG)wPixels;
+
 	/*CString strM;
-	strM.Format(_T("Image w=%d,h=%d"), nWidth,nHeight);
-	AfxMessageBox(strM);*/
+	 strM.Format(_T("Image w=%d,h=%d"), nWidth,nHeight);
+	 AfxMessageBox(strM);*/
 
-	nImageSize = nWidth * nHeight;
-	pObjPixelData->m_nPixelBufImageSize = nImageSize*nLineCount;
-
+	pObjPixelData->m_nPixelBufImageSize = (ULONG)wLines * (ULONG)wPixels;
 	pObjPixelData->ClearPixelBuffer();
-	//pObjPixelData->m_pBuffPixelData = new WORD[ nImageSize * nLineCount ];
-	pDataBuff=new WORD[pObjPixelData->m_nPixelBufImageSize];
-	//pDataBuff=new double[pObjPixelData->m_nPixelBufImageSize];//1.3
-	//if( pObjPixelData->m_pBuffPixelData != NULL )
-	if(pDataBuff)
+
+	pDataBuff = new WORD[pObjPixelData->m_nPixelBufImageSize];
+	if (pDataBuff)
 	{
-		memset( pDataBuff, 0, pObjPixelData->m_nPixelBufImageSize*2 );
+		memset(pDataBuff, 0, pObjPixelData->m_nPixelBufImageSize * 2);
 
 		// Acquire the image data
-		bResult=DcamCapture( pDataBuff, pObjPixelData->m_nPixelBufImageSize * 2 );
-
-		while( TRUE )
+		bStat = DcIc_Capture(pObjPixelData->nDevID, pDataBuff, pObjPixelData->m_nPixelBufImageSize * 2);
+		INT nRsltStat = DcIc_WAITSTATUS_CAPTURING;
+		while (TRUE)
 		{
-			// Wait to complete the image acquisition
-			DcamWait( &dwRetStatus, 0 );
-
-			if( dwRetStatus == DCAM_WAITSTATUS_COMPLETED )
+			// Wait to complete the capture image
+		    ::Sleep(1000);
+			nRsltStat = DcIc_Wait(pObjPixelData->nDevID);
+			if (nRsltStat == DcIc_WAITSTATUS_CAPTURED)
 			{
 				break;
 			}
@@ -231,18 +234,20 @@ void CaptureSnapFromCCD(CCapturePixels* pObjPixelData)
 	}
 	else
 	{
-		DcamClose();
-		DcamUninitialize();
-		return ;
+		return;
 	}
-	pObjPixelData->m_pBuffPixelData=pDataBuff;
-	// SaveToFile("Sample.txt", pDataBuff, nWidth, nHeight, nLineCount );
+	pObjPixelData->m_pBuffPixelData = pDataBuff;
+	//SaveToFile("Sample.txt", pDataBuff, nWidth, nHeight, nLineCount );
+	
+	// Process for exit. 
+	bStat = DcIc_Abort(pObjPixelData->nDevID);
+	if (pDataBuff != NULL)
+	{
+		delete[] pDataBuff;
+		pDataBuff = NULL;
+	}
 
-	//delete [] pDataBuff;
 
-	DcamStop();											// Stop acquisition
-	DcamClose();										// Close the device
-	DcamUninitialize();									// Uninitialize DLL
 }
 //<--Added for 1.2
 typedef struct _CAPTURE_SNAP_FROM_DA_PARAMS
@@ -675,12 +680,7 @@ void CCapturePixels::StartCapture(void)
 	//ptrThreadParams->ptrDoc = pDoc;
 	//--1.3->
 
-#ifdef _SA165
-	AfxBeginThread(CaptureSnapShotThread,ptrThreadParams);//<--Added for 1.2-->
-#else
 	AfxBeginThread(CaptureSnapShotThread,this);
-	//AfxBeginThread(CaptureSnapShotThread,ptrThreadParams);
-#endif
 }
 
 
