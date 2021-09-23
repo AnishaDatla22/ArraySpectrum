@@ -1110,7 +1110,7 @@ void CMainFrame::OnConnectOrDisconnect(void)
 			}
 		}*/
 		// Init library and create device information array.
-		m_bConnected = TRUE;
+		
 		bStat = DcIc_Initialize();		// Initialize library(DLL).
 		if (bStat != TRUE)
 		{
@@ -1145,9 +1145,6 @@ void CMainFrame::OnConnectOrDisconnect(void)
 			return;
 		}
 
-
-		// Set camera parameters
-
 		// Set LED mode
 		bValue = TRUE;
 		bStat = DcIc_SetLEDMode(pDoc->m_objCapturePixelBuff.nDevID, bValue);
@@ -1158,6 +1155,7 @@ void CMainFrame::OnConnectOrDisconnect(void)
 			DcIc_Terminate();	// Terminate process of library.
 			return;
 		}
+		m_bConnected = TRUE;
 		bNameValid = strResource.LoadString(IDS_FILE_DISCONNECT);
 		if (bNameValid)
 			pBtnConnectOrDisconnect->SetText(strResource);

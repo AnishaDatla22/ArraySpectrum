@@ -180,6 +180,7 @@ void CaptureSnapFromCCD(CCapturePixels* pObjPixelData)
 	BYTE btValue = 0;	                                             // Internal Sync Mode
 	bStat = DcIc_SetTriggerMode(pObjPixelData->nDevID, btValue);
 
+
 	bValue = TRUE;		                                             // High Active
 	bStat = DcIc_SetTriggerPolarity(pObjPixelData->nDevID, bValue);                 // Set trigger polarity
 
@@ -197,7 +198,7 @@ void CaptureSnapFromCCD(CCapturePixels* pObjPixelData)
 	bStat = DcIc_SetVerticalPixel(pObjPixelData->nDevID, wValue);
 
 	// Create capture buffer.
-	INT nFramCnt = 5;
+	INT nFramCnt = nLineCount;
 	ULONG ulTotalPixels = 0;
 	WORD wPixels = 0;
 	WORD wLines = 0;
@@ -206,9 +207,9 @@ void CaptureSnapFromCCD(CCapturePixels* pObjPixelData)
 	bStat = DcIc_GetHorizontalPixel(pObjPixelData->nDevID, &wPixels);
 	ulTotalPixels = (ULONG)nFramCnt * (ULONG)wLines * (ULONG)wPixels;
 
-	/*CString strM;
-	 strM.Format(_T("Image w=%d,h=%d"), nWidth,nHeight);
-	 AfxMessageBox(strM);*/
+	CString strM;
+	strM.Format(_T("Image p=%s,l=%s"), wPixels,wLines);
+	AfxMessageBox(strM);
 
 	pObjPixelData->m_nPixelBufImageSize = ulTotalPixels;
 	pObjPixelData->ClearPixelBuffer();
@@ -234,6 +235,7 @@ void CaptureSnapFromCCD(CCapturePixels* pObjPixelData)
 	}
 	else
 	{
+		
 		return;
 	}
 	pObjPixelData->m_pBuffPixelData = pDataBuff;
