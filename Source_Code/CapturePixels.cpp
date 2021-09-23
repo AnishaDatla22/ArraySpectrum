@@ -210,7 +210,7 @@ void CaptureSnapFromCCD(CCapturePixels* pObjPixelData)
 	 strM.Format(_T("Image w=%d,h=%d"), nWidth,nHeight);
 	 AfxMessageBox(strM);*/
 
-	pObjPixelData->m_nPixelBufImageSize = (ULONG)wLines * (ULONG)wPixels;
+	pObjPixelData->m_nPixelBufImageSize = ulTotalPixels;
 	pObjPixelData->ClearPixelBuffer();
 
 	pDataBuff = new WORD[pObjPixelData->m_nPixelBufImageSize];
@@ -237,7 +237,7 @@ void CaptureSnapFromCCD(CCapturePixels* pObjPixelData)
 		return;
 	}
 	pObjPixelData->m_pBuffPixelData = pDataBuff;
-	//SaveToFile("Sample.txt", pDataBuff, nWidth, nHeight, nLineCount );
+	SaveToFile("Sample.csv", pDataBuff, wPixels, wLines, nFramCnt);
 	
 	// Process for exit. 
 	bStat = DcIc_Abort(pObjPixelData->nDevID);
