@@ -1,0 +1,9 @@
+; AxWrapper1.def : Declares the module parameters.
+
+LIBRARY      "EsdAdvancedGraphControl.OCX"
+
+EXPORTS
+	DllCanUnloadNow     PRIVATE
+	DllGetClassObject   PRIVATE
+	DllRegisterServer   PRIVATE
+	DllUnregisterServer PRIVATE

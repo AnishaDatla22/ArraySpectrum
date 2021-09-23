@@ -1,0 +1,742 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#ifndef APSTUDIO_INVOKED
+#include "targetver.h"
+#endif
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#ifndef APSTUDIO_INVOKED\r\n"
+    "#include ""targetver.h""\r\n"
+    "#endif\r\n"
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#include ""res\\ArraySpectrum.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#include ""afxprint.rc""       // printing/print preview resources\r\n"
+    "#if !defined(_AFXDLL)\r\n"
+    "#include ""afxribbon.rc""              // MFC ribbon and control bar resources\r\n"
+    "#endif\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\ArraySpectrum.ico"
+IDR_ArraySpectrumTYPE   ICON                    "res\\ArraySpectrumDoc.ico"
+IDI_FILE_VIEW           ICON                    "res\\file_view.ico"
+IDI_FILE_VIEW_HC        ICON                    "res\\file_view_hc.ico"
+IDI_CLASS_VIEW          ICON                    "res\\class_view.ico"
+IDI_CLASS_VIEW_HC       ICON                    "res\\class_view_hc.ico"
+IDI_PROPERTIES_WND      ICON                    "res\\properties_wnd.ico"
+IDI_PROPERTIES_WND_HC   ICON                    "res\\properties_wnd_hc.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_MAINFRAME           BITMAP                  "res\\Toolbar.bmp"
+IDR_MAINFRAME_256       BITMAP                  "res\\Toolbar256.bmp"
+IDB_MAIN                BITMAP                  "res\\main.bmp"
+IDB_FILELARGE           BITMAP                  "res\\filelarge.bmp"
+IDB_FILESMALL           BITMAP                  "res\\filesmall.bmp"
+IDB_LARGE_RIBBON_ICONS  BITMAP                  "res\\writelarge.bmp"
+IDB_SMALL_ICONS         BITMAP                  "res\\writesmall.bmp"
+IDB_BUTTONS             BITMAP                  "res\\buttons.bmp"
+IDB_PROPERTIES_HC       BITMAP                  "res\\properties_hc.bmp"
+IDB_BMP_FLAME_OFF       BITMAP                  "res\\Flame_OFF.bmp"
+IDB_BMP_FLAME_ON        BITMAP                  "res\\Flame_ON.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_MAINFRAME TOOLBAR  16, 16
+BEGIN
+    BUTTON      ID_FILE_NEW
+    BUTTON      ID_FILE_OPEN
+    BUTTON      ID_FILE_SAVE
+    SEPARATOR
+    BUTTON      ID_EDIT_CUT
+    BUTTON      ID_EDIT_COPY
+    BUTTON      ID_EDIT_PASTE
+    SEPARATOR
+    BUTTON      ID_FILE_PRINT
+    BUTTON      ID_APP_ABOUT
+END
+
+IDR_MAINFRAME_256 TOOLBAR  16, 16
+BEGIN
+    BUTTON      ID_FILE_NEW
+    BUTTON      ID_FILE_OPEN
+    BUTTON      ID_FILE_SAVE
+    SEPARATOR
+    BUTTON      ID_EDIT_CUT
+    BUTTON      ID_EDIT_COPY
+    BUTTON      ID_EDIT_PASTE
+    SEPARATOR
+    BUTTON      ID_FILE_PRINT
+    BUTTON      ID_APP_ABOUT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&New\tCtrl+N",                ID_FILE_NEW
+        MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPEN
+        MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVE
+        MENUITEM "Save &As...",                 ID_FILE_SAVE_AS
+        MENUITEM SEPARATOR
+        MENUITEM "&Print...\tCtrl+P",           ID_FILE_PRINT
+        MENUITEM "Print Pre&view",              ID_FILE_PRINT_PREVIEW
+        MENUITEM "P&rint Setup...",             ID_FILE_PRINT_SETUP
+        MENUITEM SEPARATOR
+        MENUITEM "Recent File",                 ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       ID_APP_EXIT
+    END
+    POPUP "&Edit"
+    BEGIN
+        MENUITEM "&Undo\tCtrl+Z",               ID_EDIT_UNDO
+        MENUITEM SEPARATOR
+        MENUITEM "Cu&t\tCtrl+X",                ID_EDIT_CUT
+        MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY
+        MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
+    END
+    POPUP "&View"
+    BEGIN
+        MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
+        POPUP "&Application Look"
+        BEGIN
+            MENUITEM "Windows &2000",               ID_VIEW_APPLOOK_WIN_2000
+            MENUITEM "Office &XP",                  ID_VIEW_APPLOOK_OFF_XP
+            MENUITEM "&Windows XP",                 ID_VIEW_APPLOOK_WIN_XP
+            MENUITEM "Office 200&3",                ID_VIEW_APPLOOK_OFF_2003
+            MENUITEM "Visual Studio.NET 200&5",     ID_VIEW_APPLOOK_VS_2005
+            POPUP "Office 200&7"
+            BEGIN
+                MENUITEM "&Blue Style",                 ID_VIEW_APPLOOK_OFF_2007_BLUE
+                MENUITEM "B&lack Style",                ID_VIEW_APPLOOK_OFF_2007_BLACK
+                MENUITEM "&Silver Style",               ID_VIEW_APPLOOK_OFF_2007_SILVER
+                MENUITEM "&Aqua Style",                 ID_VIEW_APPLOOK_OFF_2007_AQUA
+            END
+        END
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About ArraySpectrum...",     ID_APP_ABOUT
+    END
+END
+
+IDR_WINDOWS_MENU MENU 
+BEGIN
+    MENUITEM "&New Window",                 ID_WINDOW_NEW
+END
+
+IDR_THEME_MENU MENU 
+BEGIN
+    MENUITEM "Office 2007 (&Blue Style)",   ID_VIEW_APPLOOK_OFF_2007_BLUE
+    MENUITEM "Office 2007 (B&lack Style)",  ID_VIEW_APPLOOK_OFF_2007_BLACK
+    MENUITEM "Office 2007 (&Silver Style)", ID_VIEW_APPLOOK_OFF_2007_SILVER
+    MENUITEM "Office 2007 (&Aqua Style)",   ID_VIEW_APPLOOK_OFF_2007_AQUA
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS 
+BEGIN
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL
+    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL
+    "P",            ID_FILE_PRINT,          VIRTKEY, CONTROL
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY 
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 206, 62
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About ArraySpectrum"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,14,14,20,20
+    LTEXT           "ArraySpectrum, Version 1.3",IDC_STATIC,42,14,157,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2015",IDC_STATIC,42,26,114,8
+    DEFPUSHBUTTON   "OK",IDOK,149,41,50,14,WS_GROUP
+END
+
+IDD_PROPERTIESPANEDLG DIALOGEX 0, 0, 161, 306
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_CHILD | WS_VISIBLE | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    PUSHBUTTON      "Apply",IDC_BUTTON_APPLY,86,214,50,14
+    EDITTEXT        IDC_EDIT_EXPOSURE_TIME,73,24,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Exposure Time",IDC_STATIC,15,27,54,8
+    EDITTEXT        IDC_EDIT_GAIN,73,46,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Gain",IDC_STATIC,54,50,15,8
+    EDITTEXT        IDC_EDIT_LINE_COUNT,73,70,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Line Count",IDC_STATIC,34,72,35,8
+    LTEXT           "m.Sec",IDC_STATIC,115,27,20,8
+    GROUPBOX        "Show columns",IDC_STATIC,17,124,124,72
+    CONTROL         "  Average",IDC_CHECK_AVERAGE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,35,142,47,10
+    CONTROL         "  RSD",IDC_CHECK_RSD,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,35,176,33,10
+    EDITTEXT        IDC_EDIT_OFFSET,73,93,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Offset",IDC_STATIC,45,95,22,8
+    CONTROL         "  SD",IDC_CHECK_SD,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,35,159,29,10
+END
+
+IDD_DATAVIEWDLG DIALOGEX 0, 0, 320, 200
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+END
+
+IDD_GRAPHVIEWDLG DIALOGEX 0, 0, 320, 200
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+END
+
+IDD_CALIBDATADLG DIALOGEX 0, 0, 234, 275
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Calibration Dialog"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_EDIT_PIXEL_NO,52,22,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_EDIT_WL,123,22,40,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Add",IDC_BUTTON_ADD,169,22,32,14
+    CONTROL         "",IDC_LIST_CALIB_ENTRIES,"SysListView32",LVS_REPORT | LVS_SHAREIMAGELISTS | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,23,47,183,130
+    PUSHBUTTON      "Remove",IDC_BUTTON_REMOVE,159,183,50,14
+    PUSHBUTTON      "Calculate",IDC_BUTTON_CALCULATE,58,254,50,14
+    DEFPUSHBUTTON   "Save",IDOK,116,254,50,14
+    PUSHBUTTON      "Close",IDCANCEL,177,254,50,14
+    LTEXT           "Pixel No",IDC_STATIC,22,26,26,8
+    LTEXT           "WL",IDC_STATIC,109,25,11,8
+    GROUPBOX        "Cubic Fit Co-efficients",IDC_STATIC,16,166,201,102,NOT WS_VISIBLE
+    LTEXT           "Polynomial Equation: aX**3 + bX**2+cX+d",IDC_STATIC,25,179,140,8,NOT WS_VISIBLE
+    LTEXT           "a=",IDC_STATIC,26,194,10,8,NOT WS_VISIBLE
+    LTEXT           "",IDC_STATIC_COEFF_A,40,194,171,8,NOT WS_VISIBLE
+    LTEXT           "b=",IDC_STATIC,26,210,10,8,NOT WS_VISIBLE
+    LTEXT           "",IDC_STATIC_COEFF_B,40,210,171,8,NOT WS_VISIBLE
+    LTEXT           "d=",IDC_STATIC,26,241,10,8,NOT WS_VISIBLE
+    LTEXT           "",IDC_STATIC_COEFF_D,40,241,171,8,NOT WS_VISIBLE
+    LTEXT           "c=",IDC_STATIC,26,225,10,8,NOT WS_VISIBLE
+    LTEXT           "",IDC_STATIC_COEFF_C,40,225,171,8,NOT WS_VISIBLE
+END
+
+IDD_COMMPORTSETTINGS DIALOGEX 0, 0, 173, 71
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_BORDER | WS_SYSMENU
+EXSTYLE WS_EX_STATICEDGE
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,120,17,40,18
+    PUSHBUTTON      "Cancel",IDCANCEL,120,40,40,18
+    GROUPBOX        "Set Communication Port",IDC_STATIC_SET_COMM_PORT,11,11,93,46
+    COMBOBOX        IDC_COMBO_PORT_NAMES,19,28,80,64,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_SETTINGS DIALOGEX 0, 0, 365, 321
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Display"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_BTN_FLAMMABLE_ON_OFF,"Button",BS_OWNERDRAW | WS_TABSTOP,11,23,34,23
+    PUSHBUTTON      "Show Settings",IDC_BTN_FLAMMABLE_SETTINGS,50,23,33,23,BS_MULTILINE
+    LTEXT           "Peak WL:",IDC_PEAK_WL_LABEL,95,12,31,13,NOT WS_VISIBLE
+    EDITTEXT        IDC_EDIT_FLAME_PEAK_WL,150,9,40,14,ES_AUTOHSCROLL | NOT WS_VISIBLE
+    LTEXT           "nm",IDC_STATIC_WAVELENGTH_UNITS,192,11,10,8,NOT WS_VISIBLE
+    LTEXT           "Peak WL Tolerance Limit:",IDC_STATIC_FALME_WL_TOL_LIMIT,94,29,50,20,NOT WS_VISIBLE
+    EDITTEXT        IDC_EDIT_FLAME_PEAK_WL_TOL_LIMITS,150,30,40,14,ES_AUTOHSCROLL | NOT WS_VISIBLE
+    LTEXT           "nm",IDC_STATIC_WAVELENGTH_UNITS2,193,33,10,8,NOT WS_VISIBLE
+    LTEXT           "Threshold:",IDC_STATIC_FLAME_THOLD,94,53,35,8,NOT WS_VISIBLE
+    EDITTEXT        IDC_EDIT_FLAME_THRESHOLD,150,50,40,14,ES_AUTOHSCROLL | NOT WS_VISIBLE
+    LTEXT           "ADU",IDC_THRESHOLD_UNITS,193,52,15,8,NOT WS_VISIBLE
+    LTEXT           "S",IDC_SEL_COMPOUND_NAME,307,86,22,8,NOT WS_VISIBLE
+    LTEXT           "Peak WL:",IDC_STATIC_S_PEAK_WL,231,104,31,8,NOT WS_VISIBLE
+    EDITTEXT        IDC_EDIT_S_PEAK_WL,295,101,40,14,ES_AUTOHSCROLL | NOT WS_VISIBLE
+    LTEXT           "nm",IDC_STATIC_WAVELENGTH_UNITS3,339,104,10,8,NOT WS_VISIBLE
+    LTEXT           "Peak WL Tolerance Limt:",IDC_STATIC_S_PEAK_WL_TOL_LIMIT,231,122,58,16,NOT WS_VISIBLE
+    EDITTEXT        IDC_EDIT_S_PEAK_WL_TOL_LIMIT,296,121,40,14,ES_AUTOHSCROLL | NOT WS_VISIBLE
+    LTEXT           "nm",IDC_STATIC_WAVELENGTH_UNITS4,340,123,10,8,NOT WS_VISIBLE
+    LTEXT           "Level1 THLD:",IDC_S_LEVEL1_THLD_LABEL,231,152,43,8,NOT WS_VISIBLE
+    EDITTEXT        IDC_EDIT_S_LEVEL_1_THLD,295,150,40,14,ES_AUTOHSCROLL | NOT WS_VISIBLE
+    LTEXT           "ADU",IDC_THRESHOLD_UNITS2,338,153,15,8,NOT WS_VISIBLE
+    LTEXT           "Level 1 THLD TOL Limit:",IDC_S_LEVEL_1_THLD_TOL_LIMIT_LABEL,205,298,64,17,NOT WS_VISIBLE
+    EDITTEXT        IDC_EDIT_S_LEVEL_1_THLD_TOL_LIMIT,273,300,40,14,ES_AUTOHSCROLL | NOT WS_VISIBLE
+    LTEXT           "ADU",IDC_THRESHOLD_UNITS3,342,302,15,8,NOT WS_VISIBLE
+    LTEXT           "Level2 THLD:",IDC_S_LEVEL2_THLD_LABEL,232,172,43,8,NOT WS_VISIBLE
+    EDITTEXT        IDC_EDIT_S_LEVEL_2_THLD,295,169,40,14,ES_AUTOHSCROLL | NOT WS_VISIBLE
+    LTEXT           "ADU",IDC_THRESHOLD_UNITS4,338,172,15,8,NOT WS_VISIBLE
+    LTEXT           "Level 2 THLD TOL Limit:",IDC_S_LEVEL_2_THLD_TOL_LIMIT_LABEL,205,298,62,16,NOT WS_VISIBLE
+    EDITTEXT        IDC_EDIT_S_LEVEL_2_THLD_TOL_LIMIT,273,301,40,14,ES_AUTOHSCROLL | NOT WS_VISIBLE
+    LTEXT           "ADU",IDC_THRESHOLD_UNITS5,342,301,15,8,NOT WS_VISIBLE
+    LTEXT           "Level 3 THLD:",IDC_S_LEVEL_3_THLD_LABEL,232,192,45,8,NOT WS_VISIBLE
+    EDITTEXT        IDC_EDIT_S_LEVEL_3_THLD,295,188,40,14,ES_AUTOHSCROLL | NOT WS_VISIBLE
+    LTEXT           "ADU",IDC_THRESHOLD_UNITS6,337,191,15,8,NOT WS_VISIBLE
+    LTEXT           "Level 3 THLD TOL Limit:",IDC_S_LEVEL_3_THLD_TOL_LIMIT_LABEL,205,298,63,16,NOT WS_VISIBLE
+    EDITTEXT        IDC_EDIT_S_LEVEL_3_THLD_TOL_LIMIT,273,300,40,14,ES_AUTOHSCROLL | NOT WS_VISIBLE
+    LTEXT           "ADU",IDC_THRESHOLD_UNITS7,342,302,15,8,NOT WS_VISIBLE
+    LTEXT           "Level 4 THLD:",IDC_S_LEVEL_4_THLD_LABEL,232,211,45,8,NOT WS_VISIBLE
+    EDITTEXT        IDC_EDIT_S_LEVEL_4_THLD,295,207,40,14,ES_AUTOHSCROLL | NOT WS_VISIBLE
+    LTEXT           "ADU",IDC_THRESHOLD_UNITS8,337,210,15,8,NOT WS_VISIBLE
+    LTEXT           "Level 4 THLD TOL Limit:",IDC_S_LEVEL_4_THLD_TOL_LIMIT,205,298,64,15,NOT WS_VISIBLE
+    EDITTEXT        IDC_EDIT_S_LEVEL_4_THLD_TOL_LIMIT,273,300,40,14,ES_AUTOHSCROLL | NOT WS_VISIBLE
+    LTEXT           "ADU",IDC_THRESHOLD_UNITS9,342,302,15,8,NOT WS_VISIBLE
+    LTEXT           "Level 5 THLD:",IDC_S_LEVEL_5_THLD,232,231,45,8,NOT WS_VISIBLE
+    EDITTEXT        IDC_EDIT_S_LEVEL_5_THLD,295,228,40,14,ES_AUTOHSCROLL | NOT WS_VISIBLE
+    LTEXT           "Level 5 THLD TOL Limit:",IDC_S_LEVEL_5_THLD_TOL_LIMIT,205,299,63,15,NOT WS_VISIBLE
+    EDITTEXT        IDC_EDIT_S_LEVEL_5_THLD_TOL_LIMIT,274,300,40,14,ES_AUTOHSCROLL | NOT WS_VISIBLE
+    LTEXT           "ADU",IDC_THRESHOLD_UNITS10,342,304,15,8,NOT WS_VISIBLE
+    LTEXT           "ADU",IDC_THRESHOLD_UNITS11,337,231,15,8,NOT WS_VISIBLE
+    LTEXT           "0",IDC_S_LEVEL_INDICATOR,36,94,8,8
+    PUSHBUTTON      "Apply",IDC_BTN_APPLY,265,250,50,14,NOT WS_VISIBLE
+    LTEXT           "Compound Name:",IDC_COMPOUND_LABEL,230,86,58,8,NOT WS_VISIBLE
+    COMBOBOX        IDC_COMBO_COMPOUND_NAMES_COL,297,67,48,54,CBS_DROPDOWN | NOT WS_VISIBLE | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Select Compound:",IDC_SELECT_COMPOUND_LABEL,231,68,59,8,NOT WS_VISIBLE
+    LTEXT           "0",IDC_P_LEVEL_INDICATOR2,92,94,8,8
+    LTEXT           "0",IDC_AS_LEVEL_INDICATOR3,148,94,8,8
+    LTEXT           "0",IDC_HNO_LEVEL_INDICATOR4,203,94,8,8
+    PUSHBUTTON      "Show Settings",IDC_BTN_COMPOUND_SETTINGS,85,207,55,19
+    CTEXT           "S",IDC_S_LEVEL_LABLE,28,72,20,15
+    CTEXT           "P",IDC_STATIC_P_LEVEL_LABLE,85,72,19,15
+    CTEXT           "AS",IDC_STATIC_AS_LEVEL_LABLE,139,72,24,15
+    CTEXT           "HNO",IDC_STATIC_HNO_LEVEL_LABLE,190,72,30,15
+    GROUPBOX        "Flame",IDC_FLAME_GROUP,4,11,84,40
+    GROUPBOX        "Compound",IDC_GROUP_COMPOUND,3,63,221,166
+    PUSHBUTTON      "Apply",IDC_BTN_FLAME_APPLY,209,27,29,16,NOT WS_VISIBLE
+    LTEXT           "",IDC_STATIC_PEAK_VALS,19,292,149,8,NOT WS_VISIBLE
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,3
+ PRODUCTVERSION 1,0,0,3
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904e4"
+        BEGIN
+            VALUE "CompanyName", "Elico Ltd"
+            VALUE "FileDescription", "ArraySpectrum "
+            VALUE "FileVersion", "1.0.0.3"
+            VALUE "InternalName", "ArraySpectrum.exe"
+            VALUE "LegalCopyright", "(c) Elico Ltd..  All rights reserved."
+            VALUE "OriginalFilename", "ArraySpectrum.exe"
+            VALUE "ProductName", "ArraySpectrum"
+            VALUE "ProductVersion", "1.0.0.3"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 199
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 55
+    END
+
+    IDD_PROPERTIESPANEDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 154
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 299
+    END
+
+    IDD_DATAVIEWDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 313
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 193
+    END
+
+    IDD_GRAPHVIEWDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 313
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 193
+    END
+
+    IDD_CALIBDATADLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 227
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 268
+    END
+
+    IDD_COMMPORTSETTINGS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 166
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 64
+    END
+
+    IDD_SETTINGS, DIALOG
+    BEGIN
+        RIGHTMARGIN, 357
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 314
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDP_OLE_INIT_FAILED     "OLE initialization failed.  Make sure that the OLE libraries are the correct version."
+END
+
+STRINGTABLE 
+BEGIN
+    IDR_MAINFRAME           "ArraySpectrum\n\nArraySpectrum\nArraySpectrum Files (*.eas)\n.eas\nArraySpectrum.Document\nArraySpectrum.Document"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "ArraySpectrum"
+    AFX_IDS_IDLEMESSAGE     "Ready"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_NEW             "New\nCreate a new Document"
+    ID_FILE_OPEN            "Open\nOpen an existing Document"
+    ID_FILE_CLOSE           "Close\nClose the active Document"
+    ID_FILE_SAVE            "Save\nSave the active Document"
+    ID_FILE_SAVE_AS         "Save As\nSave the active Document with a new Name"
+    ID_FILE_PAGE_SETUP      "Change the printing options\nPage Setup"
+    ID_FILE_PRINT_SETUP     "Change the printer and printing options\nPrint Setup"
+    ID_FILE_PRINT           "Print the active document\nPrint"
+    ID_FILE_PRINT_DIRECT    "Print the active document using current options\nQuick Print"
+    ID_FILE_PRINT_PREVIEW   "Display full pages\nPrint Preview"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_APP_ABOUT            "Display program information, version number and copyright\nAbout"
+    ID_APP_EXIT             "Quit the application; prompts to save documents\nExit"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_MRU_FILE1       "Open this document"
+    ID_FILE_MRU_FILE2       "Open this document"
+    ID_FILE_MRU_FILE3       "Open this document"
+    ID_FILE_MRU_FILE4       "Open this document"
+    ID_FILE_MRU_FILE5       "Open this document"
+    ID_FILE_MRU_FILE6       "Open this document"
+    ID_FILE_MRU_FILE7       "Open this document"
+    ID_FILE_MRU_FILE8       "Open this document"
+    ID_FILE_MRU_FILE9       "Open this document"
+    ID_FILE_MRU_FILE10      "Open this document"
+    ID_FILE_MRU_FILE11      "Open this document"
+    ID_FILE_MRU_FILE12      "Open this document"
+    ID_FILE_MRU_FILE13      "Open this document"
+    ID_FILE_MRU_FILE14      "Open this document"
+    ID_FILE_MRU_FILE15      "Open this document"
+    ID_FILE_MRU_FILE16      "Open this document"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_NEXT_PANE            "Switch to the next window pane\nNext Pane"
+    ID_PREV_PANE            "Switch back to the previous window pane\nPrevious Pane"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_WINDOW_SPLIT         "Split the active window into panes\nSplit"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_EDIT_CLEAR           "Erase the selection\nErase"
+    ID_EDIT_CLEAR_ALL       "Erase everything\nErase All"
+    ID_EDIT_COPY            "Copy the selection and put it on the Clipboard\nCopy"
+    ID_EDIT_CUT             "Cut the selection and put it on the Clipboard\nCut"
+    ID_EDIT_FIND            "Find the specified text\nFind"
+    ID_EDIT_PASTE           "Insert Clipboard contents\nPaste"
+    ID_EDIT_REPEAT          "Repeat the last action\nRepeat"
+    ID_EDIT_REPLACE         "Replace specific text with different text\nReplace"
+    ID_EDIT_SELECT_ALL      "Select the entire document\nSelect All"
+    ID_EDIT_UNDO            "Undo the last action\nUndo"
+    ID_EDIT_REDO            "Redo the previously undone action\nRedo"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_VIEW_TOOLBAR         "Show or hide the toolbar\nToggle ToolBar"
+    ID_VIEW_STATUS_BAR      "Show or hide the status bar\nToggle Status Bar"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_SCSIZE          "Change the window size"
+    AFX_IDS_SCMOVE          "Change the window position"
+    AFX_IDS_SCMINIMIZE      "Reduce the window to an icon"
+    AFX_IDS_SCMAXIMIZE      "Enlarge the window to full size"
+    AFX_IDS_SCNEXTWINDOW    "Switch to the next document window"
+    AFX_IDS_SCPREVWINDOW    "Switch to the previous document window"
+    AFX_IDS_SCCLOSE         "Close the active window and prompts to save the documents"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_SCRESTORE       "Restore the window to normal size"
+    AFX_IDS_SCTASKLIST      "Activate Task List"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_PREVIEW_CLOSE   "Close print preview mode\nCancel Preview"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_STATUS_PANE1        "Pane 1"
+    IDS_STATUS_PANE2        "Pane 2"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_FILE_VIEW           "File View"
+    IDS_CLASS_VIEW          "Class View"
+    IDS_PROPERTIES_WND      "Properties"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_EXPLORER            "Explorer"
+    IDS_EDIT_MENU           "Edit"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_RIBBON_FILE         "File"
+    IDS_RIBBON_NEW          "&New"
+    IDS_RIBBON_OPEN         "&Open..."
+    IDS_RIBBON_SAVE         "&Save"
+    IDS_RIBBON_SAVEAS       "Save &As..."
+    IDS_RIBBON_PRINT        "Print"
+    IDS_RIBBON_PRINT_LABEL  "Preview and print the document"
+    IDS_RIBBON_PRINT_QUICK  "&Quick Print"
+    IDS_RIBBON_PRINT_PREVIEW "Print Pre&view"
+    IDS_RIBBON_PRINT_SETUP  "Print Set&up"
+    IDS_RIBBON_CLOSE        "&Close"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_RIBBON_RECENT_DOCS  "Recent Documents"
+    IDS_RIBBON_EXIT         "E&xit"
+    IDS_RIBBON_HOME         "&Home"
+    IDS_RIBBON_CLIPBOARD    "Clipboard\nd"
+    IDS_RIBBON_PASTE        "Paste\nv"
+    IDS_RIBBON_CUT          "Cut\nx"
+    IDS_RIBBON_COPY         "Copy\nc"
+    IDS_RIBBON_SELECTALL    "Select All\na"
+    IDS_RIBBON_WINDOW       "Window\nw"
+    IDS_RIBBON_WINDOWS      "Windows\ni"
+    IDS_RIBBON_STYLE        "Style"
+    IDS_RIBBON_STYLE_TIP    "Modify Visual Style"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_RIBBON_STYLE_DESC   "Choose one of the Office 2007 themes"
+    IDS_RIBBON_STATUSBAR    "Status Bar"
+    IDS_RIBBON_VIEW         "View"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_SAVEAS          "Save As\nSave the Document with a new Name"
+    IDS_RIBBON_CAPTURE      "Capture"
+    ID_FILE_CAPTURE_START   "Start\n Start Capturing Frames Continuosly"
+    IDS_RIBBON_CALIB        "Calibration"
+    ID_FILE_SNAP            "Snap Shot\nCapture a Snap Shot"
+    IDS_RIBBON_SHOW_PROPERTIES "Properties"
+    ID_FILE_PIXEL           "Pixel"
+    ID_FILE_CAPTURE_STOP    "Stop\nStop Capturing"
+    ID_FILE_WAVELENGTH      "Wave Length"
+    IDS_RIBBON_EXPORT_DATA  "Export"
+    ID_FILE_CALIB           "Calibrate"
+    ID_FILE_STOP            "Stop"
+    ID_FILE_EXPORT_PIXEL_DATA "Pixel Data"
+    ID_FILE_SHOW_PROPERTIES "Properties"
+    ID_TASK_PANEL           "Properties"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_GRAPH_CTRL           "Graph"
+    ID_FILE_EXPORT_WL_DATA  "WL Data"
+    IDS_RIBBON_ABOUT        "Information\nInformation"
+    ID_INFORMATION_ABOUT    "About"
+    ID_FILE_CONNECT         "Connect"
+    IDS_RIBBON_COMMUNICATION "Communication"
+    IDS_FILE_DISCONNECT     "Disconnect"
+    IDS_ABOUT_DESCRIPTION_SA165 "ArraySpectrum, Version 1.2(SA165)"
+    IDS_ABOUT_DESCRIPTION   "ArraySpectrum, Version 1.3"
+    IDS_RIBBON_DISPLAY_SETTINGS "Display"
+    IDS_RIBBON_VIEW_DATA    "View Data"
+    ID_DISPLAY_SETTINGS     "Settings"
+    ID_VIEW_DATA_SHOW       "Show"
+    IDS_RIBBON_LASER        "Laser"
+    ID_LASER_SETTINGS       "LSettings"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#include "res\ArraySpectrum.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#include "afxprint.rc"       // printing/print preview resources
+#if !defined(_AFXDLL)
+#include "afxribbon.rc"              // MFC ribbon and control bar resources
+#endif
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

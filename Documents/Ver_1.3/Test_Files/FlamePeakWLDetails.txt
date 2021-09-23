@@ -1,0 +1,8 @@
+Peak Threshold of 2640 ADU at 446.0 WL
+
+greater than above will indicate the flame is ON.
+
+
+
+if is give 2642
+flame is OFF

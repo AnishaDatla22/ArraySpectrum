@@ -1,0 +1,300 @@
+//////////////////////////////////////////////////////////////////////
+/////////////////////////////// Summary //////////////////////////////
+//////////////////////////////////////////////////////////////////////
+
+		Features:  			        13
+		Components:			        17
+		Number of Files:		        37
+		Size of Files:   		      21678260
+		Size in Library:		      13939272
+
+
+		<Support>
+			Engine
+				Log
+				Kernel
+			Main Installation
+				Script
+				Setup
+				StrTbl
+				RunTime
+				Resource
+		<Data>
+			Disk<1>
+			DefaultFeature
+
+
+//////////////////////////////////////////////////////////////////////
+///////////////////////////// Features ///////////////////////////////
+//////////////////////////////////////////////////////////////////////
+
+*<Support>*
+
+		Component
+		------------------------------------------------------
+
+*<Support>\Engine*
+
+		Component
+		------------------------------------------------------
+
+*<Support>\Engine\Log*
+
+		Component
+		------------------------------------------------------
+
+*<Support>\Engine\Kernel*
+
+		Component
+		------------------------------------------------------
+		"<Engine>Kernel Placeholder"
+		"<Engine>EngineCommonPlaceHolder"
+
+*<Support>\Main Installation*
+
+		Component
+		------------------------------------------------------
+
+*<Support>\Main Installation\Script*
+
+		Component
+		------------------------------------------------------
+		"<Support>Script"
+
+*<Support>\Main Installation\Setup*
+
+		Component
+		------------------------------------------------------
+		"<Support>Language Independent OS Independent Files"
+		"<Support>English OS Independent Files"
+		"<Support>Misc Support Files"
+
+*<Support>\Main Installation\StrTbl*
+
+		Component
+		------------------------------------------------------
+		"<Support>English String Tables"
+
+*<Support>\Main Installation\RunTime*
+
+		Component
+		------------------------------------------------------
+		"<Support>Non-SelfRegistering"
+
+*<Support>\Main Installation\Resource*
+
+		Component
+		------------------------------------------------------
+		"<Support>English Files"
+
+*<Data>*
+
+		Component
+		------------------------------------------------------
+
+*<Data>\Disk<1>*
+
+		Component
+		------------------------------------------------------
+		"<Disk1>Disk1 Files(1)"
+		"<Disk1>Disk1 Files(2)"
+		"<Disk1>Disk1 Files(3)"
+		"<Disk1>Disk1 Files(4)"
+
+*<Data>\DefaultFeature*
+
+		Component
+		------------------------------------------------------
+		"DefaultComponent"
+		"OCX_Files"
+		"RootFiles"
+		"VCplusPlusRuntime"
+
+
+//////////////////////////////////////////////////////////////////////
+///////////////////////////// Components ////////////////////////////
+//////////////////////////////////////////////////////////////////////
+
+><Engine>Kernel Placeholder<
+
+		Size of Files:   		             0
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"ikernel.dll"                                           26-04-2002     19:48:38            0  ""                 "A"           "d98c1dd4-008f-04b2-e980-0998ecf8427e"  "c:\program files\installshield\devstudio 9\support\build\ikernel.dll"
+		"setup.dll"                                             25-03-2002     17:11:12            0  ""                 "A"           "d98c1dd4-008f-04b2-e980-0998ecf8427e"  "c:\program files\installshield\devstudio 9\support\build\setup.dll"
+		"dotnetinstaller.exe"                                   25-03-2002     17:11:28            0  ""                 "A"           "d98c1dd4-008f-04b2-e980-0998ecf8427e"  "c:\program files\installshield\devstudio 9\support\build\dotnetinstaller.exe"
+		"iscript.dll"                                           09-04-2002     22:24:12            0  ""                 "A"           "d98c1dd4-008f-04b2-e980-0998ecf8427e"  "c:\program files\installshield\devstudio 9\support\build\iscript.dll"
+		"ctor.dll"                                              09-04-2002     22:24:40            0  ""                 "A"           "d98c1dd4-008f-04b2-e980-0998ecf8427e"  "c:\program files\installshield\devstudio 9\support\build\ctor.dll"
+		"iuser.dll"                                             09-04-2002     22:24:54            0  ""                 "A"           "d98c1dd4-008f-04b2-e980-0998ecf8427e"  "c:\program files\installshield\devstudio 9\support\build\iuser.dll"
+		"igdi.dll"                                              25-04-2002     21:21:50            0  ""                 "A"           "d98c1dd4-008f-04b2-e980-0998ecf8427e"  "c:\program files\installshield\devstudio 9\support\build\igdi.dll"
+
+><Engine>EngineCommonPlaceHolder<
+
+		Size of Files:   		             0
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"isprobe.tlb"                                           26-11-2001     10:13:10            0  ""                 "A"           "d98c1dd4-008f-04b2-e980-0998ecf8427e"  "c:\program files\installshield\devstudio 9\support\build\isprobe.tlb"
+		"objectps.dll"                                          12-07-1999     13:45:30            0  ""                 "A"           "d98c1dd4-008f-04b2-e980-0998ecf8427e"  "c:\program files\installshield\devstudio 9\support\build\objectps.dll"
+
+><Support>Script<
+
+		Size of Files:   		        181726
+		Size in Library:		        181726
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"setup.inx"                                             17-12-2015     15:26:18       181726  ""                 "A"           "405364d4-606a-0f70-db69-4b9f68990c3e"  "c:\internal_project's_installscripts\arrayspectrum_installscript\arrayspectrum_installscript_ver_1.0\arrayspectrum_sourcecode\arrayspectrum\script files\setup.inx"
+
+><Support>Language Independent OS Independent Files<
+
+		Size of Files:   		          2996
+		Size in Library:		          1351
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"license.txt"                                           14-12-2015     11:31:22         2996  ""                 "A"           "09ceca4d-d3c5-0272-436e-579be8dfe422"  "c:\internal_project's_installscripts\arrayspectrum_installscript\arrayspectrum_installscript_ver_1.0\arrayspectrum_binaryfiles\license.txt"
+
+><Support>English OS Independent Files<
+
+		Size of Files:   		          2996
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"license.txt"                                           14-12-2015     11:31:22         2996  ""                 "A"           "09ceca4d-d3c5-0272-436e-579be8dfe422"  "c:\internal_project's_installscripts\arrayspectrum_installscript\arrayspectrum_installscript_ver_1.0\arrayspectrum_binaryfiles\license.txt"
+
+><Support>Misc Support Files<
+
+		Size of Files:   		         65503
+		Size in Library:		         12414
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"corecomp.ini"                                          15-04-2002     17:04:36        65503  ""                 "A"           "ec8cd309-a0a6-f412-ce5b-54f03db9b21a"  "c:\program files\installshield\devstudio 9\redist\compressed files\language independent\os independent\corecomp.ini"
+
+><Support>English String Tables<
+
+		Size of Files:   		           430
+		Size in Library:		           223
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"stringtable-0009-english.ips"                          17-12-2015     15:26:18          430  ""                 "A"           "aee602a5-e8b2-7a7c-1467-b30c4feedb31"  "c:\internal_project's_installscripts\arrayspectrum_installscript\arrayspectrum_installscript_ver_1.0\arrayspectrum_sourcecode\arrayspectrum\string tables\stringtable-0009-english.ips"
+
+><Support>Non-SelfRegistering<
+
+		Size of Files:   		        402576
+		Size in Library:		        198598
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"isrt.dll"                                              10-11-2003     18:15:36       401408  "9.1.0.429"        "A"           "91408aea-4038-8a23-ed96-eeb9dc19af1e"  "c:\program files\installshield\devstudio 9\redist\compressed files\language independent\intel 32\isrt.dll"
+		"default.pal"                                           16-09-1999     10:24:10         1168  ""                 "A"           "3ffeba0a-d069-4953-4405-061de2629c82"  "c:\program files\installshield\devstudio 9\redist\compressed files\language independent\intel 32\default.pal"
+
+><Support>English Files<
+
+		Size of Files:   		        299008
+		Size in Library:		         78730
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"_isres.dll"                                            03-09-2003     04:53:48       299008  "9.0.0.333"        "A"           "2353183b-b04f-d554-0282-89be3d47bcbc"  "c:\program files\installshield\devstudio 9\redist\0409\i386\_isres.dll"
+
+><Disk1>Disk1 Files(1)<
+
+		Size of Files:   		             0
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"layout.bin"                                            28-06-1999     18:30:10            0  ""                 "A"           "d98c1dd4-008f-04b2-e980-0998ecf8427e"  "c:\program files\installshield\devstudio 9\support\build\layout.bin"
+		"data1.hdr"                                             28-06-1999     18:30:10            0  ""                 "A"           "d98c1dd4-008f-04b2-e980-0998ecf8427e"  "c:\program files\installshield\devstudio 9\support\build\data1.hdr"
+		"data1.cab"                                             28-06-1999     18:30:10            0  ""                 "A"           "d98c1dd4-008f-04b2-e980-0998ecf8427e"  "c:\program files\installshield\devstudio 9\support\build\data1.cab"
+
+><Disk1>Disk1 Files(2)<
+
+		Size of Files:   		        116880
+		Size in Library:		        116880
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"setup.exe"                                             10-11-2003     19:55:38       116880  "9.1.0.429"        "A"           "aa55fbca-3c46-f86d-8021-22838d50d2bb"  "c:\internal_project's_installscripts\arrayspectrum_installscript\arrayspectrum_installscript_ver_1.0\arrayspectrum_sourcecode\arrayspectrum\media\single_exe_image\disk images\disk1\setup.exe"
+
+><Disk1>Disk1 Files(3)<
+
+		Size of Files:   		        181726
+		Size in Library:		        181726
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"setup.inx"                                             17-12-2015     15:26:18       181726  ""                 "A"           "405364d4-606a-0f70-db69-4b9f68990c3e"  "c:\internal_project's_installscripts\arrayspectrum_installscript\arrayspectrum_installscript_ver_1.0\arrayspectrum_sourcecode\arrayspectrum\script files\setup.inx"
+
+><Disk1>Disk1 Files(4)<
+
+		Size of Files:   		           459
+		Size in Library:		           459
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"setup.ini"                                             17-12-2015     15:26:18          459  ""                 "A"           "4e105889-8bef-ae52-835f-c1763c1756c2"  "c:\internal_project's_installscripts\arrayspectrum_installscript\arrayspectrum_installscript_ver_1.0\arrayspectrum_sourcecode\arrayspectrum\media\single_exe_image\disk images\disk1\setup.ini"
+
+>DefaultComponent<
+
+		Size of Files:   		             0
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+
+>OCX_Files<
+
+		Size of Files:   		      10676576
+		Size in Library:		       5082195
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"esdadvancedgraphcontrol.ocx"                           16-12-2015     13:39:18       790528  "1.0.0.1"          "A"           "2ca4293a-3f0a-370d-7f88-7f544439b92c"  "c:\internal_project's_installscripts\arrayspectrum_installscript\arrayspectrum_installscript_ver_1.0\arrayspectrum_binaryfiles\ocx\esdadvancedgraphcontrol.ocx"
+		"fpspr70.ocx"                                           08-09-2005     16:26:46      1406112  "7.0.0.31"         "A"           "80264434-5330-6702-21ea-2b08cb2806d9"  "c:\internal_project's_installscripts\arrayspectrum_installscript\arrayspectrum_installscript_ver_1.0\arrayspectrum_binaryfiles\ocx\fpspr70.ocx"
+		"teechart8.ocx"                                         03-06-2013     17:04:42      6598672  "8.0.0.4"          "A"           "c327e18d-0145-5832-d9ac-f075fc8a90e1"  "c:\internal_project's_installscripts\arrayspectrum_installscript\arrayspectrum_installscript_ver_1.0\arrayspectrum_binaryfiles\ocx\teechart8.ocx"
+		"fpspru70.ocx"                                          08-09-2005     16:26:46      1881264  "7.0.0.31"         "A"           "31e95c23-3276-67c8-c615-7e63c052cfd0"  "c:\internal_project's_installscripts\arrayspectrum_installscript\arrayspectrum_installscript_ver_1.0\arrayspectrum_binaryfiles\ocx\fpspru70.ocx"
+
+>RootFiles<
+
+		Size of Files:   		       5538224
+		Size in Library:		       3897937
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"arrayspectrum.exe"                                     17-12-2015     15:25:08      3248640  "1.0.0.3"          "A"           "9f0dfcc6-7cd2-3968-2f8a-9738416c1087"  "c:\internal_project's_installscripts\arrayspectrum_installscript\arrayspectrum_installscript_ver_1.0\arrayspectrum_binaryfiles\arrayspectrum.exe"
+		"cdm v2.08.30 whql certified.exe"                       29-07-2013     15:13:54      1932149  ""                 "A"           "a1eacebb-698d-b9ff-f550-8e5b56e85372"  "c:\internal_project's_installscripts\arrayspectrum_installscript\arrayspectrum_installscript_ver_1.0\arrayspectrum_binaryfiles\cdm v2.08.30 whql certified.exe"
+		"calib_config.ini"                                      17-12-2015     11:43:08          235  ""                 "A"           "edb96d42-e833-61f3-5019-df944d10fdce"  "c:\internal_project's_installscripts\arrayspectrum_installscript\arrayspectrum_installscript_ver_1.0\arrayspectrum_binaryfiles\calib_config.ini"
+		"dcamusb.dll"                                           02-06-2014     06:33:34       319488  "2.1.2.0"          "A"           "9d836beb-e262-a7f7-99af-b44313483c03"  "c:\internal_project's_installscripts\arrayspectrum_installscript\arrayspectrum_installscript_ver_1.0\arrayspectrum_binaryfiles\dcamusb.dll"
+		"dcamusb.lib"                                           02-06-2014     06:33:34        26924  ""                 "A"           "164b3ff5-d8f2-2268-1041-1578864bfca3"  "c:\internal_project's_installscripts\arrayspectrum_installscript\arrayspectrum_installscript_ver_1.0\arrayspectrum_binaryfiles\dcamusb.lib"
+		"getsystemarchitecture.exe"                             25-12-2014     21:35:42         7680  ""                 "A"           "9fae2184-b0cb-4826-193d-c96a0698de64"  "c:\internal_project's_installscripts\arrayspectrum_installscript\arrayspectrum_installscript_ver_1.0\arrayspectrum_binaryfiles\getsystemarchitecture.exe"
+		"install.bat"                                           18-10-2013     15:50:16          112  ""                 "A"           "4dea918e-cd44-4bc1-3ab2-75b789cee4fc"  "c:\internal_project's_installscripts\arrayspectrum_installscript\arrayspectrum_installscript_ver_1.0\arrayspectrum_binaryfiles\install.bat"
+		"license.txt"                                           14-12-2015     11:31:22         2996  ""                 "A"           "09ceca4d-d3c5-0272-436e-579be8dfe422"  "c:\internal_project's_installscripts\arrayspectrum_installscript\arrayspectrum_installscript_ver_1.0\arrayspectrum_binaryfiles\license.txt"
+
+>VCplusPlusRuntime<
+
+		Size of Files:   		       4209160
+		Size in Library:		       4187033
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"vcredist_x86.exe"                                      07-10-2013     14:07:00      4209160  "9.0.30411.0"      "A"           "d32e62c0-05b1-0eac-4c99-e45db43f9589"  "c:\internal_project's_installscripts\arrayspectrum_installscript\arrayspectrum_installscript_ver_1.0\arrayspectrum_binaryfiles\visual_c++_2008_featurepack_redistributable_package\vcredist_x86.exe"

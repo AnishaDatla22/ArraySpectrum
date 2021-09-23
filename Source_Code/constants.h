@@ -1,0 +1,53 @@
+#ifndef _CONSTANTS_H
+#define _CONSTANTS_H
+
+#define WM_SNAPSHOT_COMPLETED  WM_USER+10
+#define WM_CLEAR_ALL_VIEWS  WM_USER+11
+#define WM_UPDATE_PROPERTIES WM_USER+12
+#define WM_CAPTURING_FAILED WM_USER+13
+#define WM_APPLY_SETTINGS WM_USER+14
+#define WM_CALCULATE_AREA WM_USER+15
+
+
+#define PLOT_TITLE_COLOR RGB(0,50,200)
+#define AXIS_TITLE_COLOR RGB(100,100,255)
+#define SCALE_LABELS_COLOR RGB(200,100,100)
+#define AVG_PIXEL_LINE_COLOR  RGB(255,100,100)
+#define SD_PIXEL_LINE_COLOR RGB(100,150,150)
+#define RSD_PIXEL_LINE_COLOR RGB(100,100,255)
+#define PIXEL_LINE_COLOR RGB(50,100,150)
+
+//Document Serialization Version
+#define DOC_VERSION 1
+
+#ifdef _SA165
+//the number of pixels per a one line scan for diodearray instrument is 1024
+#define MAX_PIXEL_DATA_COUNT_PER_LINE  1024
+#else
+//The number of pixels per one line scan for HAMAMATSU CCD Module
+#define MAX_PIXEL_DATA_COUNT_PER_LINE  2068
+#endif
+
+//<--Added for 1.2
+#define DA_SCANARRAY_CMD_RESPONE_LEN 2051
+
+#define SCANARRAY_CMD_TIMEOUT_IN_SEC 30
+//<--Added for 1.2
+
+const int NO_OF_COMPOUNDS = 4;
+const int NO_OF_ENERGY_LEVELS = 5;
+
+#define DEFAULT_EXPOSURE_TIME 200
+//TAHOMA_FONT
+
+#define TAHOMA_FONT _T("Tahoma")
+#define RGB_BUTTON_TEXT_COLOR RGB(255,255,255)
+#define FONT_WIDTH  0
+#define FONT_HEIGHT 17
+
+#define SULPHUR_COMPOUND _T("S")
+#define PHOSPHORUS_COMPOUND _T("P");
+#define ARSENIC_COMPOUND _T("As")
+#define NITROXYL_COMPOUND _T("HNO")
+
+#endif

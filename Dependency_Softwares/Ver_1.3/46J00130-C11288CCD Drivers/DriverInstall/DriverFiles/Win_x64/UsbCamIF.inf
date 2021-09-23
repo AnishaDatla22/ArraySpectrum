@@ -1,0 +1,95 @@
+; [[[ UsbCamIF.inf ]]]
+;
+; Installation file (.inf) for the HAMAMATSU USB Camera Module device for Windows XP/Vista/7 x64.
+; 			-- (c) Copyright 2010 Hamamatsu Photonics K.K. --
+
+[Version]
+Signature = "$CHICAGO$"
+Class = USB
+ClassGUID = {36FC9E60-C465-11CF-8056-444553540000}
+Provider  = %HPK%
+CatalogFile.NTamd64 = UsbCamIF.cat
+DriverVer = 03/04/2010,2.1.0.7
+
+[DestinationDirs]
+DefaultDestDir = 11
+UsbCamIF.File.Sys = 12
+UsbCamIF.File.DLLs = 10,SysWOW64
+UsbCamIF.File.DLLs.NTamd64 = 11
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+[Manufacturer]
+%HPK%   = HPK.Mfg,NTamd64
+
+[DefaultInstall.NTamd64]
+CopyFiles  = UsbCamIF.File.Sys,UsbCamIF.File.DLLs,UsbCamIF.File.DLLs.NTamd64
+
+[DefaultUnInstall.NTamd64]
+DelFiles = UsbCamIF.File.Sys,UsbCamIF.File.DLLs,UsbCamIF.File.DLLs.NTamd64
+
+[HPK.Mfg]
+%HPK.DeviceDesc0% = UsbCamIF, USB\VID_0661&PID_3400
+
+[HPK.Mfg.NTamd64]
+%HPK.DeviceDesc0% = UsbCamIF, USB\VID_0661&PID_3400
+
+; #############
+
+[UsbCamIF.NTamd64]
+DriverVer = 03/04/2010,2.1.0.7
+CopyFiles  = UsbCamIF.File.Sys,UsbCamIF.File.DLLs,UsbCamIF.File.DLLs.NTamd64
+
+[UsbCamIF.File.Sys]
+UsbCamIF.sys,,,0x00000022
+
+[UsbCamIF.File.DLLs]
+DCamLIB.dll,DCamLIB.dl_,,0x00000022
+DCamMLIB.dll,DCamMLIB.dl_,,0x00000022
+DCamImg.dll,DCamImg.dl_,,0x00000022
+
+[UsbCamIF.File.DLLs.NTamd64]
+DCamLIB.dll,,,0x00000022
+DCamMLIB.dll,,,0x00000022
+DCamImg.dll,,,0x00000022
+
+[UsbCamIF.NTamd64.Services]
+Addservice = UsbCamIF, 0x00000002 , UsbCamIF_Service_Inst, UsbCamIF_EventLog_Inst
+
+[UsbCamIF_Service_Inst]
+DisplayName    = %UsbCamIF.SvcDesc%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\UsbCamIF.sys
+
+[UsbCamIF_EventLog_Inst]
+AddReg = UsbCamIF_EventLog_AddReg
+
+[UsbCamIF_EventLog_AddReg]
+HKR,,EventMessageFile,0x00020000,"%%SystemRoot%%\System32\IoLogMsg.dll;%%SystemRoot%%\System32\drivers\UsbCamIF.sys"
+HKR,,TypesSupported,0x00010001,7
+
+; #############
+
+[SourceDisksNames]
+1 = %DiskId1%,,,""
+
+[SourceDisksFiles]
+; Files for disk Hamamatsu Photonics K.K. Installation Disk #1 (USB)
+UsbCamIF.sys = 1
+DCamLIB.dl_ = 1
+DCamMLIB.dl_ = 1
+DCamImg.dl_ = 1
+DCamLIB.dll = 1
+DCamMLIB.dll = 1
+DCamImg.dll = 1
+
+; #############
+
+[Strings]
+HPK.DeviceDesc0  = "HAMAMATSU USB Camera Module"
+DiskId1          = "Hamamatsu Photonics K.K. Installation Disk #1 (USB)"
+HPK              = "Hamamatsu Photonics K.K."
+UsbCamIF.SvcDesc = "HAMAMATSU USB Camera Module"

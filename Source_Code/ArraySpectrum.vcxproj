@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{1068CD50-CA0B-40E7-B933-4A6D82A54F9A}</ProjectGuid>
+    <RootNamespace>ArraySpectrum</RootNamespace>
+    <Keyword>MFCProj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>16.0.30028.132</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_SIM;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>Library/DCamUSB.lib;Library/DcIcUSB/DcIcUSB.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <UACExecutionLevel>AsInvoker</UACExecutionLevel>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+    </Midl>
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_SIM;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>Library/DCamUSB.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="ArraySpectrum.cpp" />
+    <ClCompile Include="ArraySpectrumDoc.cpp" />
+    <ClCompile Include="ArraySpectrumView.cpp" />
+    <ClCompile Include="BasePlotView.cpp" />
+    <ClCompile Include="CalibDataDlg.cpp" />
+    <ClCompile Include="CapturePixels.cpp" />
+    <ClCompile Include="CCubicSplineInterpolation.cpp" />
+    <ClCompile Include="CommPortSettings.cpp" />
+    <ClCompile Include="CompoundSettings.cpp" />
+    <ClCompile Include="CustomBitmapButton.cpp" />
+    <ClCompile Include="CustomSplitterWnd.cpp" />
+    <ClCompile Include="DataView.cpp" />
+    <ClCompile Include="EsdAdvancedGraphControl.cpp" />
+    <ClCompile Include="FlameSettings.cpp" />
+    <ClCompile Include="font.cpp" />
+    <ClCompile Include="LevelIndicator.cpp" />
+    <ClCompile Include="MainFrm.cpp" />
+    <ClCompile Include="picture.cpp" />
+    <ClCompile Include="PixelDataView.cpp" />
+    <ClCompile Include="PropertiesPane.cpp" />
+    <ClCompile Include="PropertiesPaneDlg.cpp" />
+    <ClCompile Include="QudraticFit.cpp" />
+    <ClCompile Include="SerialComm.cpp" />
+    <ClCompile Include="Settings.cpp" />
+    <ClCompile Include="SettingsDlg.cpp" />
+    <ClCompile Include="Spreadsheet.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="TChart.cpp" />
+    <ClCompile Include="WLDataView.cpp" />
+    <ClCompile Include="WLSpectrumView.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ArraySpectrum.h" />
+    <ClInclude Include="ArraySpectrumDoc.h" />
+    <ClInclude Include="ArraySpectrumView.h" />
+    <ClInclude Include="BasePlotView.h" />
+    <ClInclude Include="CalibDataDlg.h" />
+    <ClInclude Include="CapturePixels.h" />
+    <ClInclude Include="CommPortSettings.h" />
+    <ClInclude Include="CompoundSettings.h" />
+    <ClInclude Include="constants.h" />
+    <ClInclude Include="CubicSplineInterpolation.h" />
+    <ClInclude Include="CustomBitmapButton.h" />
+    <ClInclude Include="CustomSplitterWnd.h" />
+    <ClInclude Include="DataView.h" />
+    <ClInclude Include="EsdAdvancedGraphControl.h" />
+    <ClInclude Include="FlameSettings.h" />
+    <ClInclude Include="font.h" />
+    <ClInclude Include="LevelIndicator.h" />
+    <ClInclude Include="MainFrm.h" />
+    <ClInclude Include="picture.h" />
+    <ClInclude Include="PixelDataView.h" />
+    <ClInclude Include="PropertiesPane.h" />
+    <ClInclude Include="PropertiesPaneDlg.h" />
+    <ClInclude Include="QuadraticFit.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="SerialComm.h" />
+    <ClInclude Include="Settings.h" />
+    <ClInclude Include="SettingsDlg.h" />
+    <ClInclude Include="Spreadsheet.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="TChart.h" />
+    <ClInclude Include="WLDataView.h" />
+    <ClInclude Include="WLSpectrumView.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\Hplc integration\HPLC code from rajesh with MFC Feature pack support\CDS\res\iconELICHROM.bmp" />
+    <Image Include="res\ArraySpectrum.ico" />
+    <Image Include="res\ArraySpectrumDoc.ico" />
+    <Image Include="res\bitmap1.bmp" />
+    <Image Include="res\buttons.bmp" />
+    <Image Include="res\classview.bmp" />
+    <Image Include="res\classview_hc.bmp" />
+    <Image Include="res\class_view.ico" />
+    <Image Include="res\class_view_hc.ico" />
+    <Image Include="res\explorer.bmp" />
+    <Image Include="res\explorer_hc.bmp" />
+    <Image Include="res\filelarge.bmp" />
+    <Image Include="res\filesmall.bmp" />
+    <Image Include="res\fileview.bmp" />
+    <Image Include="res\fileview_hc.bmp" />
+    <Image Include="res\file_view.ico" />
+    <Image Include="res\file_view_hc.ico" />
+    <Image Include="res\Flame_Disabled.bmp" />
+    <Image Include="res\Flame_Enabled.bmp" />
+    <Image Include="res\Flame_OFF.bmp" />
+    <Image Include="res\Flame_ON.bmp" />
+    <Image Include="res\main.bmp" />
+    <Image Include="res\menuimages.bmp" />
+    <Image Include="res\menuimages_hc.bmp" />
+    <Image Include="res\properties.bmp" />
+    <Image Include="res\properties_hc.bmp" />
+    <Image Include="res\properties_wnd.ico" />
+    <Image Include="res\properties_wnd_hc.ico" />
+    <Image Include="res\sort.bmp" />
+    <Image Include="res\sort_hc.bmp" />
+    <Image Include="res\Toolbar.bmp" />
+    <Image Include="res\Toolbar256.bmp" />
+    <Image Include="res\writelarge.bmp" />
+    <Image Include="res\writesmall.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ArraySpectrum.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ArraySpectrum.reg" />
+    <None Include="res\ArraySpectrum.rc2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties _x007B_71146838-020D-4D16-80FD-6ACE384B66DF_x007D_="CFPSpreadSheet" _x007B_7114683A-020D-4D16-80FD-6ACE384B66DF_x007D_="CDSpreadSheet" RESOURCE_FILE="ArraySpectrum.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

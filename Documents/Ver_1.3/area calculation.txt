@@ -1,0 +1,11 @@
+height at base = 2650 - 500
+       		= 2150
+661 base start point
+
+width = 700-600
+      = 100
+base length = 40
+
+area = 2150 * 40 /2
+
+43,000/-

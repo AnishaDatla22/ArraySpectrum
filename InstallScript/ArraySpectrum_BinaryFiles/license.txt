@@ -1,0 +1,37 @@
+END USER LICENSE AGREEMENT
+
+A.  License
+
+Elico Ltd., (we, us or our), provides the Licensee (you or your) with a computer program (the Program), on-line help, and accompanying documents (together called the Package) and grants to you a license to use the Package in accordance with the terms of this Agreement.
+
+B.  Intellectual Property
+
+1.  Ownership of the copyright, trademark and all other rights, title and interest in the Package, as well as any copies, modifications or merged portions made of the Program shall at all times remain with us or licensors to us.  You must fully reproduce any copyright or other notices marked on any part of the Program on all copies of the same.  This Package is protected by local and international intellectual property laws, which apply but are not limited to our copyright, trademark and patent rights, and by international treaty provisions.
+
+2.  You acknowledge that the Package is confidential and proprietary to, and contains our trade secrets.  Except as expressly authorised herein, you agree to hold the Package within your organisation and shall not, without our specific written consent, or as authorised herein, utilise it in any manner or publish, communicate or disclose to third parties any part of the Package.
+
+3.  You agree not to duplicate, copy, or imitate portions of the Package or concepts proprietary to us in work done by you for use by yourself, your representatives, your agents, or your clients.
+
+D.  Term
+
+1.  This License will continue for as long as you use the Program, unless it is terminated as set out in this Agreement.  The License will terminate if you fail to comply with any term or condition herein.  You agree, upon termination, to destroy the Package, together with all copies, modifications and merged Program portions of the Package in any form.
+
+2.  You shall instruct your employees and agents that the making of unauthorised copies of any component of the Package and the permitting of a greater number of Multi-Users than agreed are violations of intellectual property law and this Agreement.  If you have a Multi-User License, you agree to prepare and maintain a current list of the computers, upon which the Programs are installed.  
+
+E.  Reports and Inspection Right
+
+You shall institute reasonable measures to ensure compliance with this Agreement.  Upon our request, you shall provide reports as to usage as may be necessary to verify compliance with this Agreement.  We shall have the right, upon reasonable notice, to inspect your facilities to verify compliance with this Agreement.
+
+F.  Warranty
+
+The Program is warranted to run normally on all Windows 95/98/2000/XP and Windows NT clients.  
+
+Should you have any questions about this Agreement, or if you wish to contact us for any reason, please contact us in writing at the following address:
+
+Elico Ltd,
+B-90, APIE, SanathNagar,
+Hyderabad - 500018
+INDIA
+
+URL: http://www.elico.co
+email : support@elico.co

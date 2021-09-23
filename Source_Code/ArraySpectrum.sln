@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30225.117
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ArraySpectrum", "ArraySpectrum.vcxproj", "{1068CD50-CA0B-40E7-B933-4A6D82A54F9A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1068CD50-CA0B-40E7-B933-4A6D82A54F9A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1068CD50-CA0B-40E7-B933-4A6D82A54F9A}.Debug|Win32.Build.0 = Debug|Win32
+		{1068CD50-CA0B-40E7-B933-4A6D82A54F9A}.Release|Win32.ActiveCfg = Release|Win32
+		{1068CD50-CA0B-40E7-B933-4A6D82A54F9A}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {260E95D3-6993-4E7B-9BE6-261EDE8354E3}
+	EndGlobalSection
+EndGlobal

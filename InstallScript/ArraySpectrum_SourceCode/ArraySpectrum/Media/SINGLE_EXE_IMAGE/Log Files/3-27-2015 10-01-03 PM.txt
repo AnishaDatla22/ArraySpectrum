@@ -1,0 +1,75 @@
+================= Logging started at 3/27/2015 10:01:03 PM ==================
+Calculating size of cabinet files...
+Copying uncompressed setup files...
+Preprocessing data for data1.hdr...
+Feature: <Support>
+Feature: <Support>\Engine
+Feature: <Support>\Engine\Log
+Feature: <Support>\Engine\Kernel
+   Component: <Engine>Kernel Placeholder
+   Component: <Engine>EngineCommonPlaceHolder
+Feature: <Support>\Main Installation
+Feature: <Data>
+Feature: Script
+   Component: <Support>Script
+Feature: Setup
+   Component: <Support>Language Independent OS Independent Files
+   Component: <Support>English OS Independent Files
+   Component: <Support>Misc Support Files
+Feature: StrTbl
+   Component: <Support>English String Tables
+Feature: RunTime
+   Component: <Support>Non-SelfRegistering
+Feature: Resource
+   Component: <Support>English Files
+Feature: Disk<1>
+   Component: <Disk1>Disk1 Files(1)
+   Component: <Disk1>Disk1 Files(2)
+   Component: <Disk1>Disk1 Files(3)
+   Component: <Disk1>Disk1 Files(4)
+Feature: DefaultFeature
+   Component: DefaultComponent
+   Component: OCX_Files
+   Component: RootFiles
+   Component: VCplusPlusRuntime
+Processing registries...
+Building cabinet file data1.hdr...
+Building cabinet file data1.cab...
+Feature: <Support>
+Feature: <Support>\Engine
+Feature: <Support>\Engine\Log
+Feature: <Support>\Engine\Kernel
+   Component: <Engine>Kernel Placeholder
+   Component: <Engine>EngineCommonPlaceHolder
+Feature: <Support>\Main Installation
+Feature: <Support>\Main Installation\Script
+   Component: <Support>Script
+Feature: <Support>\Main Installation\Setup
+   Component: <Support>Language Independent OS Independent Files
+   Component: <Support>English OS Independent Files
+   Component: <Support>Misc Support Files
+Feature: <Support>\Main Installation\StrTbl
+   Component: <Support>English String Tables
+Feature: <Support>\Main Installation\RunTime
+   Component: <Support>Non-SelfRegistering
+Feature: <Support>\Main Installation\Resource
+   Component: <Support>English Files
+Feature: <Data>
+Building cabinet file data2.cab...
+Feature: <Data>\Disk<1>
+   Component: <Disk1>Disk1 Files(1)
+   Component: <Disk1>Disk1 Files(2)
+   Component: <Disk1>Disk1 Files(3)
+   Component: <Disk1>Disk1 Files(4)
+Feature: <Data>\DefaultFeature
+   Component: DefaultComponent
+   Component: OCX_Files
+   Component: RootFiles
+   Component: VCplusPlusRuntime
+Creating disk layout file 'layout.bin'...
+Creating self-extracting exe...
+Build finished at 03/27/15 22:01:07.
+SINGLE_EXE_IMAGE - 0 error(s), 0 warning(s)
+================= Logging stopped at 3/27/2015 10:01:07 PM ==================
+Log file has been created: <file:C:\Internal_Project's_InstallScripts\ArraySpectrum_InstallScript\ArraySpectrum_InstallScript_Ver_1.0\ArraySpectrum_SourceCode\ArraySpectrum\Media\SINGLE_EXE_IMAGE\Log Files\3-27-2015 10-01-03 PM.txt>
+

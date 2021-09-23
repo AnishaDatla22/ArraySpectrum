@@ -1,0 +1,336 @@
+// EsdAdvancedGraphControl.idl : type library source for ActiveX Control project.
+
+// This file will be processed by the MIDL compiler tool to
+// produce the type library (EsdAdvancedGraphControl.tlb) that will become a resource in
+// EsdAdvancedGraphControl.ocx.
+
+#include <olectl.h>
+#include <idispids.h>
+
+
+//enum EDataExportType
+//{
+//	detAsText  =0,
+//	detAsExcel =1,
+//	detAsXML   =2,
+//	detAsHTML  =3
+//};
+typedef
+[
+  uuid(81BFD04B-203D-4002-9040-90E59B172C81), 
+  version(1.0),  
+  helpstring("Constants for Direction of Zoom: Default is tzdBoth") ]
+enum 
+{
+	zdHorizontal	=	0,
+	zdVertical		=	1,
+	zdBoth			=	2
+}EZoomDirection;
+
+[ uuid(2947432F-09C7-4EEB-BD48-A3D25942BA77), version(1.1),
+  helpfile("EsdAdvancedGraphControl.hlp"),
+  helpstring("EsdAdvancedGraphControl ActiveX Control Module"),
+  control ]
+library EsdAdvancedGraphControlLib
+{
+	importlib(STDOLE_TLB);
+
+	[ 
+        uuid(85401CED-A42E-4728-A82F-B0398CEBC208), 
+        version(1.0),
+        helpstring("Structre for TimedEventTable Information")
+    ]
+
+	typedef 
+    struct  { //These are related to Event table     
+        [helpstring("EventCode")] DWORD dwEventCode;
+		[helpstring("StartTime")] DOUBLE dblStartTime;
+		[helpstring("EndTime/Value")] DOUBLE dblEndTimeOrValue;
+    } stEventInfo;
+
+
+
+	//  Primary dispatch interface for CEsdAdvancedGraphCtrl
+
+	[ uuid(9117C567-1EAD-48B3-BA9E-C4D44852D181),
+	  helpstring("Dispatch interface for EsdAdvancedGraphControl Control")]
+	dispinterface _DEsdAdvancedGraphControl
+	{
+		properties:
+			[id(114), helpstring("property PeakWidthCalculationType")] SHORT PeakWidthCalculationType;
+			//	[id(34), helpstring("property BaseLineType")] LONG BaseLineType;
+		//	[id(35), helpstring("property BaseLineColor")] OLE_COLOR BaseLineColor;
+		//	[id(38), helpstring("property PeakFillColor")] OLE_COLOR PeakFillColor;
+		//	[id(39), helpstring("property PeakMinArea")] DOUBLE PeakMinArea;
+		//	[id(40), helpstring("property PeakMinHeight")] DOUBLE PeakMinHeight;
+		//	[id(41), helpstring("property PeakMinWidth")] DOUBLE PeakMinWidth;
+		//	[id(44), helpstring("property BackGroundColor")] OLE_COLOR BackGroundColor;
+		//	[id(45), helpstring("property CustomTextColor")] OLE_COLOR CustomTextColor;
+		//	[id(46), helpstring("property CustomTextBackColor")] OLE_COLOR CustomTextBackColor;
+		//	[id(47), helpstring("property AverageNoise")] DOUBLE AverageNoise;
+		//	[id(48), helpstring("property AxesMarkingColor")] OLE_COLOR AxesMarkingColor;
+		//	[id(49), helpstring("property ShowLegend")] VARIANT_BOOL ShowLegend;
+		//	[id(54), helpstring("property BackImage")] BSTR BackImage;
+		//	[id(60), helpstring("property EnableHorzDatumLine")] VARIANT_BOOL EnableHorzDatumLine;
+		//	[id(61), helpstring("property EnableVericalDatumLine")] VARIANT_BOOL EnableVericalDatumLine;
+		////	[id(63), helpstring("property ZoomDirection")] LONG ZoomDirection;
+		////	[id(64), helpstring("property EnableZoom")] VARIANT_BOOL EnableZoom;
+		//	[id(65), helpstring("property MouseButtonForZoom")] LONG MouseButtonForZoom;
+		//	[id(66), helpstring("property MinimumPixelsForZoom")] LONG MinimumPixelsForZoom;
+		//	[id(67), helpstring("property ScrollDirection")] LONG ScrollDirection;
+		//	[id(68), helpstring("property MouseButtonForScroll")] LONG MouseButtonForScroll;
+		//	[id(69), helpstring("property MouseButtonForScroll")] EZoomDirection e;
+		//	[id(72), helpstring("property ShowHeader")] VARIANT_BOOL ShowHeader;
+		//	[id(73), helpstring("property Header")] BSTR Header;
+		//	[id(88), helpstring("property ShowDataAtPeak")] VARIANT_BOOL ShowDataAtPeak;
+		//	[id(89), helpstring("property CrossWire")] VARIANT_BOOL CrossWire;
+		//	[id(96), helpstring("property CrossWireDataPointIndex")] LONG CrossWireDataPointIndex;
+		//	[id(97), helpstring("property Sort")] VARIANT_BOOL Sort;
+		//	[id(98), helpstring("property AutoRange")] VARIANT_BOOL AutoRange;
+
+	methods:
+			[id(1), helpstring("method AddGraph")] LONG AddGraph(BSTR strName, LONG lngColor);
+			[id(150),helpstring("method InterPolateData")]DOUBLE InterPolateData(LONG lngGraphId,DOUBLE dblXvalue);
+			[id(2), helpstring("method AddDataPoint")] void AddDataPoint(LONG lngGraphIdx, DOUBLE dblXVal, DOUBLE dblYVal);
+			[id(3), helpstring("method AddDataPoints")] void AddDataPoints(LONG lngGraphIDx, LONG lngNoOfPoints, VARIANT varXVals, VARIANT varYVals);
+			[id(4), helpstring("method ModifyDataPoint")] void ModifyDataPoint(LONG lngGraphIdx, LONG lngPtIdx, DOUBLE dblXVal, DOUBLE dblYVal);
+			[id(5), helpstring("method DrawMultiColorGraph")] void DrawMultiColorGraph(LONG lngGraphIdx, LONG lngNoOfPoints, VARIANT varLngColors, VARIANT varDblXVals, VARIANT varDblYValues, LONG lngPenWdth);
+			[id(6), helpstring("method SetGraphPointColor")] void SetGraphPointColor(LONG lngGraphIdx, LONG lngPtIdx, OLE_COLOR clrColor);
+			[id(7), helpstring("method RemoveDataPoint")] VARIANT_BOOL RemoveDataPoint(LONG lngGraphIdx, LONG lngPtIdx);
+			[id(8), helpstring("method RemoveGraph")] void RemoveGraph(LONG lngGraphIdx);
+			[id(9), helpstring("method RemoveAllGraphs")] void RemoveAllGraphs(void);
+			[id(10), helpstring("method SetGraphtype")] void SetGraphtype(LONG lngGraphIdx, USHORT unGraphType);
+			[id(11), helpstring("method SetGraphVisible")] void SetGraphVisible(LONG lngGraphIdx, VARIANT_BOOL bShowRHide);
+			[id(12), helpstring("method ModifyLegends")] VARIANT_BOOL ModifyLegends(LONG lngGraphIdx, BSTR strGraphName, OLE_COLOR clrGraphColor);
+			[id(13), helpstring("method StartOnlinePeakDetection")] VARIANT_BOOL StartOnlinePeakDetection(void);
+			[id(14), helpstring("method StopOnlinePeakDetection")] VARIANT_BOOL StopOnlinePeakDetection(void);
+			[id(15), helpstring("method StartOfflinePeakDetection")] void StartOfflinePeakDetection(void);
+			[id(16), helpstring("method StopOfflinePeakDetection")] void StopOfflinePeakDetection(void);
+			[id(17), helpstring("method StartAnimation")] void StartAnimation(VARIANT_BOOL bStartRStop);
+			[id(18), helpstring("method GetControlUnknown")] IUnknown* GetControlUnknown(void);
+			[id(19), helpstring("method CopyGraph")] void CopyGraph(void);
+			[id(20), helpstring("method CopyData")] void CopyData(void);
+			[id(21), helpstring("method ExportGraphData")] VARIANT_BOOL ExportGraphData(LONG lngGraphIdx,LONG lngExpType,VARIANT_BOOL bIncludeIndex, VARIANT_BOOL bIncludeHeader, VARIANT_BOOL bIncludeTitle);
+		//	[id(22), helpstring("method CalculateTrendLine")] void CalculateTrendLine([in] LONG lngGraphIdx, [in] LONG lngTendLineType, [in] VARIANT_BOOL bShowTrendline,[in] LONG lngTrendLineColor, [out,retval] VARIANT_BOOL* pVal);
+			[id(22), helpstring("method CalculateTrendLine")] void CalculateTrendLine(LONG lngGraphIdx, LONG lngTrendLineType, VARIANT_BOOL bShowTrendLine, LONG lngtrendLineColor);
+			[id(23), helpstring("method FindLinearCoefficients")] VARIANT_BOOL FindLinearCoefficients(LONG lngDataCount, VARIANT varDblArrXData, VARIANT varDblArrYData, DOUBLE* dblSlope, DOUBLE* dblIntercept);
+			[id(24), helpstring("method FindQuadraticCoefficients")] VARIANT_BOOL FindQuadraticCoefficients(LONG lngDataCount, VARIANT varDblArrXData, VARIANT varDblArrYData, DOUBLE* dblA0, DOUBLE* dblA1, DOUBLE* dblA2);
+			[id(25), helpstring("method LinearCoefficients")] VARIANT_BOOL LinearCoefficients(LONG lngGraphIdx, DOUBLE* dblByAddSlope, DOUBLE* dblByAddC);
+			[id(26), helpstring("method QuadraticCoefficients")] VARIANT_BOOL QuadraticCoefficients(LONG lngGraphIdx, DOUBLE* dblByAddA0, DOUBLE* dblByAddA1, DOUBLE* dblByAddA2);
+			[id(27), helpstring("method LinearFitX")] void LinearFitX(LONG lngDataCount, DOUBLE dblSlope, DOUBLE dblIntercept, DOUBLE* dblArrXdata, DOUBLE* dblArrYData);
+			[id(28), helpstring("method QuadraticFitX")] void QuadraticFitX(LONG lngDataCount, DOUBLE dblA0, DOUBLE dblA1, DOUBLE dblA2, DOUBLE* dblArrXData, DOUBLE* dblArrYData);
+			[id(29), helpstring("method GetPeakInfo")] void GetPeakInfo(LONG lngGraphIdx, VARIANT* dblHeight, VARIANT* dblWidth, VARIANT* dblArea, VARIANT* lngPeakStartIndex, VARIANT* lngPeakMaxindex, VARIANT* lngPeakEndIndex);
+			[id(30), helpstring("method GetPeakIndexes")] LONG GetPeakIndexes(LONG lngGraphIdx, LONG lngPeakLevel, VARIANT* varLngPeakIndexes);
+			[id(32), helpstring("method PeakFillArea")] void PeakFillArea(LONG lngGraphIdx);
+			[id(33), helpstring("method DrawBaseLine")] void DrawBaseLine(LONG lngGraphIdx);
+		//	[id(34), propget, helpstring("property BaseLinetype")] LONG BaseLinetype(LONG lngBaseLineType);
+		//	[id(34), propput, helpstring("property BaseLinetype")] void BaseLinetype(LONG lngBaseLineType, LONG newVal);
+			[id(36), helpstring("method GetNumberOfGraphs")] LONG GetNumberOfGraphs(void);
+		//	[id(37), helpstring("method GetTotalGraphsIndexes")] LONG GetTotalGraphsIndexes(void);
+			[id(37), helpstring("method GetAllGraphIDs")] LONG GetAllGraphIDs(VARIANT* varLngGraphIndexes);
+			[id(42), helpstring("method GetPeaksCount")] void GetPeaksCount(VARIANT* varLngPeaksCount);
+		//	[id(43), helpstring("method DisplayTextAt")] void DisplayTextAt(LONG lngGraphIdx,BSTR bstrText, DOUBLE dblXVal, DOUBLE dblYVal);
+			[id(43), helpstring("method DisplayTextAt")] void DisplayTextAt(LONG lngGraphIdx, BSTR bstrName, DOUBLE dblXVal, DOUBLE dblYVal);
+			[id(50), helpstring("method GetGraphData")] LONG GetGraphData(LONG lngGraphIdx, VARIANT* varDblXval, VARIANT* varDblYval);
+			[id(51), helpstring("method GetGraphDataAt")] void GetGraphDataAt(LONG lngGraphIdx, LONG lngIndex, DOUBLE* dblXval, DOUBLE* dblYval);
+			[id(52), helpstring("method GetGraphDataCont")] LONG GetGraphDataCont(LONG lngGraphIdx);
+			[id(53), helpstring("method GetGraphMinMax")] void GetGraphMinMax([in]LONG lngGraphIdx, DOUBLE* dblXmin, DOUBLE* dblYmin, DOUBLE* dblXmax, DOUBLE* dblYmax);
+		//	[id(55), helpstring("method AddPoints")] void AddPoints(LONG lngGraphId, LONG lngNoOfPoints, VARIANT varXVal, VARIANT varYVal);
+			//[id(56), helpstring("method AddPoints1")] void AddPoints1(LONG lngGraphID, LONG lngNoOfPoints, SAFEARRAY(double) sArrXVals);
+		//	[id(55), helpstring("method GetData")] LONG GetData([in]LONG lngGraphIdx,[out] VARIANT* varDblXVal,[out] VARIANT* varDblYVal);
+		//	[id(56), helpstring("method LongReturn")] void LongReturn(VARIANT* var);
+			[id(57), helpstring("method GetGraphPeaksCount")] LONG GetGraphPeaksCount(LONG lngGraphIdx);
+			[id(58), helpstring("method PrintGraph")] void PrintGraph(LONG lngPrinterDC, LONG lngPageLeft, LONG lngPageTop, LONG lngPageRight, LONG lngPageBottom);
+			[id(59), helpstring("method PrintPreview")] void PrintPreview(LONG lngDC, LONG lngPageLeft, LONG lngPageTop, LONG lngPageRight, LONG lngPageBottom);
+			[id(62), helpstring("method DrawDatumLine")] void DrawDatumLine(LONG lngGraphIdx, DOUBLE dblXVal, DOUBLE dblYVal, OLE_COLOR clrLineColor);
+			[id(70), helpstring("method FindPeaks")] LONG FindPeaks(VARIANT varDblYvals, LONG lngDataPointsCount, LONG lngPeakLevel, VARIANT* varLngPeakIndexes);
+			[id(80), helpstring("method EntireGraph")] VARIANT_BOOL EntireGraph(LONG lngGraphIdx);
+			[id(86), helpstring("method ShowPeaks")] VARIANT_BOOL ShowPeaks(LONG lngGraphIdx, SHORT intPeakLevel);
+			[id(87), helpstring("method HidePeaks")] VARIANT_BOOL HidePeaks(LONG lngGraphIdx);
+			[id(90), helpstring("method MoveCrossWireToFirst")] VARIANT_BOOL MoveCrossWireToFirst(LONG* lngGraphID, LONG* lngDataPoint);
+			[id(91), helpstring("method MoveCrossWireToLast")] VARIANT_BOOL MoveCrossWireToLast(LONG* lngGraphID, LONG* lngDataPoint);
+			[id(92), helpstring("method MoveCrossWireToNext")] VARIANT_BOOL MoveCrossWireToNext(LONG* lngGraphID, LONG* lngDataPoint, SHORT intStepBy);
+			[id(93), helpstring("method MoveCrossWireToPrev")] VARIANT_BOOL MoveCrossWireToPrev(LONG* lngGraphID, LONG* lngDataPoint, SHORT intStepBy);
+			[id(94), helpstring("method DisplayCrossWireAt")] VARIANT_BOOL DisplayCrossWireAt(DOUBLE dblXval, DOUBLE dblYval);
+			[id(95), helpstring("method SetCustomCrosswireText")] void SetCustomCrosswireText(BSTR bstrCrosswireText, VARIANT_BOOL blnHideXYValues, DOUBLE Concentration);
+
+			[id(77), propget, helpstring("property AxesPrecision")] SHORT AxesMarkingPrecision(LONG lngAxis);
+			[id(77), propput, helpstring("property AxesPrecision")] void AxesMarkingPrecision(LONG lngAxis, SHORT newVal);
+			[id(78), propget, helpstring("property Axestitle")] BSTR Axestitle(LONG lngAxis);
+			[id(78), propput, helpstring("property Axestitle")] void Axestitle(LONG lngAxis, BSTR newVal);
+			[id(81), propget, helpstring("property AxisMaximum")] DOUBLE AxisMaximum(LONG lngAxis);
+			[id(81), propput, helpstring("property AxisMaximum")] void AxisMaximum(LONG lngAxis, DOUBLE newVal);
+			[id(82), propget, helpstring("property AxesTitlesColor")] OLE_COLOR AxesTitlesColor(LONG lngAxis);
+			[id(82), propput, helpstring("property AxesTitlesColor")] void AxesTitlesColor(LONG lngAxis, OLE_COLOR newVal);
+			[id(83), propget, helpstring("property AxisMinimum")] DOUBLE AxisMinimum(LONG lngAxis);
+			[id(83), propput, helpstring("property AxisMinimum")] void AxisMinimum(LONG lngAxis, DOUBLE newVal);
+			[id(84), propget, helpstring("property AxisGridColor")] OLE_COLOR AxisGridColor(LONG lngAxis);
+			[id(84), propput, helpstring("property AxisGridColor")] void AxisGridColor(LONG lngAxis, OLE_COLOR newVal);
+			[id(85), propget, helpstring("property AxisGridStyle")] SHORT AxisGridStyle(LONG lngAxis);
+			[id(85), propput, helpstring("property AxisGridStyle")] void AxisGridStyle(LONG lngAxis, SHORT newVal);
+
+			[id(63), propget, helpstring("property ZoomDirection")] LONG ZoomDirection();
+			[id(63), propput, helpstring("Property ZoomDirection")] void ZoomDirection(LONG lngZoomDirection);
+			[id(64), propget, helpstring("property EnableZoom")] VARIANT_BOOL EnableZoom();
+			[id(64), propput, helpstring("property EnableZoom")] void EnableZoom(VARIANT_BOOL blnZoomEnable);
+			[id(34), propget, helpstring("property BaseLineType")] LONG BaseLineType();
+			[id(34), propput, helpstring("property BaseLineType")] void BaseLineType(LONG lngBaseLinetype);
+			[id(35), propget, helpstring("property BaseLineColor")] OLE_COLOR BaseLineColor();
+			[id(35), propput, helpstring("property BaseLineColor")] void BaseLineColor(OLE_COLOR clrBaseLineColor);
+			[id(38), propget, helpstring("property PeakFillColor")] OLE_COLOR PeakFillColor();
+			[id(38), propput, helpstring("property PeakFillColor")] void PeakFillColor(OLE_COLOR clrPeakFillColor);
+			[id(39), propget, helpstring("property PeakMinArea")] DOUBLE PeakMinArea();
+			[id(39), propput, helpstring("property PeakMinArea")] void PeakMinArea(DOUBLE dblMinArea);
+			[id(40), propget, helpstring("property PeakMinHeight")] DOUBLE PeakMinHeight();
+			[id(40), propput, helpstring("property PeakMinHeight")] void PeakMinHeight(DOUBLE dblMinHeight);
+			[id(41), propget, helpstring("property PeakMinWidth")] DOUBLE PeakMinWidth();
+			[id(41), propput, helpstring("property PeakMinWidth")] void PeakMinWidth(DOUBLE dblMinWidth);
+			[id(44), propget, helpstring("property BackGroundColor")] OLE_COLOR BackGroundColor();
+			[id(44), propput, helpstring("property BackGroundColor")] void BackGroundColor(OLE_COLOR clrBackColor);
+			[id(45), propget, helpstring("property CustomTextColor")] OLE_COLOR CustomTextColor();
+			[id(45), propput, helpstring("property CustomTextColor")] void CustomTextColor(OLE_COLOR clrCustomTxtColor);
+			[id(46), propget, helpstring("property CustomTextBackColor")] OLE_COLOR CustomTextBackColor();
+			[id(46), propput, helpstring("property CustomTextBackColor")] void CustomTextBackColor(OLE_COLOR clrCustomTxtBackColor);
+			[id(47), propget, helpstring("property AverageNoise")] DOUBLE AverageNoise();
+			[id(47), propput, helpstring("property AverageNoise")] void AverageNoise(DOUBLE dblAvgNoise);
+			[id(48), propget, helpstring("property AxesMarkingColor")] OLE_COLOR AxesMarkingColor();
+			[id(48), propput, helpstring("property AxesMarkingColor")] void AxesMarkingColor(OLE_COLOR clrAxisMarkingColor);
+			[id(49), propget, helpstring("property ShowLegend")] VARIANT_BOOL ShowLegend();
+			[id(49), propput, helpstring("property ShowLegend")] void ShowLegend(VARIANT_BOOL blnShowLegend);
+			[id(54), propget, helpstring("property BackImage")] BSTR BackImage();
+			[id(54), propput, helpstring("property BackImage")] void BackImage(BSTR strBackImage);
+			[id(60), propget, helpstring("property EnableHorzDatumLine")] VARIANT_BOOL EnableHorzDatumLine();
+			[id(60), propput, helpstring("property EnableHorzDatumLine")] void EnableHorzDatumLine(VARIANT_BOOL blnEnableHDL);
+			[id(61), propget, helpstring("property EnableVericalDatumLine")] VARIANT_BOOL EnableVericalDatumLine();
+			[id(61), propput, helpstring("property EnableVericalDatumLine")] void EnableVericalDatumLine(VARIANT_BOOL blnEnableVDL);
+			[id(65), propget, helpstring("property MouseButtonForZoom")] LONG MouseButtonForZoom();
+			[id(65), propput, helpstring("property MouseButtonForZoom")] void MouseButtonForZoom(LONG lngZoomButton);
+			[id(66), propget, helpstring("property MinimumPixelsForZoom")] LONG MinimumPixelsForZoom();
+			[id(66), propput, helpstring("property MinimumPixelsForZoom")] void MinimumPixelsForZoom(LONG lngZoomMinPixels);
+			[id(67), propget, helpstring("property ScrollDirection")] LONG ScrollDirection();
+			[id(67), propput, helpstring("property ScrollDirection")] void ScrollDirection(LONG lngScrollDirection);
+			[id(68), propget, helpstring("property MouseButtonForScroll")] LONG MouseButtonForScroll();
+			[id(68), propput, helpstring("property MouseButtonForScroll")] void MouseButtonForScroll(LONG lngScrollButton);
+			[id(72), propget, helpstring("property ShowHeader")] VARIANT_BOOL ShowHeader();
+			[id(72), propput, helpstring("property ShowHeader")] void ShowHeader(VARIANT_BOOL blnShowHeader);
+			[id(73), propget, helpstring("property Header")] BSTR Header();
+			[id(73), propput, helpstring("property Header")] void Header(BSTR strHeader);
+			[id(88), propget, helpstring("property ShowDataAtPeak")] VARIANT_BOOL ShowDataAtPeak();
+			[id(88), propput, helpstring("property ShowDataAtPeak")] void ShowDataAtPeak(VARIANT_BOOL blnShowData);
+			[id(89), propget, helpstring("property CrossWire")] VARIANT_BOOL CrossWire();
+			[id(89), propput, helpstring("property CrossWire")] void CrossWire(VARIANT_BOOL blnCrossWire);
+			[id(96), propget, helpstring("property CrossWireDataPointIndex")] LONG CrossWireDataPointIndex();
+			[id(96), propput, helpstring("property CrossWireDataPointIndex")] void CrossWireDataPointIndex(LONG lngPointIndex);
+			[id(97), propget, helpstring("property Sort")] VARIANT_BOOL Sort();
+			[id(97), propput, helpstring("property Sort")] void Sort(VARIANT_BOOL blnSort);
+			[id(98), propget, helpstring("property AutoRange")] VARIANT_BOOL AutoRange();
+			[id(98), propput, helpstring("property AutoRange")] void AutoRange(VARIANT_BOOL blnAutoRange);
+			[id(99), propget, helpstring("property PerConc")] VARIANT_BOOL PerConc();
+			[id(99), propput, helpstring("property PerConc")] void PerConc(VARIANT_BOOL newVal);
+			[id(100),propget, helpstring("property ShowConcAtPeaks")] VARIANT_BOOL ShowConcAtPeaks();
+			[id(100),propput, helpstring("property ShowConcAtPeaks")] void ShowConcAtPeaks(VARIANT_BOOL newVal);
+			[id(101),propget, helpstring("property ShowXTitle")] VARIANT_BOOL ShowXTitle();
+			[id(101),propput, helpstring("property ShowXTitle")] void ShowXTitle(VARIANT_BOOL newVal);
+			[id(102),propget, helpstring("property ShowYTitle")] VARIANT_BOOL ShowYTitle();
+			[id(102),propput, helpstring("property ShowYTitle")] void ShowYTitle(VARIANT_BOOL newVal);
+			[id(103), helpstring("method SetLegendFont")] void SetLegendFont(BSTR strFontName, LONG lngFontSize);
+			[id(104), helpstring("method SetXYMarkingFont")] void SetXYMarkingFont(BSTR strFontName, LONG lngFontSize);
+			[id(105), helpstring("method SetCustomTextFont")] void SetCustomTextFont(BSTR strFontName, LONG lngFontSize);
+			
+			[id(106), propget,helpstring("property XGrids")] SHORT XGrids();
+			[id(106), propput,helpstring("property XGrids")] void XGrids(SHORT newVal);
+			[id(107), propget,helpstring("property YGrids")] SHORT YGrids();
+			[id(107), propput,helpstring("property YGrids")] void YGrids(SHORT newVal);
+
+			[id(108), helpstring("method ZoomIn")] VARIANT_BOOL ZoomIn(DOUBLE dblXMin, DOUBLE dblXMax, DOUBLE dblYMin, DOUBLE dblYMax);
+			[id(109), helpstring("method ZoomOut")] void ZoomOut(void);
+			[id(110), helpstring("method SetHeaderFont")] void SetHeaderFont(BSTR strFontName, LONG lngFontSize);
+			[id(111), helpstring("method SetAxesTitlesFont")] void SetAxesTitlesFont(BSTR strFontName, LONG lngFontSize);
+			[id(112), helpstring("method DisplayText")] void DisplayText(BSTR bstrText, LONG lngLeftMargin, LONG lngRightMargin);
+			[id(113), helpstring("method ClearCustomText")] void ClearCustomText(void);
+			[id(115), helpstring("method WidthAt5PercentHeight")] void WidthAt5PercentHeight(LONG lngPos, DOUBLE* dblWidth, DOUBLE* dblLeftWidth, DOUBLE* dblRightWidth);
+			[id(116), helpstring("method WidthAt10PercentHeight")] void WidthAt10PercentHeight(LONG lngPos, DOUBLE* dblWidth, DOUBLE* dblLeftWidth, DOUBLE* dblRightWidth);
+			[id(117), helpstring("method WidthAtHalfHeight")] void WidthAtHalfHeight(LONG lngPos, DOUBLE* dblWidth, DOUBLE* dblLeftWidth, DOUBLE* dblRightWidth);
+			//15/04/08
+	//		[id(118), helpstring("method AddCustomAxis")] LONG AddCustomAxis(VARIANT_BOOL blnIsHorizontal);
+			[id(119), helpstring("method MoveAxisFromBasePosition")] void MoveAxisFromBasePosition(LONG lngAxisIdx,LONG lngPositionInPercent, VARIANT_BOOL blnIsStdAxis);
+			[id(120), helpstring("method ChangeAxisStartPosition")] void ChangeAxisStartPosition(LONG lngAxisIdx, LONG lngPositionInPercent, VARIANT_BOOL blnIsStdAxis);
+			[id(121), helpstring("method ChangeAxisEndPosition")] void ChangeAxisEndPosition(LONG lngAxisIdx, LONG lngPositionInPercent, VARIANT_BOOL blnIsStdAxis);
+			[id(122), helpstring("method AssignAxesForGraph")] void AssignAxesForGraph(LONG lngGraphIdx, LONG lngCustomHorzAxis, LONG lngCustomVertAxis);
+			[id(123), helpstring("method RemoveCustomAxis")] void RemoveCustomAxis(LONG lngCustomAxisIdx);
+			[id(124), helpstring("method RemoveAllCustomAxes")] void RemoveAllCustomAxes(void);
+			[id(125), helpstring("method AddCustomAxis")] LONG AddCustomAxis(VARIANT_BOOL lbnIsHorizontal);
+			[id(126), propget, helpstring("property CustomAxisTitle")] BSTR CustomAxisTitle(LONG lngAxisIdx);
+			[id(126), propput, helpstring("property CustomAxisTitle")] void CustomAxisTitle(LONG lngAxisIdx, BSTR newVal);
+			[id(127), propget, helpstring("property CustomAxisMaximum")] DOUBLE CustomAxisMaximum(LONG lngAxisIdx);
+			[id(127), propput, helpstring("property CustomAxisMaximum")] void CustomAxisMaximum(LONG lngAxisIdx, DOUBLE newVal);
+			[id(128), propget, helpstring("property CustomAxisMinimum")] DOUBLE CustomAxisMinimum(LONG lngAxisIdx);
+			[id(128), propput, helpstring("property CustomAxisMinimum")] void CustomAxisMinimum(LONG lngAxisIdx, DOUBLE newVal);
+			[id(129), propget, helpstring("property CustomAxisGrids")] LONG CustomAxisGrids(LONG lngAxisIdx);
+			[id(129), propput, helpstring("property CustomAxisGrids")] void CustomAxisGrids(LONG lngAxisIdx, LONG newVal);
+			[id(130), propget, helpstring("property CustomAxisTitleAngle")] LONG CustomAxisTitleAngle(LONG lngAxisIdx);
+			[id(130), propput, helpstring("property CustomAxisTitleAngle")] void CustomAxisTitleAngle(LONG lngAxisIdx, LONG newVal);
+			[id(131), helpstring("method DoGraphReprocess")] void DoGraphReprocess(BYTE* bytEventInfo, LONG lngNoOfEvents);
+			[id(132), propget, helpstring("property PeakMinTreshold")] DOUBLE PeakMinTreshold();
+			[id(132), propput, helpstring("property PeakMinTreshold")] void PeakMinTreshold(DOUBLE m_dblMinTreshold);
+			[id(133), helpstring("method MarkStartnEndpts")] void MarkStartnEndpts(LONG lngGraphIdx);
+			[id(134), helpstring("method SetStartnEndptMarkingColor")] void SetStartnEndptMarkingColor(OLE_COLOR newVal);
+			[id(135), helpstring("method GetStartnEndptMarkingColor")] OLE_COLOR GetStartnEndptMarkingColor(void);
+			[id(136), helpstring("method FindArea")] void FindArea(LONG lngGraphID, DOUBLE dblStartPointXVal,DOUBLE dblStartPointYVal, DOUBLE dblEndPointXVal,DOUBLE dblEndPointYVal,LONG nStartIndex,LONG nEndIndex,DOUBLE* dblArea);
+			[id(151), helpstring("method GetArea")] void GetArea(LONG lngGraphID, DOUBLE dblStartPointXVal, DOUBLE dblStartPointYVal, DOUBLE dblEndPointXVal, DOUBLE dblEndPointYVal, LONG lngStartPointIndex, LONG lngEndPointIndex, DOUBLE* ptrdblArea);
+};
+
+	//  Event dispatch interface for CEsdAdvancedGraphCtrl
+
+	[ uuid(07A82910-34BC-43C2-ADAE-A462286D4E10),
+	  helpstring("Event interface for EsdAdvancedGraphControl Control") ]
+	dispinterface _DEsdAdvancedGraphControlEvents
+	{
+		properties:
+			//  Event interface has no properties
+
+		methods:
+			/*[id(1)] void OnOuterTimer(void);
+			[id(2)] void OnClickTChart1(void);*/
+			[id(1)] void OnAfterDraw(void);
+			[id(2)] void OnBeforeDrawSeries(void);
+			[id(3)] void OnBeforeDrawAxes(void);
+			[id(4)] void OnClick(void);
+			[id(5)] void OnClickAxis(LONG Axis, LONG lButton, LONG lShift, LONG X, LONG Y);
+			[id(6)] void OnClickBackground(LONG lButton, LONG Shift, LONG X, LONG Y);
+			[id(7)] void OnClickLegend(LONG lButton, LONG Shift, LONG X, LONG Y);
+			[id(8)] void OnClickSeries(LONG SeriesIndx, LONG ValueIndx, LONG lButton, LONG Shift, LONG X, LONG Y);
+			[id(9)] void OnDblClick(void);
+			[id(11)] void OnCursorToolChange(LONG lngTool, LONG lngX, LONG lngY, DOUBLE dblXVal, DOUBLE dblYVal, LONG lngSeries, LONG ValueIdx);
+			[id(12)] void OnKeyDown(LONG lngKeyCode, LONG lngShiftState);
+			[id(13)] void OnKeyUp(LONG lngKeyCode, LONG lngShiftState);
+			[id(14)] void OnMouseDown(LONG lngButton, LONG lngShiftState, LONG X, LONG Y);
+			[id(15)] void OnMouseMove(LONG lngShiftState, LONG X, LONG Y);
+			[id(16)] void OnMouseUp(LONG lngButton, LONG lngShiftState, LONG X, LONG Y);
+			[id(17)] void OnMouseEnterGraph(LONG lngGraphIdx);
+			[id(18)] void OnMouseLeaveGraph(LONG lngGraphIdx);
+			[id(19)] void OnResize(void);
+			[id(20)] void OnScroll(void);
+			[id(21)] void OnTimer(void);
+			[id(22)] void OnZoom(void);
+			[id(23)] void OnUndoZoom(void);
+			[id(24)] void OnGraphAfterAdd(LONG lngGraphIdx, LONG lngPointIdx);
+			[id(25)] void OnGraphAfterDrawValues(LONG lngGraphIdx);
+			[id(26)] void OnGraphBeforeAdd(LONG lngGraphIdx,VARIANT_BOOL *bMoreValues);
+			[id(27)] void OnGraphBeforeDrawValues(LONG lngGraphIdx);
+			[id(28)] void OnPageChange(void);
+			[id(29)] void OnGetLegendRect(LONG* lngLeft, LONG* lngTop, LONG* lngRight, LONG* lngBottom);
+			[id(30)] void PeakDetected(void);
+	};
+
+	//  Class information for CEsdAdvancedGraphCtrl
+
+	[ uuid(E98E4ED3-C038-4705-8EAB-43AD8A1B75AB),
+	  helpstring("EsdAdvancedGraphControl Control"), control ]
+	coclass EsdAdvancedGraphControl
+	{
+		[default] dispinterface _DEsdAdvancedGraphControl;
+		[default, source] dispinterface _DEsdAdvancedGraphControlEvents;
+	};
+
+};
