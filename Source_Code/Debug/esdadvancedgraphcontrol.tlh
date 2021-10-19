@@ -1,0 +1,717 @@
+﻿// Created by Microsoft (R) C/C++ Compiler Version 14.29.30040.0 (b57710e9).
+//
+// C:\Users\anisha\Desktop\ArraySpectrum\Source_Code\Debug\esdadvancedgraphcontrol.tlh
+//
+// C++ source equivalent of Win32 type library EsdAdvancedGraphControl.tlb
+// compiler-generated file created 09/23/21 at 11:42:49 - DO NOT EDIT!
+
+#pragma once
+#pragma pack(push, 8)
+
+#include <comdef.h>
+
+//
+// Forward references and typedefs
+//
+
+struct __declspec(uuid("2947432f-09c7-4eeb-bd48-a3d25942ba77"))
+/* LIBID */ __EsdAdvancedGraphControlLib;
+struct __MIDL___MIDL_itf_AxWrapper1_0000_0000_0002;
+struct __declspec(uuid("9117c567-1ead-48b3-ba9e-c4d44852d181"))
+/* dispinterface */ _DEsdAdvancedGraphControl;
+struct __declspec(uuid("07a82910-34bc-43c2-adae-a462286d4e10"))
+/* dispinterface */ _DEsdAdvancedGraphControlEvents;
+struct /* coclass */ EsdAdvancedGraphControl;
+typedef struct __MIDL___MIDL_itf_AxWrapper1_0000_0000_0002 stEventInfo;
+
+//
+// Smart pointer typedef declarations
+//
+
+_COM_SMARTPTR_TYPEDEF(_DEsdAdvancedGraphControl, __uuidof(_DEsdAdvancedGraphControl));
+_COM_SMARTPTR_TYPEDEF(_DEsdAdvancedGraphControlEvents, __uuidof(_DEsdAdvancedGraphControlEvents));
+
+//
+// Type library items
+//
+
+#pragma pack(push, 8)
+
+struct __MIDL___MIDL_itf_AxWrapper1_0000_0000_0002
+{
+    unsigned long dwEventCode;
+    double dblStartTime;
+    double dblEndTimeOrValue;
+};
+
+#pragma pack(pop)
+
+struct __declspec(uuid("9117c567-1ead-48b3-ba9e-c4d44852d181"))
+_DEsdAdvancedGraphControl : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetAxesTitlesColor,put=PutAxesTitlesColor))
+    OLE_COLOR AxesTitlesColor[];
+    __declspec(property(get=GetAxisMinimum,put=PutAxisMinimum))
+    double AxisMinimum[];
+    __declspec(property(get=GetAxisGridColor,put=PutAxisGridColor))
+    OLE_COLOR AxisGridColor[];
+    __declspec(property(get=GetAxisGridStyle,put=PutAxisGridStyle))
+    short AxisGridStyle[];
+    __declspec(property(get=GetShowDataAtPeak,put=PutShowDataAtPeak))
+    VARIANT_BOOL ShowDataAtPeak;
+    __declspec(property(get=GetCrossWire,put=PutCrossWire))
+    VARIANT_BOOL CrossWire;
+    __declspec(property(get=GetCrossWireDataPointIndex,put=PutCrossWireDataPointIndex))
+    long CrossWireDataPointIndex;
+    __declspec(property(get=GetSort,put=PutSort))
+    VARIANT_BOOL Sort;
+    __declspec(property(get=GetAutoRange,put=PutAutoRange))
+    VARIANT_BOOL AutoRange;
+    __declspec(property(get=GetPerConc,put=PutPerConc))
+    VARIANT_BOOL PerConc;
+    __declspec(property(get=GetShowConcAtPeaks,put=PutShowConcAtPeaks))
+    VARIANT_BOOL ShowConcAtPeaks;
+    __declspec(property(get=GetShowXTitle,put=PutShowXTitle))
+    VARIANT_BOOL ShowXTitle;
+    __declspec(property(get=GetShowYTitle,put=PutShowYTitle))
+    VARIANT_BOOL ShowYTitle;
+    __declspec(property(get=GetXGrids,put=PutXGrids))
+    short XGrids;
+    __declspec(property(get=GetYGrids,put=PutYGrids))
+    short YGrids;
+    __declspec(property(get=GetBaseLineType,put=PutBaseLineType))
+    long BaseLineType;
+    __declspec(property(get=GetBaseLineColor,put=PutBaseLineColor))
+    OLE_COLOR BaseLineColor;
+    __declspec(property(get=GetPeakFillColor,put=PutPeakFillColor))
+    OLE_COLOR PeakFillColor;
+    __declspec(property(get=GetPeakMinArea,put=PutPeakMinArea))
+    double PeakMinArea;
+    __declspec(property(get=GetPeakMinHeight,put=PutPeakMinHeight))
+    double PeakMinHeight;
+    __declspec(property(get=GetPeakMinWidth,put=PutPeakMinWidth))
+    double PeakMinWidth;
+    __declspec(property(get=GetBackGroundColor,put=PutBackGroundColor))
+    OLE_COLOR BackGroundColor;
+    __declspec(property(get=GetCustomTextColor,put=PutCustomTextColor))
+    OLE_COLOR CustomTextColor;
+    __declspec(property(get=GetCustomTextBackColor,put=PutCustomTextBackColor))
+    OLE_COLOR CustomTextBackColor;
+    __declspec(property(get=GetAverageNoise,put=PutAverageNoise))
+    double AverageNoise;
+    __declspec(property(get=GetAxesMarkingColor,put=PutAxesMarkingColor))
+    OLE_COLOR AxesMarkingColor;
+    __declspec(property(get=GetShowLegend,put=PutShowLegend))
+    VARIANT_BOOL ShowLegend;
+    __declspec(property(get=GetCustomAxisTitle,put=PutCustomAxisTitle))
+    _bstr_t CustomAxisTitle[];
+    __declspec(property(get=GetCustomAxisMaximum,put=PutCustomAxisMaximum))
+    double CustomAxisMaximum[];
+    __declspec(property(get=GetCustomAxisMinimum,put=PutCustomAxisMinimum))
+    double CustomAxisMinimum[];
+    __declspec(property(get=GetCustomAxisGrids,put=PutCustomAxisGrids))
+    long CustomAxisGrids[];
+    __declspec(property(get=GetBackImage,put=PutBackImage))
+    _bstr_t BackImage;
+    __declspec(property(get=GetCustomAxisTitleAngle,put=PutCustomAxisTitleAngle))
+    long CustomAxisTitleAngle[];
+    __declspec(property(get=GetPeakMinTreshold,put=PutPeakMinTreshold))
+    double PeakMinTreshold;
+    __declspec(property(get=GetEnableHorzDatumLine,put=PutEnableHorzDatumLine))
+    VARIANT_BOOL EnableHorzDatumLine;
+    __declspec(property(get=GetEnableVericalDatumLine,put=PutEnableVericalDatumLine))
+    VARIANT_BOOL EnableVericalDatumLine;
+    __declspec(property(get=GetZoomDirection,put=PutZoomDirection))
+    long ZoomDirection;
+    __declspec(property(get=GetEnableZoom,put=PutEnableZoom))
+    VARIANT_BOOL EnableZoom;
+    __declspec(property(get=GetMouseButtonForZoom,put=PutMouseButtonForZoom))
+    long MouseButtonForZoom;
+    __declspec(property(get=GetMinimumPixelsForZoom,put=PutMinimumPixelsForZoom))
+    long MinimumPixelsForZoom;
+    __declspec(property(get=GetScrollDirection,put=PutScrollDirection))
+    long ScrollDirection;
+    __declspec(property(get=GetMouseButtonForScroll,put=PutMouseButtonForScroll))
+    long MouseButtonForScroll;
+    __declspec(property(get=GetShowHeader,put=PutShowHeader))
+    VARIANT_BOOL ShowHeader;
+    __declspec(property(get=GetHeader,put=PutHeader))
+    _bstr_t Header;
+    __declspec(property(get=GetAxesMarkingPrecision,put=PutAxesMarkingPrecision))
+    short AxesMarkingPrecision[];
+    __declspec(property(get=GetAxestitle,put=PutAxestitle))
+    _bstr_t Axestitle[];
+    __declspec(property(get=GetAxisMaximum,put=PutAxisMaximum))
+    double AxisMaximum[];
+    __declspec(property(get=GetPeakWidthCalculationType,put=PutPeakWidthCalculationType))
+    short PeakWidthCalculationType;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    // Methods:
+    long AddGraph (
+        _bstr_t strName,
+        long lngColor );
+    double InterPolateData (
+        long lngGraphId,
+        double dblXvalue );
+    HRESULT AddDataPoint (
+        long lngGraphIdx,
+        double dblXVal,
+        double dblYVal );
+    HRESULT AddDataPoints (
+        long lngGraphIdx,
+        long lngNoOfPoints,
+        const _variant_t & varXVals,
+        const _variant_t & varYVals );
+    HRESULT ModifyDataPoint (
+        long lngGraphIdx,
+        long lngPtIdx,
+        double dblXVal,
+        double dblYVal );
+    HRESULT DrawMultiColorGraph (
+        long lngGraphIdx,
+        long lngNoOfPoints,
+        const _variant_t & varLngColors,
+        const _variant_t & varDblXVals,
+        const _variant_t & varDblYValues,
+        long lngPenWdth );
+    HRESULT SetGraphPointColor (
+        long lngGraphIdx,
+        long lngPtIdx,
+        OLE_COLOR clrColor );
+    VARIANT_BOOL RemoveDataPoint (
+        long lngGraphIdx,
+        long lngPtIdx );
+    HRESULT RemoveGraph (
+        long lngGraphIdx );
+    HRESULT RemoveAllGraphs ( );
+    HRESULT SetGraphtype (
+        long lngGraphIdx,
+        unsigned short unGraphType );
+    HRESULT SetGraphVisible (
+        long lngGraphIdx,
+        VARIANT_BOOL bShowRHide );
+    VARIANT_BOOL ModifyLegends (
+        long lngGraphIdx,
+        _bstr_t strGraphName,
+        OLE_COLOR clrGraphColor );
+    VARIANT_BOOL StartOnlinePeakDetection ( );
+    VARIANT_BOOL StopOnlinePeakDetection ( );
+    HRESULT StartOfflinePeakDetection ( );
+    HRESULT StopOfflinePeakDetection ( );
+    HRESULT StartAnimation (
+        VARIANT_BOOL bStartRStop );
+    IUnknownPtr GetControlUnknown ( );
+    HRESULT CopyGraph ( );
+    HRESULT CopyData ( );
+    VARIANT_BOOL ExportGraphData (
+        long lngGraphIdx,
+        long lngExpType,
+        VARIANT_BOOL bIncludeIndex,
+        VARIANT_BOOL bIncludeHeader,
+        VARIANT_BOOL bIncludeTitle );
+    HRESULT CalculateTrendLine (
+        long lngGraphIdx,
+        long lngTrendLineType,
+        VARIANT_BOOL bShowTrendLine,
+        long lngtrendLineColor );
+    VARIANT_BOOL FindLinearCoefficients (
+        long lngDataCount,
+        const _variant_t & varDblArrXData,
+        const _variant_t & varDblArrYData,
+        double * dblSlope,
+        double * dblIntercept );
+    VARIANT_BOOL FindQuadraticCoefficients (
+        long lngDataCount,
+        const _variant_t & varDblArrXData,
+        const _variant_t & varDblArrYData,
+        double * dblA0,
+        double * dblA1,
+        double * dblA2 );
+    VARIANT_BOOL LinearCoefficients (
+        long lngGraphIdx,
+        double * dblByAddSlope,
+        double * dblByAddC );
+    VARIANT_BOOL QuadraticCoefficients (
+        long lngGraphIdx,
+        double * dblByAddA0,
+        double * dblByAddA1,
+        double * dblByAddA2 );
+    HRESULT LinearFitX (
+        long lngDataCount,
+        double dblSlope,
+        double dblIntercept,
+        double * dblArrXdata,
+        double * dblArrYData );
+    HRESULT QuadraticFitX (
+        long lngDataCount,
+        double dblA0,
+        double dblA1,
+        double dblA2,
+        double * dblArrXdata,
+        double * dblArrYData );
+    HRESULT GetPeakInfo (
+        long lngGraphIdx,
+        VARIANT * dblHeight,
+        VARIANT * dblWidth,
+        VARIANT * dblArea,
+        VARIANT * lngPeakStartIndex,
+        VARIANT * lngPeakMaxindex,
+        VARIANT * lngPeakEndIndex );
+    long GetPeakIndexes (
+        long lngGraphIdx,
+        long lngPeakLevel,
+        VARIANT * varLngPeakIndexes );
+    HRESULT PeakFillArea (
+        long lngGraphIdx );
+    HRESULT DrawBaseLine (
+        long lngGraphIdx );
+    long GetNumberOfGraphs ( );
+    long GetAllGraphIDs (
+        VARIANT * varLngGraphIndexes );
+    HRESULT GetPeaksCount (
+        VARIANT * varLngPeaksCount );
+    HRESULT DisplayTextAt (
+        long lngGraphIdx,
+        _bstr_t bstrName,
+        double dblXVal,
+        double dblYVal );
+    long GetGraphData (
+        long lngGraphIdx,
+        VARIANT * varDblXval,
+        VARIANT * varDblYval );
+    HRESULT GetGraphDataAt (
+        long lngGraphIdx,
+        long lngIndex,
+        double * dblXVal,
+        double * dblYVal );
+    long GetGraphDataCont (
+        long lngGraphIdx );
+    HRESULT GetGraphMinMax (
+        long lngGraphIdx,
+        double * dblXmin,
+        double * dblYmin,
+        double * dblXmax,
+        double * dblYmax );
+    long GetGraphPeaksCount (
+        long lngGraphIdx );
+    HRESULT PrintGraph (
+        long lngPrinterDC,
+        long lngPageLeft,
+        long lngPageTop,
+        long lngPageRight,
+        long lngPageBottom );
+    HRESULT PrintPreview (
+        long lngDC,
+        long lngPageLeft,
+        long lngPageTop,
+        long lngPageRight,
+        long lngPageBottom );
+    HRESULT DrawDatumLine (
+        long lngGraphIdx,
+        double dblXVal,
+        double dblYVal,
+        OLE_COLOR clrLineColor );
+    long FindPeaks (
+        const _variant_t & varDblYvals,
+        long lngDataPointsCount,
+        long lngPeakLevel,
+        VARIANT * varLngPeakIndexes );
+    VARIANT_BOOL EntireGraph (
+        long lngGraphIdx );
+    VARIANT_BOOL ShowPeaks (
+        long lngGraphIdx,
+        short intPeakLevel );
+    VARIANT_BOOL HidePeaks (
+        long lngGraphIdx );
+    VARIANT_BOOL MoveCrossWireToFirst (
+        long * lngGraphId,
+        long * lngDataPoint );
+    VARIANT_BOOL MoveCrossWireToLast (
+        long * lngGraphId,
+        long * lngDataPoint );
+    VARIANT_BOOL MoveCrossWireToNext (
+        long * lngGraphId,
+        long * lngDataPoint,
+        short intStepBy );
+    VARIANT_BOOL MoveCrossWireToPrev (
+        long * lngGraphId,
+        long * lngDataPoint,
+        short intStepBy );
+    VARIANT_BOOL DisplayCrossWireAt (
+        double dblXVal,
+        double dblYVal );
+    HRESULT SetCustomCrosswireText (
+        _bstr_t bstrCrosswireText,
+        VARIANT_BOOL blnHideXYValues,
+        double Concentration );
+    short GetAxesMarkingPrecision (
+        long lngAxis );
+    void PutAxesMarkingPrecision (
+        long lngAxis,
+        short _arg2 );
+    _bstr_t GetAxestitle (
+        long lngAxis );
+    void PutAxestitle (
+        long lngAxis,
+        _bstr_t _arg2 );
+    double GetAxisMaximum (
+        long lngAxis );
+    void PutAxisMaximum (
+        long lngAxis,
+        double _arg2 );
+    OLE_COLOR GetAxesTitlesColor (
+        long lngAxis );
+    void PutAxesTitlesColor (
+        long lngAxis,
+        OLE_COLOR _arg2 );
+    double GetAxisMinimum (
+        long lngAxis );
+    void PutAxisMinimum (
+        long lngAxis,
+        double _arg2 );
+    OLE_COLOR GetAxisGridColor (
+        long lngAxis );
+    void PutAxisGridColor (
+        long lngAxis,
+        OLE_COLOR _arg2 );
+    short GetAxisGridStyle (
+        long lngAxis );
+    void PutAxisGridStyle (
+        long lngAxis,
+        short _arg2 );
+    long GetZoomDirection ( );
+    void PutZoomDirection (
+        long _arg1 );
+    VARIANT_BOOL GetEnableZoom ( );
+    void PutEnableZoom (
+        VARIANT_BOOL _arg1 );
+    long GetBaseLineType ( );
+    void PutBaseLineType (
+        long _arg1 );
+    OLE_COLOR GetBaseLineColor ( );
+    void PutBaseLineColor (
+        OLE_COLOR _arg1 );
+    OLE_COLOR GetPeakFillColor ( );
+    void PutPeakFillColor (
+        OLE_COLOR _arg1 );
+    double GetPeakMinArea ( );
+    void PutPeakMinArea (
+        double _arg1 );
+    double GetPeakMinHeight ( );
+    void PutPeakMinHeight (
+        double _arg1 );
+    double GetPeakMinWidth ( );
+    void PutPeakMinWidth (
+        double _arg1 );
+    OLE_COLOR GetBackGroundColor ( );
+    void PutBackGroundColor (
+        OLE_COLOR _arg1 );
+    OLE_COLOR GetCustomTextColor ( );
+    void PutCustomTextColor (
+        OLE_COLOR _arg1 );
+    OLE_COLOR GetCustomTextBackColor ( );
+    void PutCustomTextBackColor (
+        OLE_COLOR _arg1 );
+    double GetAverageNoise ( );
+    void PutAverageNoise (
+        double _arg1 );
+    OLE_COLOR GetAxesMarkingColor ( );
+    void PutAxesMarkingColor (
+        OLE_COLOR _arg1 );
+    VARIANT_BOOL GetShowLegend ( );
+    void PutShowLegend (
+        VARIANT_BOOL _arg1 );
+    _bstr_t GetBackImage ( );
+    void PutBackImage (
+        _bstr_t _arg1 );
+    VARIANT_BOOL GetEnableHorzDatumLine ( );
+    void PutEnableHorzDatumLine (
+        VARIANT_BOOL _arg1 );
+    VARIANT_BOOL GetEnableVericalDatumLine ( );
+    void PutEnableVericalDatumLine (
+        VARIANT_BOOL _arg1 );
+    long GetMouseButtonForZoom ( );
+    void PutMouseButtonForZoom (
+        long _arg1 );
+    long GetMinimumPixelsForZoom ( );
+    void PutMinimumPixelsForZoom (
+        long _arg1 );
+    long GetScrollDirection ( );
+    void PutScrollDirection (
+        long _arg1 );
+    long GetMouseButtonForScroll ( );
+    void PutMouseButtonForScroll (
+        long _arg1 );
+    VARIANT_BOOL GetShowHeader ( );
+    void PutShowHeader (
+        VARIANT_BOOL _arg1 );
+    _bstr_t GetHeader ( );
+    void PutHeader (
+        _bstr_t _arg1 );
+    VARIANT_BOOL GetShowDataAtPeak ( );
+    void PutShowDataAtPeak (
+        VARIANT_BOOL _arg1 );
+    VARIANT_BOOL GetCrossWire ( );
+    void PutCrossWire (
+        VARIANT_BOOL _arg1 );
+    long GetCrossWireDataPointIndex ( );
+    void PutCrossWireDataPointIndex (
+        long _arg1 );
+    VARIANT_BOOL GetSort ( );
+    void PutSort (
+        VARIANT_BOOL _arg1 );
+    VARIANT_BOOL GetAutoRange ( );
+    void PutAutoRange (
+        VARIANT_BOOL _arg1 );
+    VARIANT_BOOL GetPerConc ( );
+    void PutPerConc (
+        VARIANT_BOOL _arg1 );
+    VARIANT_BOOL GetShowConcAtPeaks ( );
+    void PutShowConcAtPeaks (
+        VARIANT_BOOL _arg1 );
+    VARIANT_BOOL GetShowXTitle ( );
+    void PutShowXTitle (
+        VARIANT_BOOL _arg1 );
+    VARIANT_BOOL GetShowYTitle ( );
+    void PutShowYTitle (
+        VARIANT_BOOL _arg1 );
+    HRESULT SetLegendFont (
+        _bstr_t strFontName,
+        long lngFontSize );
+    HRESULT SetXYMarkingFont (
+        _bstr_t strFontName,
+        long lngFontSize );
+    HRESULT SetCustomTextFont (
+        _bstr_t strFontName,
+        long lngFontSize );
+    short GetXGrids ( );
+    void PutXGrids (
+        short _arg1 );
+    short GetYGrids ( );
+    void PutYGrids (
+        short _arg1 );
+    VARIANT_BOOL ZoomIn (
+        double dblXmin,
+        double dblXmax,
+        double dblYmin,
+        double dblYmax );
+    HRESULT ZoomOut ( );
+    HRESULT SetHeaderFont (
+        _bstr_t strFontName,
+        long lngFontSize );
+    HRESULT SetAxesTitlesFont (
+        _bstr_t strFontName,
+        long lngFontSize );
+    HRESULT DisplayText (
+        _bstr_t bstrText,
+        long lngLeftMargin,
+        long lngRightMargin );
+    HRESULT ClearCustomText ( );
+    HRESULT WidthAt5PercentHeight (
+        long lngPos,
+        double * dblWidth,
+        double * dblLeftWidth,
+        double * dblRightWidth );
+    HRESULT WidthAt10PercentHeight (
+        long lngPos,
+        double * dblWidth,
+        double * dblLeftWidth,
+        double * dblRightWidth );
+    HRESULT WidthAtHalfHeight (
+        long lngPos,
+        double * dblWidth,
+        double * dblLeftWidth,
+        double * dblRightWidth );
+    HRESULT MoveAxisFromBasePosition (
+        long lngAxisIdx,
+        long lngPositionInPercent,
+        VARIANT_BOOL blnIsStdAxis );
+    HRESULT ChangeAxisStartPosition (
+        long lngAxisIdx,
+        long lngPositionInPercent,
+        VARIANT_BOOL blnIsStdAxis );
+    HRESULT ChangeAxisEndPosition (
+        long lngAxisIdx,
+        long lngPositionInPercent,
+        VARIANT_BOOL blnIsStdAxis );
+    HRESULT AssignAxesForGraph (
+        long lngGraphIdx,
+        long lngCustomHorzAxis,
+        long lngCustomVertAxis );
+    HRESULT RemoveCustomAxis (
+        long lngCustomAxisIdx );
+    HRESULT RemoveAllCustomAxes ( );
+    long AddCustomAxis (
+        VARIANT_BOOL lbnIsHorizontal );
+    _bstr_t GetCustomAxisTitle (
+        long lngAxisIdx );
+    void PutCustomAxisTitle (
+        long lngAxisIdx,
+        _bstr_t _arg2 );
+    double GetCustomAxisMaximum (
+        long lngAxisIdx );
+    void PutCustomAxisMaximum (
+        long lngAxisIdx,
+        double _arg2 );
+    double GetCustomAxisMinimum (
+        long lngAxisIdx );
+    void PutCustomAxisMinimum (
+        long lngAxisIdx,
+        double _arg2 );
+    long GetCustomAxisGrids (
+        long lngAxisIdx );
+    void PutCustomAxisGrids (
+        long lngAxisIdx,
+        long _arg2 );
+    long GetCustomAxisTitleAngle (
+        long lngAxisIdx );
+    void PutCustomAxisTitleAngle (
+        long lngAxisIdx,
+        long _arg2 );
+    HRESULT DoGraphReprocess (
+        unsigned char * bytEventInfo,
+        long lngNoOfEvents );
+    double GetPeakMinTreshold ( );
+    void PutPeakMinTreshold (
+        double _arg1 );
+    HRESULT MarkStartnEndpts (
+        long lngGraphIdx );
+    HRESULT SetStartnEndptMarkingColor (
+        OLE_COLOR newVal );
+    OLE_COLOR GetStartnEndptMarkingColor ( );
+    HRESULT FindArea (
+        long lngGraphId,
+        double dblStartPointXVal,
+        double dblStartPointYVal,
+        double dblEndPointXVal,
+        double dblEndPointYVal,
+        long nStartIndex,
+        long nEndIndex,
+        double * dblArea );
+    HRESULT GetArea (
+        long lngGraphId,
+        double dblStartPointXVal,
+        double dblStartPointYVal,
+        double dblEndPointXVal,
+        double dblEndPointYVal,
+        long lngStartPointIndex,
+        long lngEndPointIndex,
+        double * ptrdblArea );
+
+    // Properties:
+    short GetPeakWidthCalculationType ( );
+    void PutPeakWidthCalculationType ( short _val );
+};
+
+struct __declspec(uuid("07a82910-34bc-43c2-adae-a462286d4e10"))
+_DEsdAdvancedGraphControlEvents : IDispatch
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    // Methods:
+    HRESULT OnAfterDraw ( );
+    HRESULT OnBeforeDrawSeries ( );
+    HRESULT OnBeforeDrawAxes ( );
+    HRESULT OnClick ( );
+    HRESULT OnClickAxis (
+        long Axis,
+        long lButton,
+        long lShift,
+        long X,
+        long Y );
+    HRESULT OnClickBackground (
+        long lButton,
+        long Shift,
+        long X,
+        long Y );
+    HRESULT OnClickLegend (
+        long lButton,
+        long Shift,
+        long X,
+        long Y );
+    HRESULT OnClickSeries (
+        long SeriesIndx,
+        long ValueIndx,
+        long lButton,
+        long Shift,
+        long X,
+        long Y );
+    HRESULT OnDblClick ( );
+    HRESULT OnCursorToolChange (
+        long lngTool,
+        long lngX,
+        long lngY,
+        double dblXVal,
+        double dblYVal,
+        long lngSeries,
+        long ValueIdx );
+    HRESULT OnKeyDown (
+        long lngKeyCode,
+        long lngShiftState );
+    HRESULT OnKeyUp (
+        long lngKeyCode,
+        long lngShiftState );
+    HRESULT OnMouseDown (
+        long lngButton,
+        long lngShiftState,
+        long X,
+        long Y );
+    HRESULT OnMouseMove (
+        long lngShiftState,
+        long X,
+        long Y );
+    HRESULT OnMouseUp (
+        long lngButton,
+        long lngShiftState,
+        long X,
+        long Y );
+    HRESULT OnMouseEnterGraph (
+        long lngGraphIdx );
+    HRESULT OnMouseLeaveGraph (
+        long lngGraphIdx );
+    HRESULT OnResize ( );
+    HRESULT OnScroll ( );
+    HRESULT OnTimer ( );
+    HRESULT OnZoom ( );
+    HRESULT OnUndoZoom ( );
+    HRESULT OnGraphAfterAdd (
+        long lngGraphIdx,
+        long lngPointIdx );
+    HRESULT OnGraphAfterDrawValues (
+        long lngGraphIdx );
+    HRESULT OnGraphBeforeAdd (
+        long lngGraphIdx,
+        VARIANT_BOOL * bMoreValues );
+    HRESULT OnGraphBeforeDrawValues (
+        long lngGraphIdx );
+    HRESULT OnPageChange ( );
+    HRESULT OnGetLegendRect (
+        long * lngLeft,
+        long * lngTop,
+        long * lngRight,
+        long * lngBottom );
+    HRESULT PeakDetected ( );
+};
+
+struct __declspec(uuid("e98e4ed3-c038-4705-8eab-43ad8a1b75ab"))
+EsdAdvancedGraphControl;
+    // [ default ] dispinterface _DEsdAdvancedGraphControl
+    // [ default, source ] dispinterface _DEsdAdvancedGraphControlEvents
+
+//
+// Wrapper method implementations
+//
+
+#include "C:\Users\anisha\Desktop\ArraySpectrum\Source_Code\Debug\esdadvancedgraphcontrol.tli"
+
+#pragma pack(pop)

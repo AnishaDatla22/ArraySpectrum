@@ -1,0 +1,1135 @@
+﻿// Created by Microsoft (R) C/C++ Compiler Version 14.29.30040.0 (b57710e9).
+//
+// C:\Users\anisha\Desktop\ArraySpectrum\Source_Code\Debug\esdadvancedgraphcontrol.tli
+//
+// Wrapper implementations for Win32 type library EsdAdvancedGraphControl.tlb
+// compiler-generated file created 09/23/21 at 11:42:49 - DO NOT EDIT!
+
+#pragma once
+
+//
+// dispinterface _DEsdAdvancedGraphControl wrapper method implementations
+//
+
+inline long _DEsdAdvancedGraphControl::AddGraph ( _bstr_t strName, long lngColor ) {
+    long _result = 0;
+    _com_dispatch_method(this, 0x1, DISPATCH_METHOD, VT_I4, (void*)&_result, 
+        L"\x0008\x0003", (BSTR)strName, lngColor);
+    return _result;
+}
+
+inline double _DEsdAdvancedGraphControl::InterPolateData ( long lngGraphId, double dblXvalue ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x96, DISPATCH_METHOD, VT_R8, (void*)&_result, 
+        L"\x0003\x0005", lngGraphId, dblXvalue);
+    return _result;
+}
+
+inline HRESULT _DEsdAdvancedGraphControl::AddDataPoint ( long lngGraphIdx, double dblXVal, double dblYVal ) {
+    return _com_dispatch_method(this, 0x2, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0003\x0005\x0005", lngGraphIdx, dblXVal, dblYVal);
+}
+
+inline HRESULT _DEsdAdvancedGraphControl::AddDataPoints ( long lngGraphIdx, long lngNoOfPoints, const _variant_t & varXVals, const _variant_t & varYVals ) {
+    return _com_dispatch_method(this, 0x3, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0003\x0003\x000c\x000c", lngGraphIdx, lngNoOfPoints, &varXVals, &varYVals);
+}
+
+inline HRESULT _DEsdAdvancedGraphControl::ModifyDataPoint ( long lngGraphIdx, long lngPtIdx, double dblXVal, double dblYVal ) {
+    return _com_dispatch_method(this, 0x4, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0003\x0003\x0005\x0005", lngGraphIdx, lngPtIdx, dblXVal, dblYVal);
+}
+
+inline HRESULT _DEsdAdvancedGraphControl::DrawMultiColorGraph ( long lngGraphIdx, long lngNoOfPoints, const _variant_t & varLngColors, const _variant_t & varDblXVals, const _variant_t & varDblYValues, long lngPenWdth ) {
+    return _com_dispatch_method(this, 0x5, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0003\x0003\x000c\x000c\x000c\x0003", lngGraphIdx, lngNoOfPoints, &varLngColors, &varDblXVals, &varDblYValues, lngPenWdth);
+}
+
+inline HRESULT _DEsdAdvancedGraphControl::SetGraphPointColor ( long lngGraphIdx, long lngPtIdx, OLE_COLOR clrColor ) {
+    return _com_dispatch_method(this, 0x6, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0003\x0003\x0003", lngGraphIdx, lngPtIdx, clrColor);
+}
+
+inline VARIANT_BOOL _DEsdAdvancedGraphControl::RemoveDataPoint ( long lngGraphIdx, long lngPtIdx ) {
+    VARIANT_BOOL _result = 0;
+    _com_dispatch_method(this, 0x7, DISPATCH_METHOD, VT_BOOL, (void*)&_result, 
+        L"\x0003\x0003", lngGraphIdx, lngPtIdx);
+    return _result;
+}
+
+inline HRESULT _DEsdAdvancedGraphControl::RemoveGraph ( long lngGraphIdx ) {
+    return _com_dispatch_method(this, 0x8, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0003", lngGraphIdx);
+}
+
+inline HRESULT _DEsdAdvancedGraphControl::RemoveAllGraphs ( ) {
+    return _com_dispatch_method(this, 0x9, DISPATCH_METHOD, VT_EMPTY, NULL, NULL);
+}
+
+inline HRESULT _DEsdAdvancedGraphControl::SetGraphtype ( long lngGraphIdx, unsigned short unGraphType ) {
+    return _com_dispatch_method(this, 0xa, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0003\x0002", lngGraphIdx, unGraphType);
+}
+
+inline HRESULT _DEsdAdvancedGraphControl::SetGraphVisible ( long lngGraphIdx, VARIANT_BOOL bShowRHide ) {
+    return _com_dispatch_method(this, 0xb, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0003\x000b", lngGraphIdx, bShowRHide);
+}
+
+inline VARIANT_BOOL _DEsdAdvancedGraphControl::ModifyLegends ( long lngGraphIdx, _bstr_t strGraphName, OLE_COLOR clrGraphColor ) {
+    VARIANT_BOOL _result = 0;
+    _com_dispatch_method(this, 0xc, DISPATCH_METHOD, VT_BOOL, (void*)&_result, 
+        L"\x0003\x0008\x0003", lngGraphIdx, (BSTR)strGraphName, clrGraphColor);
+    return _result;
+}
+
+inline VARIANT_BOOL _DEsdAdvancedGraphControl::StartOnlinePeakDetection ( ) {
+    VARIANT_BOOL _result = 0;
+    _com_dispatch_method(this, 0xd, DISPATCH_METHOD, VT_BOOL, (void*)&_result, NULL);
+    return _result;
+}
+
+inline VARIANT_BOOL _DEsdAdvancedGraphControl::StopOnlinePeakDetection ( ) {
+    VARIANT_BOOL _result = 0;
+    _com_dispatch_method(this, 0xe, DISPATCH_METHOD, VT_BOOL, (void*)&_result, NULL);
+    return _result;
+}
+
+inline HRESULT _DEsdAdvancedGraphControl::StartOfflinePeakDetection ( ) {
+    return _com_dispatch_method(this, 0xf, DISPATCH_METHOD, VT_EMPTY, NULL, NULL);
+}
+
+inline HRESULT _DEsdAdvancedGraphControl::StopOfflinePeakDetection ( ) {
+    return _com_dispatch_method(this, 0x10, DISPATCH_METHOD, VT_EMPTY, NULL, NULL);
+}
+
+inline HRESULT _DEsdAdvancedGraphControl::StartAnimation ( VARIANT_BOOL bStartRStop ) {
+    return _com_dispatch_method(this, 0x11, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x000b", bStartRStop);
+}
+
+inline IUnknownPtr _DEsdAdvancedGraphControl::GetControlUnknown ( ) {
+    IUnknown * _result = 0;
+    _com_dispatch_method(this, 0x12, DISPATCH_METHOD, VT_UNKNOWN, (void*)&_result, NULL);
+    return IUnknownPtr(_result, false);
+}
+
+inline HRESULT _DEsdAdvancedGraphControl::CopyGraph ( ) {
+    return _com_dispatch_method(this, 0x13, DISPATCH_METHOD, VT_EMPTY, NULL, NULL);
+}
+
+inline HRESULT _DEsdAdvancedGraphControl::CopyData ( ) {
+    return _com_dispatch_method(this, 0x14, DISPATCH_METHOD, VT_EMPTY, NULL, NULL);
+}
+
+inline VARIANT_BOOL _DEsdAdvancedGraphControl::ExportGraphData ( long lngGraphIdx, long lngExpType, VARIANT_BOOL bIncludeIndex, VARIANT_BOOL bIncludeHeader, VARIANT_BOOL bIncludeTitle ) {
+    VARIANT_BOOL _result = 0;
+    _com_dispatch_method(this, 0x15, DISPATCH_METHOD, VT_BOOL, (void*)&_result, 
+        L"\x0003\x0003\x000b\x000b\x000b", lngGraphIdx, lngExpType, bIncludeIndex, bIncludeHeader, bIncludeTitle);
+    return _result;
+}
+
+inline HRESULT _DEsdAdvancedGraphControl::CalculateTrendLine ( long lngGraphIdx, long lngTrendLineType, VARIANT_BOOL bShowTrendLine, long lngtrendLineColor ) {
+    return _com_dispatch_method(this, 0x16, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0003\x0003\x000b\x0003", lngGraphIdx, lngTrendLineType, bShowTrendLine, lngtrendLineColor);
+}
+
+inline VARIANT_BOOL _DEsdAdvancedGraphControl::FindLinearCoefficients ( long lngDataCount, const _variant_t & varDblArrXData, const _variant_t & varDblArrYData, double * dblSlope, double * dblIntercept ) {
+    VARIANT_BOOL _result = 0;
+    _com_dispatch_method(this, 0x17, DISPATCH_METHOD, VT_BOOL, (void*)&_result, 
+        L"\x0003\x000c\x000c\x4005\x4005", lngDataCount, &varDblArrXData, &varDblArrYData, dblSlope, dblIntercept);
+    return _result;
+}
+
+inline VARIANT_BOOL _DEsdAdvancedGraphControl::FindQuadraticCoefficients ( long lngDataCount, const _variant_t & varDblArrXData, const _variant_t & varDblArrYData, double * dblA0, double * dblA1, double * dblA2 ) {
+    VARIANT_BOOL _result = 0;
+    _com_dispatch_method(this, 0x18, DISPATCH_METHOD, VT_BOOL, (void*)&_result, 
+        L"\x0003\x000c\x000c\x4005\x4005\x4005", lngDataCount, &varDblArrXData, &varDblArrYData, dblA0, dblA1, dblA2);
+    return _result;
+}
+
+inline VARIANT_BOOL _DEsdAdvancedGraphControl::LinearCoefficients ( long lngGraphIdx, double * dblByAddSlope, double * dblByAddC ) {
+    VARIANT_BOOL _result = 0;
+    _com_dispatch_method(this, 0x19, DISPATCH_METHOD, VT_BOOL, (void*)&_result, 
+        L"\x0003\x4005\x4005", lngGraphIdx, dblByAddSlope, dblByAddC);
+    return _result;
+}
+
+inline VARIANT_BOOL _DEsdAdvancedGraphControl::QuadraticCoefficients ( long lngGraphIdx, double * dblByAddA0, double * dblByAddA1, double * dblByAddA2 ) {
+    VARIANT_BOOL _result = 0;
+    _com_dispatch_method(this, 0x1a, DISPATCH_METHOD, VT_BOOL, (void*)&_result, 
+        L"\x0003\x4005\x4005\x4005", lngGraphIdx, dblByAddA0, dblByAddA1, dblByAddA2);
+    return _result;
+}
+
+inline HRESULT _DEsdAdvancedGraphControl::LinearFitX ( long lngDataCount, double dblSlope, double dblIntercept, double * dblArrXdata, double * dblArrYData ) {
+    return _com_dispatch_method(this, 0x1b, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0003\x0005\x0005\x4005\x4005", lngDataCount, dblSlope, dblIntercept, dblArrXdata, dblArrYData);
+}
+
+inline HRESULT _DEsdAdvancedGraphControl::QuadraticFitX ( long lngDataCount, double dblA0, double dblA1, double dblA2, double * dblArrXdata, double * dblArrYData ) {
+    return _com_dispatch_method(this, 0x1c, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0003\x0005\x0005\x0005\x4005\x4005", lngDataCount, dblA0, dblA1, dblA2, dblArrXdata, dblArrYData);
+}
+
+inline HRESULT _DEsdAdvancedGraphControl::GetPeakInfo ( long lngGraphIdx, VARIANT * dblHeight, VARIANT * dblWidth, VARIANT * dblArea, VARIANT * lngPeakStartIndex, VARIANT * lngPeakMaxindex, VARIANT * lngPeakEndIndex ) {
+    return _com_dispatch_method(this, 0x1d, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0003\x400c\x400c\x400c\x400c\x400c\x400c", lngGraphIdx, dblHeight, dblWidth, dblArea, lngPeakStartIndex, lngPeakMaxindex, lngPeakEndIndex);
+}
+
+inline long _DEsdAdvancedGraphControl::GetPeakIndexes ( long lngGraphIdx, long lngPeakLevel, VARIANT * varLngPeakIndexes ) {
+    long _result = 0;
+    _com_dispatch_method(this, 0x1e, DISPATCH_METHOD, VT_I4, (void*)&_result, 
+        L"\x0003\x0003\x400c", lngGraphIdx, lngPeakLevel, varLngPeakIndexes);
+    return _result;
+}
+
+inline HRESULT _DEsdAdvancedGraphControl::PeakFillArea ( long lngGraphIdx ) {
+    return _com_dispatch_method(this, 0x20, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0003", lngGraphIdx);
+}
+
+inline HRESULT _DEsdAdvancedGraphControl::DrawBaseLine ( long lngGraphIdx ) {
+    return _com_dispatch_method(this, 0x21, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0003", lngGraphIdx);
+}
+
+inline long _DEsdAdvancedGraphControl::GetNumberOfGraphs ( ) {
+    long _result = 0;
+    _com_dispatch_method(this, 0x24, DISPATCH_METHOD, VT_I4, (void*)&_result, NULL);
+    return _result;
+}
+
+inline long _DEsdAdvancedGraphControl::GetAllGraphIDs ( VARIANT * varLngGraphIndexes ) {
+    long _result = 0;
+    _com_dispatch_method(this, 0x25, DISPATCH_METHOD, VT_I4, (void*)&_result, 
+        L"\x400c", varLngGraphIndexes);
+    return _result;
+}
+
+inline HRESULT _DEsdAdvancedGraphControl::GetPeaksCount ( VARIANT * varLngPeaksCount ) {
+    return _com_dispatch_method(this, 0x2a, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x400c", varLngPeaksCount);
+}
+
+inline HRESULT _DEsdAdvancedGraphControl::DisplayTextAt ( long lngGraphIdx, _bstr_t bstrName, double dblXVal, double dblYVal ) {
+    return _com_dispatch_method(this, 0x2b, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0003\x0008\x0005\x0005", lngGraphIdx, (BSTR)bstrName, dblXVal, dblYVal);
+}
+
+inline long _DEsdAdvancedGraphControl::GetGraphData ( long lngGraphIdx, VARIANT * varDblXval, VARIANT * varDblYval ) {
+    long _result = 0;
+    _com_dispatch_method(this, 0x32, DISPATCH_METHOD, VT_I4, (void*)&_result, 
+        L"\x0003\x400c\x400c", lngGraphIdx, varDblXval, varDblYval);
+    return _result;
+}
+
+inline HRESULT _DEsdAdvancedGraphControl::GetGraphDataAt ( long lngGraphIdx, long lngIndex, double * dblXVal, double * dblYVal ) {
+    return _com_dispatch_method(this, 0x33, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0003\x0003\x4005\x4005", lngGraphIdx, lngIndex, dblXVal, dblYVal);
+}
+
+inline long _DEsdAdvancedGraphControl::GetGraphDataCont ( long lngGraphIdx ) {
+    long _result = 0;
+    _com_dispatch_method(this, 0x34, DISPATCH_METHOD, VT_I4, (void*)&_result, 
+        L"\x0003", lngGraphIdx);
+    return _result;
+}
+
+inline HRESULT _DEsdAdvancedGraphControl::GetGraphMinMax ( long lngGraphIdx, double * dblXmin, double * dblYmin, double * dblXmax, double * dblYmax ) {
+    return _com_dispatch_method(this, 0x35, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0003\x4005\x4005\x4005\x4005", lngGraphIdx, dblXmin, dblYmin, dblXmax, dblYmax);
+}
+
+inline long _DEsdAdvancedGraphControl::GetGraphPeaksCount ( long lngGraphIdx ) {
+    long _result = 0;
+    _com_dispatch_method(this, 0x39, DISPATCH_METHOD, VT_I4, (void*)&_result, 
+        L"\x0003", lngGraphIdx);
+    return _result;
+}
+
+inline HRESULT _DEsdAdvancedGraphControl::PrintGraph ( long lngPrinterDC, long lngPageLeft, long lngPageTop, long lngPageRight, long lngPageBottom ) {
+    return _com_dispatch_method(this, 0x3a, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0003\x0003\x0003\x0003\x0003", lngPrinterDC, lngPageLeft, lngPageTop, lngPageRight, lngPageBottom);
+}
+
+inline HRESULT _DEsdAdvancedGraphControl::PrintPreview ( long lngDC, long lngPageLeft, long lngPageTop, long lngPageRight, long lngPageBottom ) {
+    return _com_dispatch_method(this, 0x3b, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0003\x0003\x0003\x0003\x0003", lngDC, lngPageLeft, lngPageTop, lngPageRight, lngPageBottom);
+}
+
+inline HRESULT _DEsdAdvancedGraphControl::DrawDatumLine ( long lngGraphIdx, double dblXVal, double dblYVal, OLE_COLOR clrLineColor ) {
+    return _com_dispatch_method(this, 0x3e, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0003\x0005\x0005\x0003", lngGraphIdx, dblXVal, dblYVal, clrLineColor);
+}
+
+inline long _DEsdAdvancedGraphControl::FindPeaks ( const _variant_t & varDblYvals, long lngDataPointsCount, long lngPeakLevel, VARIANT * varLngPeakIndexes ) {
+    long _result = 0;
+    _com_dispatch_method(this, 0x46, DISPATCH_METHOD, VT_I4, (void*)&_result, 
+        L"\x000c\x0003\x0003\x400c", &varDblYvals, lngDataPointsCount, lngPeakLevel, varLngPeakIndexes);
+    return _result;
+}
+
+inline VARIANT_BOOL _DEsdAdvancedGraphControl::EntireGraph ( long lngGraphIdx ) {
+    VARIANT_BOOL _result = 0;
+    _com_dispatch_method(this, 0x50, DISPATCH_METHOD, VT_BOOL, (void*)&_result, 
+        L"\x0003", lngGraphIdx);
+    return _result;
+}
+
+inline VARIANT_BOOL _DEsdAdvancedGraphControl::ShowPeaks ( long lngGraphIdx, short intPeakLevel ) {
+    VARIANT_BOOL _result = 0;
+    _com_dispatch_method(this, 0x56, DISPATCH_METHOD, VT_BOOL, (void*)&_result, 
+        L"\x0003\x0002", lngGraphIdx, intPeakLevel);
+    return _result;
+}
+
+inline VARIANT_BOOL _DEsdAdvancedGraphControl::HidePeaks ( long lngGraphIdx ) {
+    VARIANT_BOOL _result = 0;
+    _com_dispatch_method(this, 0x57, DISPATCH_METHOD, VT_BOOL, (void*)&_result, 
+        L"\x0003", lngGraphIdx);
+    return _result;
+}
+
+inline VARIANT_BOOL _DEsdAdvancedGraphControl::MoveCrossWireToFirst ( long * lngGraphId, long * lngDataPoint ) {
+    VARIANT_BOOL _result = 0;
+    _com_dispatch_method(this, 0x5a, DISPATCH_METHOD, VT_BOOL, (void*)&_result, 
+        L"\x4003\x4003", lngGraphId, lngDataPoint);
+    return _result;
+}
+
+inline VARIANT_BOOL _DEsdAdvancedGraphControl::MoveCrossWireToLast ( long * lngGraphId, long * lngDataPoint ) {
+    VARIANT_BOOL _result = 0;
+    _com_dispatch_method(this, 0x5b, DISPATCH_METHOD, VT_BOOL, (void*)&_result, 
+        L"\x4003\x4003", lngGraphId, lngDataPoint);
+    return _result;
+}
+
+inline VARIANT_BOOL _DEsdAdvancedGraphControl::MoveCrossWireToNext ( long * lngGraphId, long * lngDataPoint, short intStepBy ) {
+    VARIANT_BOOL _result = 0;
+    _com_dispatch_method(this, 0x5c, DISPATCH_METHOD, VT_BOOL, (void*)&_result, 
+        L"\x4003\x4003\x0002", lngGraphId, lngDataPoint, intStepBy);
+    return _result;
+}
+
+inline VARIANT_BOOL _DEsdAdvancedGraphControl::MoveCrossWireToPrev ( long * lngGraphId, long * lngDataPoint, short intStepBy ) {
+    VARIANT_BOOL _result = 0;
+    _com_dispatch_method(this, 0x5d, DISPATCH_METHOD, VT_BOOL, (void*)&_result, 
+        L"\x4003\x4003\x0002", lngGraphId, lngDataPoint, intStepBy);
+    return _result;
+}
+
+inline VARIANT_BOOL _DEsdAdvancedGraphControl::DisplayCrossWireAt ( double dblXVal, double dblYVal ) {
+    VARIANT_BOOL _result = 0;
+    _com_dispatch_method(this, 0x5e, DISPATCH_METHOD, VT_BOOL, (void*)&_result, 
+        L"\x0005\x0005", dblXVal, dblYVal);
+    return _result;
+}
+
+inline HRESULT _DEsdAdvancedGraphControl::SetCustomCrosswireText ( _bstr_t bstrCrosswireText, VARIANT_BOOL blnHideXYValues, double Concentration ) {
+    return _com_dispatch_method(this, 0x5f, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0008\x000b\x0005", (BSTR)bstrCrosswireText, blnHideXYValues, Concentration);
+}
+
+inline short _DEsdAdvancedGraphControl::GetAxesMarkingPrecision ( long lngAxis ) {
+    short _result = 0;
+    _com_dispatch_method(this, 0x4d, DISPATCH_PROPERTYGET, VT_I2, (void*)&_result, 
+        L"\x0003", lngAxis);
+    return _result;
+}
+
+inline void _DEsdAdvancedGraphControl::PutAxesMarkingPrecision ( long lngAxis, short _arg2 ) {
+    _com_dispatch_method(this, 0x4d, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003\x0002", lngAxis, _arg2);
+}
+
+inline _bstr_t _DEsdAdvancedGraphControl::GetAxestitle ( long lngAxis ) {
+    BSTR _result = 0;
+    _com_dispatch_method(this, 0x4e, DISPATCH_PROPERTYGET, VT_BSTR, (void*)&_result, 
+        L"\x0003", lngAxis);
+    return _bstr_t(_result, false);
+}
+
+inline void _DEsdAdvancedGraphControl::PutAxestitle ( long lngAxis, _bstr_t _arg2 ) {
+    _com_dispatch_method(this, 0x4e, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003\x0008", lngAxis, (BSTR)_arg2);
+}
+
+inline double _DEsdAdvancedGraphControl::GetAxisMaximum ( long lngAxis ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x51, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, 
+        L"\x0003", lngAxis);
+    return _result;
+}
+
+inline void _DEsdAdvancedGraphControl::PutAxisMaximum ( long lngAxis, double _arg2 ) {
+    _com_dispatch_method(this, 0x51, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003\x0005", lngAxis, _arg2);
+}
+
+inline OLE_COLOR _DEsdAdvancedGraphControl::GetAxesTitlesColor ( long lngAxis ) {
+    OLE_COLOR _result;
+    _com_dispatch_method(this, 0x52, DISPATCH_PROPERTYGET, VT_I4, (void*)&_result, 
+        L"\x0003", lngAxis);
+    return _result;
+}
+
+inline void _DEsdAdvancedGraphControl::PutAxesTitlesColor ( long lngAxis, OLE_COLOR _arg2 ) {
+    _com_dispatch_method(this, 0x52, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003\x0003", lngAxis, _arg2);
+}
+
+inline double _DEsdAdvancedGraphControl::GetAxisMinimum ( long lngAxis ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x53, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, 
+        L"\x0003", lngAxis);
+    return _result;
+}
+
+inline void _DEsdAdvancedGraphControl::PutAxisMinimum ( long lngAxis, double _arg2 ) {
+    _com_dispatch_method(this, 0x53, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003\x0005", lngAxis, _arg2);
+}
+
+inline OLE_COLOR _DEsdAdvancedGraphControl::GetAxisGridColor ( long lngAxis ) {
+    OLE_COLOR _result;
+    _com_dispatch_method(this, 0x54, DISPATCH_PROPERTYGET, VT_I4, (void*)&_result, 
+        L"\x0003", lngAxis);
+    return _result;
+}
+
+inline void _DEsdAdvancedGraphControl::PutAxisGridColor ( long lngAxis, OLE_COLOR _arg2 ) {
+    _com_dispatch_method(this, 0x54, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003\x0003", lngAxis, _arg2);
+}
+
+inline short _DEsdAdvancedGraphControl::GetAxisGridStyle ( long lngAxis ) {
+    short _result = 0;
+    _com_dispatch_method(this, 0x55, DISPATCH_PROPERTYGET, VT_I2, (void*)&_result, 
+        L"\x0003", lngAxis);
+    return _result;
+}
+
+inline void _DEsdAdvancedGraphControl::PutAxisGridStyle ( long lngAxis, short _arg2 ) {
+    _com_dispatch_method(this, 0x55, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003\x0002", lngAxis, _arg2);
+}
+
+inline long _DEsdAdvancedGraphControl::GetZoomDirection ( ) {
+    long _result = 0;
+    _com_dispatch_method(this, 0x3f, DISPATCH_PROPERTYGET, VT_I4, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void _DEsdAdvancedGraphControl::PutZoomDirection ( long _arg1 ) {
+    _com_dispatch_method(this, 0x3f, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003", _arg1);
+}
+
+inline VARIANT_BOOL _DEsdAdvancedGraphControl::GetEnableZoom ( ) {
+    VARIANT_BOOL _result = 0;
+    _com_dispatch_method(this, 0x40, DISPATCH_PROPERTYGET, VT_BOOL, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void _DEsdAdvancedGraphControl::PutEnableZoom ( VARIANT_BOOL _arg1 ) {
+    _com_dispatch_method(this, 0x40, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x000b", _arg1);
+}
+
+inline long _DEsdAdvancedGraphControl::GetBaseLineType ( ) {
+    long _result = 0;
+    _com_dispatch_method(this, 0x22, DISPATCH_PROPERTYGET, VT_I4, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void _DEsdAdvancedGraphControl::PutBaseLineType ( long _arg1 ) {
+    _com_dispatch_method(this, 0x22, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003", _arg1);
+}
+
+inline OLE_COLOR _DEsdAdvancedGraphControl::GetBaseLineColor ( ) {
+    OLE_COLOR _result;
+    _com_dispatch_method(this, 0x23, DISPATCH_PROPERTYGET, VT_I4, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void _DEsdAdvancedGraphControl::PutBaseLineColor ( OLE_COLOR _arg1 ) {
+    _com_dispatch_method(this, 0x23, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003", _arg1);
+}
+
+inline OLE_COLOR _DEsdAdvancedGraphControl::GetPeakFillColor ( ) {
+    OLE_COLOR _result;
+    _com_dispatch_method(this, 0x26, DISPATCH_PROPERTYGET, VT_I4, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void _DEsdAdvancedGraphControl::PutPeakFillColor ( OLE_COLOR _arg1 ) {
+    _com_dispatch_method(this, 0x26, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003", _arg1);
+}
+
+inline double _DEsdAdvancedGraphControl::GetPeakMinArea ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x27, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void _DEsdAdvancedGraphControl::PutPeakMinArea ( double _arg1 ) {
+    _com_dispatch_method(this, 0x27, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double _DEsdAdvancedGraphControl::GetPeakMinHeight ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x28, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void _DEsdAdvancedGraphControl::PutPeakMinHeight ( double _arg1 ) {
+    _com_dispatch_method(this, 0x28, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline double _DEsdAdvancedGraphControl::GetPeakMinWidth ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x29, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void _DEsdAdvancedGraphControl::PutPeakMinWidth ( double _arg1 ) {
+    _com_dispatch_method(this, 0x29, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline OLE_COLOR _DEsdAdvancedGraphControl::GetBackGroundColor ( ) {
+    OLE_COLOR _result;
+    _com_dispatch_method(this, 0x2c, DISPATCH_PROPERTYGET, VT_I4, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void _DEsdAdvancedGraphControl::PutBackGroundColor ( OLE_COLOR _arg1 ) {
+    _com_dispatch_method(this, 0x2c, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003", _arg1);
+}
+
+inline OLE_COLOR _DEsdAdvancedGraphControl::GetCustomTextColor ( ) {
+    OLE_COLOR _result;
+    _com_dispatch_method(this, 0x2d, DISPATCH_PROPERTYGET, VT_I4, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void _DEsdAdvancedGraphControl::PutCustomTextColor ( OLE_COLOR _arg1 ) {
+    _com_dispatch_method(this, 0x2d, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003", _arg1);
+}
+
+inline OLE_COLOR _DEsdAdvancedGraphControl::GetCustomTextBackColor ( ) {
+    OLE_COLOR _result;
+    _com_dispatch_method(this, 0x2e, DISPATCH_PROPERTYGET, VT_I4, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void _DEsdAdvancedGraphControl::PutCustomTextBackColor ( OLE_COLOR _arg1 ) {
+    _com_dispatch_method(this, 0x2e, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003", _arg1);
+}
+
+inline double _DEsdAdvancedGraphControl::GetAverageNoise ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x2f, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void _DEsdAdvancedGraphControl::PutAverageNoise ( double _arg1 ) {
+    _com_dispatch_method(this, 0x2f, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline OLE_COLOR _DEsdAdvancedGraphControl::GetAxesMarkingColor ( ) {
+    OLE_COLOR _result;
+    _com_dispatch_method(this, 0x30, DISPATCH_PROPERTYGET, VT_I4, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void _DEsdAdvancedGraphControl::PutAxesMarkingColor ( OLE_COLOR _arg1 ) {
+    _com_dispatch_method(this, 0x30, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003", _arg1);
+}
+
+inline VARIANT_BOOL _DEsdAdvancedGraphControl::GetShowLegend ( ) {
+    VARIANT_BOOL _result = 0;
+    _com_dispatch_method(this, 0x31, DISPATCH_PROPERTYGET, VT_BOOL, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void _DEsdAdvancedGraphControl::PutShowLegend ( VARIANT_BOOL _arg1 ) {
+    _com_dispatch_method(this, 0x31, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x000b", _arg1);
+}
+
+inline _bstr_t _DEsdAdvancedGraphControl::GetBackImage ( ) {
+    BSTR _result = 0;
+    _com_dispatch_method(this, 0x36, DISPATCH_PROPERTYGET, VT_BSTR, (void*)&_result, NULL);
+    return _bstr_t(_result, false);
+}
+
+inline void _DEsdAdvancedGraphControl::PutBackImage ( _bstr_t _arg1 ) {
+    _com_dispatch_method(this, 0x36, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0008", (BSTR)_arg1);
+}
+
+inline VARIANT_BOOL _DEsdAdvancedGraphControl::GetEnableHorzDatumLine ( ) {
+    VARIANT_BOOL _result = 0;
+    _com_dispatch_method(this, 0x3c, DISPATCH_PROPERTYGET, VT_BOOL, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void _DEsdAdvancedGraphControl::PutEnableHorzDatumLine ( VARIANT_BOOL _arg1 ) {
+    _com_dispatch_method(this, 0x3c, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x000b", _arg1);
+}
+
+inline VARIANT_BOOL _DEsdAdvancedGraphControl::GetEnableVericalDatumLine ( ) {
+    VARIANT_BOOL _result = 0;
+    _com_dispatch_method(this, 0x3d, DISPATCH_PROPERTYGET, VT_BOOL, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void _DEsdAdvancedGraphControl::PutEnableVericalDatumLine ( VARIANT_BOOL _arg1 ) {
+    _com_dispatch_method(this, 0x3d, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x000b", _arg1);
+}
+
+inline long _DEsdAdvancedGraphControl::GetMouseButtonForZoom ( ) {
+    long _result = 0;
+    _com_dispatch_method(this, 0x41, DISPATCH_PROPERTYGET, VT_I4, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void _DEsdAdvancedGraphControl::PutMouseButtonForZoom ( long _arg1 ) {
+    _com_dispatch_method(this, 0x41, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003", _arg1);
+}
+
+inline long _DEsdAdvancedGraphControl::GetMinimumPixelsForZoom ( ) {
+    long _result = 0;
+    _com_dispatch_method(this, 0x42, DISPATCH_PROPERTYGET, VT_I4, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void _DEsdAdvancedGraphControl::PutMinimumPixelsForZoom ( long _arg1 ) {
+    _com_dispatch_method(this, 0x42, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003", _arg1);
+}
+
+inline long _DEsdAdvancedGraphControl::GetScrollDirection ( ) {
+    long _result = 0;
+    _com_dispatch_method(this, 0x43, DISPATCH_PROPERTYGET, VT_I4, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void _DEsdAdvancedGraphControl::PutScrollDirection ( long _arg1 ) {
+    _com_dispatch_method(this, 0x43, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003", _arg1);
+}
+
+inline long _DEsdAdvancedGraphControl::GetMouseButtonForScroll ( ) {
+    long _result = 0;
+    _com_dispatch_method(this, 0x44, DISPATCH_PROPERTYGET, VT_I4, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void _DEsdAdvancedGraphControl::PutMouseButtonForScroll ( long _arg1 ) {
+    _com_dispatch_method(this, 0x44, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003", _arg1);
+}
+
+inline VARIANT_BOOL _DEsdAdvancedGraphControl::GetShowHeader ( ) {
+    VARIANT_BOOL _result = 0;
+    _com_dispatch_method(this, 0x48, DISPATCH_PROPERTYGET, VT_BOOL, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void _DEsdAdvancedGraphControl::PutShowHeader ( VARIANT_BOOL _arg1 ) {
+    _com_dispatch_method(this, 0x48, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x000b", _arg1);
+}
+
+inline _bstr_t _DEsdAdvancedGraphControl::GetHeader ( ) {
+    BSTR _result = 0;
+    _com_dispatch_method(this, 0x49, DISPATCH_PROPERTYGET, VT_BSTR, (void*)&_result, NULL);
+    return _bstr_t(_result, false);
+}
+
+inline void _DEsdAdvancedGraphControl::PutHeader ( _bstr_t _arg1 ) {
+    _com_dispatch_method(this, 0x49, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0008", (BSTR)_arg1);
+}
+
+inline VARIANT_BOOL _DEsdAdvancedGraphControl::GetShowDataAtPeak ( ) {
+    VARIANT_BOOL _result = 0;
+    _com_dispatch_method(this, 0x58, DISPATCH_PROPERTYGET, VT_BOOL, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void _DEsdAdvancedGraphControl::PutShowDataAtPeak ( VARIANT_BOOL _arg1 ) {
+    _com_dispatch_method(this, 0x58, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x000b", _arg1);
+}
+
+inline VARIANT_BOOL _DEsdAdvancedGraphControl::GetCrossWire ( ) {
+    VARIANT_BOOL _result = 0;
+    _com_dispatch_method(this, 0x59, DISPATCH_PROPERTYGET, VT_BOOL, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void _DEsdAdvancedGraphControl::PutCrossWire ( VARIANT_BOOL _arg1 ) {
+    _com_dispatch_method(this, 0x59, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x000b", _arg1);
+}
+
+inline long _DEsdAdvancedGraphControl::GetCrossWireDataPointIndex ( ) {
+    long _result = 0;
+    _com_dispatch_method(this, 0x60, DISPATCH_PROPERTYGET, VT_I4, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void _DEsdAdvancedGraphControl::PutCrossWireDataPointIndex ( long _arg1 ) {
+    _com_dispatch_method(this, 0x60, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003", _arg1);
+}
+
+inline VARIANT_BOOL _DEsdAdvancedGraphControl::GetSort ( ) {
+    VARIANT_BOOL _result = 0;
+    _com_dispatch_method(this, 0x61, DISPATCH_PROPERTYGET, VT_BOOL, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void _DEsdAdvancedGraphControl::PutSort ( VARIANT_BOOL _arg1 ) {
+    _com_dispatch_method(this, 0x61, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x000b", _arg1);
+}
+
+inline VARIANT_BOOL _DEsdAdvancedGraphControl::GetAutoRange ( ) {
+    VARIANT_BOOL _result = 0;
+    _com_dispatch_method(this, 0x62, DISPATCH_PROPERTYGET, VT_BOOL, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void _DEsdAdvancedGraphControl::PutAutoRange ( VARIANT_BOOL _arg1 ) {
+    _com_dispatch_method(this, 0x62, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x000b", _arg1);
+}
+
+inline VARIANT_BOOL _DEsdAdvancedGraphControl::GetPerConc ( ) {
+    VARIANT_BOOL _result = 0;
+    _com_dispatch_method(this, 0x63, DISPATCH_PROPERTYGET, VT_BOOL, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void _DEsdAdvancedGraphControl::PutPerConc ( VARIANT_BOOL _arg1 ) {
+    _com_dispatch_method(this, 0x63, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x000b", _arg1);
+}
+
+inline VARIANT_BOOL _DEsdAdvancedGraphControl::GetShowConcAtPeaks ( ) {
+    VARIANT_BOOL _result = 0;
+    _com_dispatch_method(this, 0x64, DISPATCH_PROPERTYGET, VT_BOOL, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void _DEsdAdvancedGraphControl::PutShowConcAtPeaks ( VARIANT_BOOL _arg1 ) {
+    _com_dispatch_method(this, 0x64, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x000b", _arg1);
+}
+
+inline VARIANT_BOOL _DEsdAdvancedGraphControl::GetShowXTitle ( ) {
+    VARIANT_BOOL _result = 0;
+    _com_dispatch_method(this, 0x65, DISPATCH_PROPERTYGET, VT_BOOL, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void _DEsdAdvancedGraphControl::PutShowXTitle ( VARIANT_BOOL _arg1 ) {
+    _com_dispatch_method(this, 0x65, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x000b", _arg1);
+}
+
+inline VARIANT_BOOL _DEsdAdvancedGraphControl::GetShowYTitle ( ) {
+    VARIANT_BOOL _result = 0;
+    _com_dispatch_method(this, 0x66, DISPATCH_PROPERTYGET, VT_BOOL, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void _DEsdAdvancedGraphControl::PutShowYTitle ( VARIANT_BOOL _arg1 ) {
+    _com_dispatch_method(this, 0x66, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x000b", _arg1);
+}
+
+inline HRESULT _DEsdAdvancedGraphControl::SetLegendFont ( _bstr_t strFontName, long lngFontSize ) {
+    return _com_dispatch_method(this, 0x67, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0008\x0003", (BSTR)strFontName, lngFontSize);
+}
+
+inline HRESULT _DEsdAdvancedGraphControl::SetXYMarkingFont ( _bstr_t strFontName, long lngFontSize ) {
+    return _com_dispatch_method(this, 0x68, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0008\x0003", (BSTR)strFontName, lngFontSize);
+}
+
+inline HRESULT _DEsdAdvancedGraphControl::SetCustomTextFont ( _bstr_t strFontName, long lngFontSize ) {
+    return _com_dispatch_method(this, 0x69, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0008\x0003", (BSTR)strFontName, lngFontSize);
+}
+
+inline short _DEsdAdvancedGraphControl::GetXGrids ( ) {
+    short _result = 0;
+    _com_dispatch_method(this, 0x6a, DISPATCH_PROPERTYGET, VT_I2, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void _DEsdAdvancedGraphControl::PutXGrids ( short _arg1 ) {
+    _com_dispatch_method(this, 0x6a, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0002", _arg1);
+}
+
+inline short _DEsdAdvancedGraphControl::GetYGrids ( ) {
+    short _result = 0;
+    _com_dispatch_method(this, 0x6b, DISPATCH_PROPERTYGET, VT_I2, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void _DEsdAdvancedGraphControl::PutYGrids ( short _arg1 ) {
+    _com_dispatch_method(this, 0x6b, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0002", _arg1);
+}
+
+inline VARIANT_BOOL _DEsdAdvancedGraphControl::ZoomIn ( double dblXmin, double dblXmax, double dblYmin, double dblYmax ) {
+    VARIANT_BOOL _result = 0;
+    _com_dispatch_method(this, 0x6c, DISPATCH_METHOD, VT_BOOL, (void*)&_result, 
+        L"\x0005\x0005\x0005\x0005", dblXmin, dblXmax, dblYmin, dblYmax);
+    return _result;
+}
+
+inline HRESULT _DEsdAdvancedGraphControl::ZoomOut ( ) {
+    return _com_dispatch_method(this, 0x6d, DISPATCH_METHOD, VT_EMPTY, NULL, NULL);
+}
+
+inline HRESULT _DEsdAdvancedGraphControl::SetHeaderFont ( _bstr_t strFontName, long lngFontSize ) {
+    return _com_dispatch_method(this, 0x6e, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0008\x0003", (BSTR)strFontName, lngFontSize);
+}
+
+inline HRESULT _DEsdAdvancedGraphControl::SetAxesTitlesFont ( _bstr_t strFontName, long lngFontSize ) {
+    return _com_dispatch_method(this, 0x6f, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0008\x0003", (BSTR)strFontName, lngFontSize);
+}
+
+inline HRESULT _DEsdAdvancedGraphControl::DisplayText ( _bstr_t bstrText, long lngLeftMargin, long lngRightMargin ) {
+    return _com_dispatch_method(this, 0x70, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0008\x0003\x0003", (BSTR)bstrText, lngLeftMargin, lngRightMargin);
+}
+
+inline HRESULT _DEsdAdvancedGraphControl::ClearCustomText ( ) {
+    return _com_dispatch_method(this, 0x71, DISPATCH_METHOD, VT_EMPTY, NULL, NULL);
+}
+
+inline HRESULT _DEsdAdvancedGraphControl::WidthAt5PercentHeight ( long lngPos, double * dblWidth, double * dblLeftWidth, double * dblRightWidth ) {
+    return _com_dispatch_method(this, 0x73, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0003\x4005\x4005\x4005", lngPos, dblWidth, dblLeftWidth, dblRightWidth);
+}
+
+inline HRESULT _DEsdAdvancedGraphControl::WidthAt10PercentHeight ( long lngPos, double * dblWidth, double * dblLeftWidth, double * dblRightWidth ) {
+    return _com_dispatch_method(this, 0x74, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0003\x4005\x4005\x4005", lngPos, dblWidth, dblLeftWidth, dblRightWidth);
+}
+
+inline HRESULT _DEsdAdvancedGraphControl::WidthAtHalfHeight ( long lngPos, double * dblWidth, double * dblLeftWidth, double * dblRightWidth ) {
+    return _com_dispatch_method(this, 0x75, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0003\x4005\x4005\x4005", lngPos, dblWidth, dblLeftWidth, dblRightWidth);
+}
+
+inline HRESULT _DEsdAdvancedGraphControl::MoveAxisFromBasePosition ( long lngAxisIdx, long lngPositionInPercent, VARIANT_BOOL blnIsStdAxis ) {
+    return _com_dispatch_method(this, 0x77, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0003\x0003\x000b", lngAxisIdx, lngPositionInPercent, blnIsStdAxis);
+}
+
+inline HRESULT _DEsdAdvancedGraphControl::ChangeAxisStartPosition ( long lngAxisIdx, long lngPositionInPercent, VARIANT_BOOL blnIsStdAxis ) {
+    return _com_dispatch_method(this, 0x78, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0003\x0003\x000b", lngAxisIdx, lngPositionInPercent, blnIsStdAxis);
+}
+
+inline HRESULT _DEsdAdvancedGraphControl::ChangeAxisEndPosition ( long lngAxisIdx, long lngPositionInPercent, VARIANT_BOOL blnIsStdAxis ) {
+    return _com_dispatch_method(this, 0x79, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0003\x0003\x000b", lngAxisIdx, lngPositionInPercent, blnIsStdAxis);
+}
+
+inline HRESULT _DEsdAdvancedGraphControl::AssignAxesForGraph ( long lngGraphIdx, long lngCustomHorzAxis, long lngCustomVertAxis ) {
+    return _com_dispatch_method(this, 0x7a, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0003\x0003\x0003", lngGraphIdx, lngCustomHorzAxis, lngCustomVertAxis);
+}
+
+inline HRESULT _DEsdAdvancedGraphControl::RemoveCustomAxis ( long lngCustomAxisIdx ) {
+    return _com_dispatch_method(this, 0x7b, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0003", lngCustomAxisIdx);
+}
+
+inline HRESULT _DEsdAdvancedGraphControl::RemoveAllCustomAxes ( ) {
+    return _com_dispatch_method(this, 0x7c, DISPATCH_METHOD, VT_EMPTY, NULL, NULL);
+}
+
+inline long _DEsdAdvancedGraphControl::AddCustomAxis ( VARIANT_BOOL lbnIsHorizontal ) {
+    long _result = 0;
+    _com_dispatch_method(this, 0x7d, DISPATCH_METHOD, VT_I4, (void*)&_result, 
+        L"\x000b", lbnIsHorizontal);
+    return _result;
+}
+
+inline _bstr_t _DEsdAdvancedGraphControl::GetCustomAxisTitle ( long lngAxisIdx ) {
+    BSTR _result = 0;
+    _com_dispatch_method(this, 0x7e, DISPATCH_PROPERTYGET, VT_BSTR, (void*)&_result, 
+        L"\x0003", lngAxisIdx);
+    return _bstr_t(_result, false);
+}
+
+inline void _DEsdAdvancedGraphControl::PutCustomAxisTitle ( long lngAxisIdx, _bstr_t _arg2 ) {
+    _com_dispatch_method(this, 0x7e, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003\x0008", lngAxisIdx, (BSTR)_arg2);
+}
+
+inline double _DEsdAdvancedGraphControl::GetCustomAxisMaximum ( long lngAxisIdx ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x7f, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, 
+        L"\x0003", lngAxisIdx);
+    return _result;
+}
+
+inline void _DEsdAdvancedGraphControl::PutCustomAxisMaximum ( long lngAxisIdx, double _arg2 ) {
+    _com_dispatch_method(this, 0x7f, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003\x0005", lngAxisIdx, _arg2);
+}
+
+inline double _DEsdAdvancedGraphControl::GetCustomAxisMinimum ( long lngAxisIdx ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x80, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, 
+        L"\x0003", lngAxisIdx);
+    return _result;
+}
+
+inline void _DEsdAdvancedGraphControl::PutCustomAxisMinimum ( long lngAxisIdx, double _arg2 ) {
+    _com_dispatch_method(this, 0x80, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003\x0005", lngAxisIdx, _arg2);
+}
+
+inline long _DEsdAdvancedGraphControl::GetCustomAxisGrids ( long lngAxisIdx ) {
+    long _result = 0;
+    _com_dispatch_method(this, 0x81, DISPATCH_PROPERTYGET, VT_I4, (void*)&_result, 
+        L"\x0003", lngAxisIdx);
+    return _result;
+}
+
+inline void _DEsdAdvancedGraphControl::PutCustomAxisGrids ( long lngAxisIdx, long _arg2 ) {
+    _com_dispatch_method(this, 0x81, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003\x0003", lngAxisIdx, _arg2);
+}
+
+inline long _DEsdAdvancedGraphControl::GetCustomAxisTitleAngle ( long lngAxisIdx ) {
+    long _result = 0;
+    _com_dispatch_method(this, 0x82, DISPATCH_PROPERTYGET, VT_I4, (void*)&_result, 
+        L"\x0003", lngAxisIdx);
+    return _result;
+}
+
+inline void _DEsdAdvancedGraphControl::PutCustomAxisTitleAngle ( long lngAxisIdx, long _arg2 ) {
+    _com_dispatch_method(this, 0x82, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0003\x0003", lngAxisIdx, _arg2);
+}
+
+inline HRESULT _DEsdAdvancedGraphControl::DoGraphReprocess ( unsigned char * bytEventInfo, long lngNoOfEvents ) {
+    return _com_dispatch_method(this, 0x83, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x4011\x0003", bytEventInfo, lngNoOfEvents);
+}
+
+inline double _DEsdAdvancedGraphControl::GetPeakMinTreshold ( ) {
+    double _result = 0;
+    _com_dispatch_method(this, 0x84, DISPATCH_PROPERTYGET, VT_R8, (void*)&_result, NULL);
+    return _result;
+}
+
+inline void _DEsdAdvancedGraphControl::PutPeakMinTreshold ( double _arg1 ) {
+    _com_dispatch_method(this, 0x84, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, 
+        L"\x0005", _arg1);
+}
+
+inline HRESULT _DEsdAdvancedGraphControl::MarkStartnEndpts ( long lngGraphIdx ) {
+    return _com_dispatch_method(this, 0x85, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0003", lngGraphIdx);
+}
+
+inline HRESULT _DEsdAdvancedGraphControl::SetStartnEndptMarkingColor ( OLE_COLOR newVal ) {
+    return _com_dispatch_method(this, 0x86, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0003", newVal);
+}
+
+inline OLE_COLOR _DEsdAdvancedGraphControl::GetStartnEndptMarkingColor ( ) {
+    OLE_COLOR _result;
+    _com_dispatch_method(this, 0x87, DISPATCH_METHOD, VT_I4, (void*)&_result, NULL);
+    return _result;
+}
+
+inline HRESULT _DEsdAdvancedGraphControl::FindArea ( long lngGraphId, double dblStartPointXVal, double dblStartPointYVal, double dblEndPointXVal, double dblEndPointYVal, long nStartIndex, long nEndIndex, double * dblArea ) {
+    return _com_dispatch_method(this, 0x88, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0003\x0005\x0005\x0005\x0005\x0003\x0003\x4005", lngGraphId, dblStartPointXVal, dblStartPointYVal, dblEndPointXVal, dblEndPointYVal, nStartIndex, nEndIndex, dblArea);
+}
+
+inline HRESULT _DEsdAdvancedGraphControl::GetArea ( long lngGraphId, double dblStartPointXVal, double dblStartPointYVal, double dblEndPointXVal, double dblEndPointYVal, long lngStartPointIndex, long lngEndPointIndex, double * ptrdblArea ) {
+    return _com_dispatch_method(this, 0x97, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0003\x0005\x0005\x0005\x0005\x0003\x0003\x4005", lngGraphId, dblStartPointXVal, dblStartPointYVal, dblEndPointXVal, dblEndPointYVal, lngStartPointIndex, lngEndPointIndex, ptrdblArea);
+}
+
+inline short _DEsdAdvancedGraphControl::GetPeakWidthCalculationType ( ) {
+    short _result = 0;
+    _com_dispatch_propget(this, 0x72, VT_I2, (void*)&_result);
+    return _result;
+}
+
+inline void _DEsdAdvancedGraphControl::PutPeakWidthCalculationType ( short _val ) {
+    _com_dispatch_propput(this, 0x72, VT_I2, _val);
+}
+
+//
+// dispinterface _DEsdAdvancedGraphControlEvents wrapper method implementations
+//
+
+inline HRESULT _DEsdAdvancedGraphControlEvents::OnAfterDraw ( ) {
+    return _com_dispatch_method(this, 0x1, DISPATCH_METHOD, VT_EMPTY, NULL, NULL);
+}
+
+inline HRESULT _DEsdAdvancedGraphControlEvents::OnBeforeDrawSeries ( ) {
+    return _com_dispatch_method(this, 0x2, DISPATCH_METHOD, VT_EMPTY, NULL, NULL);
+}
+
+inline HRESULT _DEsdAdvancedGraphControlEvents::OnBeforeDrawAxes ( ) {
+    return _com_dispatch_method(this, 0x3, DISPATCH_METHOD, VT_EMPTY, NULL, NULL);
+}
+
+inline HRESULT _DEsdAdvancedGraphControlEvents::OnClick ( ) {
+    return _com_dispatch_method(this, 0x4, DISPATCH_METHOD, VT_EMPTY, NULL, NULL);
+}
+
+inline HRESULT _DEsdAdvancedGraphControlEvents::OnClickAxis ( long Axis, long lButton, long lShift, long X, long Y ) {
+    return _com_dispatch_method(this, 0x5, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0003\x0003\x0003\x0003\x0003", Axis, lButton, lShift, X, Y);
+}
+
+inline HRESULT _DEsdAdvancedGraphControlEvents::OnClickBackground ( long lButton, long Shift, long X, long Y ) {
+    return _com_dispatch_method(this, 0x6, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0003\x0003\x0003\x0003", lButton, Shift, X, Y);
+}
+
+inline HRESULT _DEsdAdvancedGraphControlEvents::OnClickLegend ( long lButton, long Shift, long X, long Y ) {
+    return _com_dispatch_method(this, 0x7, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0003\x0003\x0003\x0003", lButton, Shift, X, Y);
+}
+
+inline HRESULT _DEsdAdvancedGraphControlEvents::OnClickSeries ( long SeriesIndx, long ValueIndx, long lButton, long Shift, long X, long Y ) {
+    return _com_dispatch_method(this, 0x8, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0003\x0003\x0003\x0003\x0003\x0003", SeriesIndx, ValueIndx, lButton, Shift, X, Y);
+}
+
+inline HRESULT _DEsdAdvancedGraphControlEvents::OnDblClick ( ) {
+    return _com_dispatch_method(this, 0x9, DISPATCH_METHOD, VT_EMPTY, NULL, NULL);
+}
+
+inline HRESULT _DEsdAdvancedGraphControlEvents::OnCursorToolChange ( long lngTool, long lngX, long lngY, double dblXVal, double dblYVal, long lngSeries, long ValueIdx ) {
+    return _com_dispatch_method(this, 0xb, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0003\x0003\x0003\x0005\x0005\x0003\x0003", lngTool, lngX, lngY, dblXVal, dblYVal, lngSeries, ValueIdx);
+}
+
+inline HRESULT _DEsdAdvancedGraphControlEvents::OnKeyDown ( long lngKeyCode, long lngShiftState ) {
+    return _com_dispatch_method(this, 0xc, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0003\x0003", lngKeyCode, lngShiftState);
+}
+
+inline HRESULT _DEsdAdvancedGraphControlEvents::OnKeyUp ( long lngKeyCode, long lngShiftState ) {
+    return _com_dispatch_method(this, 0xd, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0003\x0003", lngKeyCode, lngShiftState);
+}
+
+inline HRESULT _DEsdAdvancedGraphControlEvents::OnMouseDown ( long lngButton, long lngShiftState, long X, long Y ) {
+    return _com_dispatch_method(this, 0xe, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0003\x0003\x0003\x0003", lngButton, lngShiftState, X, Y);
+}
+
+inline HRESULT _DEsdAdvancedGraphControlEvents::OnMouseMove ( long lngShiftState, long X, long Y ) {
+    return _com_dispatch_method(this, 0xf, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0003\x0003\x0003", lngShiftState, X, Y);
+}
+
+inline HRESULT _DEsdAdvancedGraphControlEvents::OnMouseUp ( long lngButton, long lngShiftState, long X, long Y ) {
+    return _com_dispatch_method(this, 0x10, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0003\x0003\x0003\x0003", lngButton, lngShiftState, X, Y);
+}
+
+inline HRESULT _DEsdAdvancedGraphControlEvents::OnMouseEnterGraph ( long lngGraphIdx ) {
+    return _com_dispatch_method(this, 0x11, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0003", lngGraphIdx);
+}
+
+inline HRESULT _DEsdAdvancedGraphControlEvents::OnMouseLeaveGraph ( long lngGraphIdx ) {
+    return _com_dispatch_method(this, 0x12, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0003", lngGraphIdx);
+}
+
+inline HRESULT _DEsdAdvancedGraphControlEvents::OnResize ( ) {
+    return _com_dispatch_method(this, 0x13, DISPATCH_METHOD, VT_EMPTY, NULL, NULL);
+}
+
+inline HRESULT _DEsdAdvancedGraphControlEvents::OnScroll ( ) {
+    return _com_dispatch_method(this, 0x14, DISPATCH_METHOD, VT_EMPTY, NULL, NULL);
+}
+
+inline HRESULT _DEsdAdvancedGraphControlEvents::OnTimer ( ) {
+    return _com_dispatch_method(this, 0x15, DISPATCH_METHOD, VT_EMPTY, NULL, NULL);
+}
+
+inline HRESULT _DEsdAdvancedGraphControlEvents::OnZoom ( ) {
+    return _com_dispatch_method(this, 0x16, DISPATCH_METHOD, VT_EMPTY, NULL, NULL);
+}
+
+inline HRESULT _DEsdAdvancedGraphControlEvents::OnUndoZoom ( ) {
+    return _com_dispatch_method(this, 0x17, DISPATCH_METHOD, VT_EMPTY, NULL, NULL);
+}
+
+inline HRESULT _DEsdAdvancedGraphControlEvents::OnGraphAfterAdd ( long lngGraphIdx, long lngPointIdx ) {
+    return _com_dispatch_method(this, 0x18, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0003\x0003", lngGraphIdx, lngPointIdx);
+}
+
+inline HRESULT _DEsdAdvancedGraphControlEvents::OnGraphAfterDrawValues ( long lngGraphIdx ) {
+    return _com_dispatch_method(this, 0x19, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0003", lngGraphIdx);
+}
+
+inline HRESULT _DEsdAdvancedGraphControlEvents::OnGraphBeforeAdd ( long lngGraphIdx, VARIANT_BOOL * bMoreValues ) {
+    return _com_dispatch_method(this, 0x1a, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0003\x400b", lngGraphIdx, bMoreValues);
+}
+
+inline HRESULT _DEsdAdvancedGraphControlEvents::OnGraphBeforeDrawValues ( long lngGraphIdx ) {
+    return _com_dispatch_method(this, 0x1b, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0003", lngGraphIdx);
+}
+
+inline HRESULT _DEsdAdvancedGraphControlEvents::OnPageChange ( ) {
+    return _com_dispatch_method(this, 0x1c, DISPATCH_METHOD, VT_EMPTY, NULL, NULL);
+}
+
+inline HRESULT _DEsdAdvancedGraphControlEvents::OnGetLegendRect ( long * lngLeft, long * lngTop, long * lngRight, long * lngBottom ) {
+    return _com_dispatch_method(this, 0x1d, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x4003\x4003\x4003\x4003", lngLeft, lngTop, lngRight, lngBottom);
+}
+
+inline HRESULT _DEsdAdvancedGraphControlEvents::PeakDetected ( ) {
+    return _com_dispatch_method(this, 0x1e, DISPATCH_METHOD, VT_EMPTY, NULL, NULL);
+}
