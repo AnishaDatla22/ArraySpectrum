@@ -168,88 +168,223 @@ void SaveToFile( char* pFileName, WORD *pDataBuff, int nWidth, int nHeight, int 
 	fclose( fp );
 }
 
-void CaptureSnapFromCCD(CCapturePixels* pObjPixelData)
+void SaveData(char* pFileName, WORD* pDataBuff, int nWidth, int nHeight, int nFrameCnt, int nDataIdx)
 {
+	errno_t err;
+	FILE* fp;
+	int  nCountW, nCountH, nCountF;
+
+	err = fopen_s(&fp, pFileName, "a+");
+	if (err != 0)
+	{
+		return;
+	}
+
+	WORD* pData = pDataBuff;
+	for (nCountF = 0; nCountF < nFrameCnt; nCountF++)
+	{
+		fprintf(fp, "[%d - %d]\n", nDataIdx, nCountF);
+		for (nCountH = 0; nCountH < nHeight; nCountH++)
+		{
+			for (nCountW = 0; nCountW < nWidth; nCountW++)
+			{
+				fprintf(fp, "%d,", *pData);
+				pData++;
+			}
+			fprintf(fp, "\n");
+		}
+	}
+
+	fclose(fp);
+}
+
+void CaptureSnapFromCCD(CCapturePixels* pObjPixelData) {
 	WORD* pDataBuff = NULL;
-	//double* pDataBuff = NULL;//1.3
-	int		nWidth = 0, nHeight = 0, nImageSize = 0, nLineCount = 0, nBitSize = 0;
-	BOOL bResult, bStat, bValue;
-	nWidth = nHeight = nImageSize = 0;
-	nLineCount = pObjPixelData->m_nLineCount;						 // Line Count( 50 line )
+	int	nWidth = 0, nHeight = 0, nImageSize = 0, nFrameCount = 10, nBitSize = 0, nDevID = 0;
+	BOOL bStat = FALSE, bValue = TRUE, bValue2 = TRUE;
+	LONG lDevCount = 0;
+	UINT unTargetDevIdx = 0;
 
-	BYTE btValue = 0;	                                             // Internal Sync Mode
-	bStat = DcIc_SetTriggerMode(pObjPixelData->nDevID, btValue);
+	bStat = DcIc_Initialize();		                  // Initialize library(DLL).
+	if (bStat != TRUE)
+	{
+		// Initialize is failed
+		return;
+	}
 
+	bStat = DcIc_CreateDeviceInfo(&lDevCount);	      // Create device information table.
+	if (bStat != TRUE)
+	{
+		// Exit this function
+		DcIc_Terminate();	
+		return;
+	}
 
-	bValue = TRUE;		                                             // High Active
-	bStat = DcIc_SetTriggerPolarity(pObjPixelData->nDevID, bValue);                 // Set trigger polarity
+    nDevID = DcIc_Connect(unTargetDevIdx);            // Connect hardware
+	if (nDevID <= 0)
+	{
+		// Connection is failed 
+		DcIc_Terminate();	
+		return;
+	}
 
-	bValue = FALSE;	                                                 // Disable
-	bStat = DcIc_SetTriggerEffective(pObjPixelData->nDevID, bValue);                // Set trigger effective
+	bStat = DcIc_Abort(nDevID);                       // Send ABORT command, when,if hardware is BUSY.
+	if (bStat == FALSE)
+	{
+		// Send "STOP" is failed 
+		DcIc_Disconnect(nDevID);
+		DcIc_Terminate();	
+		return;
+	}
+	
+	//------------------------
+	// SET CAMERA PARAMETERS
+	//------------------------
+	bValue = TRUE;                                    //Set LED mode
+	bStat = DcIc_SetLEDMode(nDevID, bValue);
+	if (bStat == FALSE)
+	{
+		// Change LED condition is failed
+		DcIc_Disconnect(nDevID);
+		DcIc_Terminate();
+		return;
+	}
 
-																	 // Set Integration cycle(= Exposure time)
-	bStat = DcIc_SetStartPulseTime(pObjPixelData->nDevID, pObjPixelData->m_nExposureTime);
+	BYTE btValue = 0;	                              // Set trigger mode:Internal Sync Mode
+	bStat = DcIc_SetTriggerMode(nDevID, btValue);
+	if (bStat == FALSE)
+	{
+		// Change trigger mode is failed
+		DcIc_Disconnect(nDevID);
+		DcIc_Terminate();	
+		return;
+	}
 
-	bStat = DcIc_SetGain(pObjPixelData->nDevID, pObjPixelData->m_nGain);            // Set GAIN
+	bValue = TRUE;		                              //Set trigger polarity: High Active
+	bStat = DcIc_SetTriggerPolarity(nDevID, bValue);
+	if (bStat == FALSE)
+	{
+		// Change trigger polarity is failed 
+		DcIc_Disconnect(nDevID);
+		DcIc_Terminate();	
+		return;
+	}
 
-	bStat = DcIc_SetOffset(pObjPixelData->nDevID, pObjPixelData->m_nOffset);        // set OFFSET
+	bValue = FALSE;	                                  // Set trigger effective: Disable
+	bStat = DcIc_SetTriggerEffective(nDevID, bValue);
+	if (bStat == FALSE)
+	{
+		// Change trigger effective is failed 
+		DcIc_Disconnect(nDevID);
+		DcIc_Terminate();	
+		return;
+	}
 
-	int wValue = 32;
-	bStat = DcIc_SetVerticalPixel(pObjPixelData->nDevID, wValue);
+	DWORD dwValue = pObjPixelData->m_nExposureTime;   // Set Integration cycle(= Exposure time)
+	if (dwValue == 0)
+		dwValue = 1000;
+	bStat = DcIc_SetStartPulseTime(nDevID, dwValue);
+	
+	btValue = pObjPixelData->m_nGain;                 // Set GAIN
+	if (btValue == 0)
+		btValue = 32;
+	bStat = DcIc_SetGain(nDevID, btValue);
+	
 
+	WORD wValue = pObjPixelData->m_nOffset;           // set OFFSET
+	if (wValue == 0)
+		wValue = 32;
+	bStat = DcIc_SetOffset(nDevID, wValue);
+	
+
+	//-------------------------
 	// Create capture buffer.
-	INT nFramCnt = nLineCount;
+	//-------------------------
+
+	INT nFramCnt = 10;
 	ULONG ulTotalPixels = 0;
 	WORD wPixels = 0;
-	WORD wLines = 0;
+	WORD wLines = 32;
+	
+	AfxMessageBox(_T("9"));
+	bStat = DcIc_GetHorizontalPixel(nDevID, &wPixels);
+	if (bStat == FALSE)
+	{
+		// Change vertical pixel size is failed -> Exit this function
+		DcIc_Disconnect(nDevID);
+		DcIc_Terminate();	// Terminate process of library.
+		return;
+	}
 
-	bStat = DcIc_GetVerticalPixel(pObjPixelData->nDevID, &wLines);
-	bStat = DcIc_GetHorizontalPixel(pObjPixelData->nDevID, &wPixels);
 	ulTotalPixels = (ULONG)nFramCnt * (ULONG)wLines * (ULONG)wPixels;
-
-	CString strM;
-	strM.Format(_T("Image p=%s,l=%s"), wPixels,wLines);
-	AfxMessageBox(strM);
-
 	pObjPixelData->m_nPixelBufImageSize = ulTotalPixels;
 	pObjPixelData->ClearPixelBuffer();
 
-	pDataBuff = new WORD[pObjPixelData->m_nPixelBufImageSize];
-	if (pDataBuff)
+	
+	
+	TRY
 	{
-		memset(pDataBuff, 0, pObjPixelData->m_nPixelBufImageSize * 2);
-
-		// Acquire the image data
-		bStat = DcIc_Capture(pObjPixelData->nDevID, pDataBuff, pObjPixelData->m_nPixelBufImageSize * 2);
-		INT nRsltStat = DcIc_WAITSTATUS_CAPTURING;
-		while (TRUE)
-		{
-			// Wait to complete the capture image
-		    ::Sleep(1000);
-			nRsltStat = DcIc_Wait(pObjPixelData->nDevID);
-			if (nRsltStat == DcIc_WAITSTATUS_CAPTURED)
-			{
-				break;
-			}
-		}
+		pDataBuff = new WORD[pObjPixelData->m_nPixelBufImageSize];
+		memset(pDataBuff, 0x00, ulTotalPixels * sizeof(WORD));
 	}
-	else
+	CATCH(CMemoryException, e)
 	{
-		
+		// Failed -> Exit this function
+		if (pDataBuff != NULL)
+		{
+			delete[] pDataBuff;
+			pDataBuff = NULL;
+		}
+		DcIc_Disconnect(nDevID);
+		DcIc_Terminate();	// Termifnate process of library.
 		return;
 	}
-	pObjPixelData->m_pBuffPixelData = pDataBuff;
-	SaveToFile("Sample.csv", pDataBuff, wPixels, wLines, nFramCnt);
+	END_CATCH
+	AfxMessageBox(_T("8"));
+		// Start Acquisition
+	bStat = DcIc_Capture(nDevID, pDataBuff, ulTotalPixels * sizeof(WORD));
+	if (bStat == FALSE)
+	{
+		// Capture start failed -> Exit this function
+		if (pDataBuff != NULL)
+		{
+			delete[] pDataBuff;
+			pDataBuff = NULL;
+		}
+		DcIc_Disconnect(nDevID);
+		DcIc_Terminate();	// Terminate process of library.
+		return;
+	}
+
+	// Wait to complete the capture image
+	INT nRsltStat = DcIc_WAITSTATUS_CAPTURING;
+	AfxMessageBox(_T("7"));
+	while (TRUE)
+	{
+		::Sleep(2000);
+		nRsltStat = DcIc_Wait(nDevID);
+		
+		if (nRsltStat == DcIc_WAITSTATUS_CAPTURED)
+		{
+			// Data process
+			SaveData("Sample.csv", pDataBuff, wPixels, wLines, nFrameCount, 0);
+			break;
+		}
+	}
 	
+	AfxMessageBox(_T("6"));
+	pObjPixelData->m_pBuffPixelData = pDataBuff;
+
+	AfxMessageBox(_T("1"));
 	// Process for exit. 
-	bStat = DcIc_Abort(pObjPixelData->nDevID);
+	bStat = DcIc_Abort(nDevID);
 	if (pDataBuff != NULL)
 	{
 		delete[] pDataBuff;
 		pDataBuff = NULL;
 	}
-
-
+	bStat = DcIc_Disconnect(nDevID);
+	bStat = DcIc_Terminate();
 }
 //<--Added for 1.2
 typedef struct _CAPTURE_SNAP_FROM_DA_PARAMS
@@ -467,11 +602,9 @@ UINT CaptureSnapShotThread(LPVOID param)
 	//}
 	#else
 	//Do Capturte
+	    
 		CaptureSnapFromCCD(pObjPixelBuff);
 	#endif
-	
-	//<--Commented for Version 1.2
-
 	
 	//Capturing is not succesful
 	if(pObjPixelBuff->ISEmpty())
@@ -479,10 +612,10 @@ UINT CaptureSnapShotThread(LPVOID param)
 		AfxGetApp()->m_pMainWnd->PostMessage(WM_CAPTURING_FAILED,0,0);
 		return 0;
 	}
-
+	AfxMessageBox(_T("2"));
 	//Prepare a series of buffers to reference each Scan Pixel Line buffer individually
 	pObjPixelBuff->PreparePixelLineBuffFromSnapShot();
-
+	AfxMessageBox(_T("3"));
 	// Save data
 	//pObjPixelBuff->SavePixelDataToCSVFile( "Sample.csv");//, nWidth, nHeight, nLineCount );
 
@@ -504,15 +637,16 @@ UINT CaptureSnapShotThread(LPVOID param)
 	}
 	else
 	{
-		AfxGetApp()->m_pMainWnd->PostMessage(WM_SNAPSHOT_COMPLETED,0,TRUE);//if LPARAM is TRUE, application should go on capturing the next frame when notified 
-	}
+		//AfxGetApp()->m_pMainWnd->PostMessage(WM_SNAPSHOT_COMPLETED,0,TRUE);//if LPARAM is TRUE, application should go on capturing the next frame when notified 
 	
+	}
+	AfxMessageBox(_T("4"));
 	if(pObjPixelBuff->m_bSnapShot)
 	{
 		AfxGetApp()->m_pMainWnd->PostMessage(WM_SNAPSHOT_COMPLETED,0,FALSE);
 		pObjPixelBuff->m_bSnapShot=FALSE;
 	}
-
+	AfxMessageBox(_T("5"));
 	return 0;
 }
 
@@ -564,16 +698,20 @@ void CCapturePixels::PreparePixelLineBuffFromSnapShot()
 {
 	if(m_pPixelLines)
 		delete [] m_pPixelLines;
-
+	AfxMessageBox(_T("2.0"));
 	m_pPixelLines = new WORD*[m_nLineCount];
 	//m_pPixelLines = new double*[m_nLineCount];//1.3
 	for(int i=0;i<m_nLineCount;i++)
 	{
 		m_pPixelLines[i]=GetLinePixelBuf(i);
 	}
+	AfxMessageBox(_T("2.1"));
 	GetAvgPixelDataBuf();
+	AfxMessageBox(_T("2.2"));
 	GetSDPixelBuffer();
+	AfxMessageBox(_T("2.3"));
 	GetRSDPixelBuffer();
+	AfxMessageBox(_T("2.4"));
 }
 
 
@@ -658,11 +796,12 @@ void CCapturePixels::CaptureSnapShot()
 	//ptrThreadParams->ptrPixelBuff = this;
 	//ptrThreadParams->ptrDoc = pDoc;
 	//--1.3-->
-
+	
 	AfxBeginThread(CaptureSnapShotThread,this);
 	//AfxBeginThread(CaptureSnapShotThread,ptrThreadParams);//<--Added for 1.2-->
 
 }
+
 // Start Capturing Continuous Frames
 void CCapturePixels::StartCapture(void)
 {

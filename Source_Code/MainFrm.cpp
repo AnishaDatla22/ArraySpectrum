@@ -734,22 +734,9 @@ void CMainFrame::OnStartCapture()
 {
 	CArraySpectrumDoc* pDoc = NULL;
 	pDoc = (CArraySpectrumDoc*)GetActiveDocument();
-	if(pDoc == NULL)
+	if (pDoc == NULL)
 		return;
-	
-	if(pDoc->m_objSerialComm.IsPortOpened() == FALSE)
-	{
-	AfxMessageBox(_T("Please Connect the Communication Port"));
-	return;
-	}
-	else
-	{
-	if(pDoc->m_objSerialComm.Open(pDoc->m_strSelectedCommPortName) == FALSE)
-	{
-	AfxMessageBox(_T("Failed to Open the Communication Port"));
-	return;
-	}
-	}
+
 	/*#if _SIM
 	m_nNoOfScanCompl = 0;
 	#endif*/
@@ -897,6 +884,7 @@ void CMainFrame::OnSnapShot(void)
 	}
 
 #else
+	
 	pDoc->AcquireSnapShotData();
 	m_bSnapShot=TRUE;
 #endif

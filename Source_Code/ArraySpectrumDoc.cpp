@@ -198,6 +198,7 @@ void CArraySpectrumDoc::ApplyCaptureProperties(void)
 // //Acquires a single snap shot frame data from the device
 BOOL CArraySpectrumDoc::AcquireSnapShotData(void)
 {
+	
 	m_objCapturePixelBuff.CaptureSnapShot();
 
 	return TRUE;
