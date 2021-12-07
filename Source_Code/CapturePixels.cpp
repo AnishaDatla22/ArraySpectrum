@@ -306,7 +306,7 @@ void CaptureSnapFromCCD(CCapturePixels* pObjPixelData) {
 	WORD wPixels = 0;
 	WORD wLines = 32;
 	
-	AfxMessageBox(_T("9"));
+	
 	bStat = DcIc_GetHorizontalPixel(nDevID, &wPixels);
 	if (bStat == FALSE)
 	{
@@ -340,7 +340,7 @@ void CaptureSnapFromCCD(CCapturePixels* pObjPixelData) {
 		return;
 	}
 	END_CATCH
-	AfxMessageBox(_T("8"));
+	
 		// Start Acquisition
 	bStat = DcIc_Capture(nDevID, pDataBuff, ulTotalPixels * sizeof(WORD));
 	if (bStat == FALSE)
@@ -358,7 +358,7 @@ void CaptureSnapFromCCD(CCapturePixels* pObjPixelData) {
 
 	// Wait to complete the capture image
 	INT nRsltStat = DcIc_WAITSTATUS_CAPTURING;
-	AfxMessageBox(_T("7"));
+	
 	while (TRUE)
 	{
 		::Sleep(2000);
@@ -372,19 +372,15 @@ void CaptureSnapFromCCD(CCapturePixels* pObjPixelData) {
 		}
 	}
 	
-	AfxMessageBox(_T("6"));
+	
 	pObjPixelData->m_pBuffPixelData = pDataBuff;
 
-	AfxMessageBox(_T("1"));
+	
 	// Process for exit. 
-	bStat = DcIc_Abort(nDevID);
-	if (pDataBuff != NULL)
-	{
-		delete[] pDataBuff;
-		pDataBuff = NULL;
-	}
-	bStat = DcIc_Disconnect(nDevID);
-	bStat = DcIc_Terminate();
+	//bStat = DcIc_Abort(nDevID);
+	
+	//bStat = DcIc_Disconnect(nDevID);
+	//bStat = DcIc_Terminate();
 }
 //<--Added for 1.2
 typedef struct _CAPTURE_SNAP_FROM_DA_PARAMS
@@ -507,8 +503,7 @@ UINT CaptureSnapFromDiodeArray(LPVOID param)
 //<--Added for 1.2
 UINT CaptureSnapShotThread(LPVOID param)
 {
-	//CAPTURE_SNAP_FROM_DA_PARAMS* ptrThreadParmas = (CAPTURE_SNAP_FROM_DA_PARAMS*)param;
-	//CCapturePixels * pObjPixelBuff = (CCapturePixels*)ptrThreadParmas->ptrPixelBuff;
+
 	CCapturePixels * pObjPixelBuff = (CCapturePixels*)param;
 
 	//<--Commented for Version 1.2
@@ -602,7 +597,6 @@ UINT CaptureSnapShotThread(LPVOID param)
 	//}
 	#else
 	//Do Capturte
-	    
 		CaptureSnapFromCCD(pObjPixelBuff);
 	#endif
 	
@@ -612,25 +606,14 @@ UINT CaptureSnapShotThread(LPVOID param)
 		AfxGetApp()->m_pMainWnd->PostMessage(WM_CAPTURING_FAILED,0,0);
 		return 0;
 	}
-	AfxMessageBox(_T("2"));
+	
 	//Prepare a series of buffers to reference each Scan Pixel Line buffer individually
 	pObjPixelBuff->PreparePixelLineBuffFromSnapShot();
-	AfxMessageBox(_T("3"));
-	// Save data
-	//pObjPixelBuff->SavePixelDataToCSVFile( "Sample.csv");//, nWidth, nHeight, nLineCount );
 
-	////Send a notification that the Snap Shot Capturing is complete
-	//if(pObjPixelBuff->m_bContinuousCapture)
-	//{
-	//	AfxGetApp()->m_pMainWnd->PostMessage(WM_SNAPSHOT_COMPLETED,0,TRUE);//if LPARAM is TRUE, application should go on capturing the next frame when notified 
-	//}
-	//else if(pObjPixelBuff->m_bSnapShot)
-	//{
-	//	AfxGetApp()->m_pMainWnd->PostMessage(WM_SNAPSHOT_COMPLETED,0,FALSE);
-	//	pObjPixelBuff->m_bSnapShot=FALSE;
-	//}
+	
 
 	//Send a notification that the Snap Shot Capturing is complete
+
 	if(pObjPixelBuff->m_bContinuousCapture)
 	{
 		AfxGetApp()->m_pMainWnd->PostMessage(WM_SNAPSHOT_COMPLETED,0,TRUE);//if LPARAM is TRUE, application should go on capturing the next frame when notified 
@@ -640,7 +623,7 @@ UINT CaptureSnapShotThread(LPVOID param)
 		//AfxGetApp()->m_pMainWnd->PostMessage(WM_SNAPSHOT_COMPLETED,0,TRUE);//if LPARAM is TRUE, application should go on capturing the next frame when notified 
 	
 	}
-	AfxMessageBox(_T("4"));
+	
 	if(pObjPixelBuff->m_bSnapShot)
 	{
 		AfxGetApp()->m_pMainWnd->PostMessage(WM_SNAPSHOT_COMPLETED,0,FALSE);
@@ -698,20 +681,15 @@ void CCapturePixels::PreparePixelLineBuffFromSnapShot()
 {
 	if(m_pPixelLines)
 		delete [] m_pPixelLines;
-	AfxMessageBox(_T("2.0"));
 	m_pPixelLines = new WORD*[m_nLineCount];
 	//m_pPixelLines = new double*[m_nLineCount];//1.3
 	for(int i=0;i<m_nLineCount;i++)
 	{
 		m_pPixelLines[i]=GetLinePixelBuf(i);
 	}
-	AfxMessageBox(_T("2.1"));
 	GetAvgPixelDataBuf();
-	AfxMessageBox(_T("2.2"));
 	GetSDPixelBuffer();
-	AfxMessageBox(_T("2.3"));
 	GetRSDPixelBuffer();
-	AfxMessageBox(_T("2.4"));
 }
 
 
@@ -721,7 +699,7 @@ void CCapturePixels::PreparePixelLineBuffFromSnapShot()
 WORD* CCapturePixels::GetLinePixelBuf(int nLineNo)
 //double* CCapturePixels::GetLinePixelBuf(int nLineNo)
 {
-	if(  m_pBuffPixelData == NULL)
+	if(m_pBuffPixelData == NULL)
 		return NULL;
 	WORD (*pBuf)[MAX_PIXEL_DATA_COUNT_PER_LINE] = (WORD(*)[MAX_PIXEL_DATA_COUNT_PER_LINE])m_pBuffPixelData;
 	//double (*pBuf)[MAX_PIXEL_DATA_COUNT_PER_LINE] = (double(*)[MAX_PIXEL_DATA_COUNT_PER_LINE])m_pBuffPixelData;
@@ -734,6 +712,7 @@ WORD* CCapturePixels::GetLinePixelBuf(int nLineNo)
 // Get the pixel buffer with the Average of all the Pixel line buffers
 double* CCapturePixels::GetAvgPixelDataBuf(void)
 {
+	
 	for(int i=0;i<MAX_PIXEL_DATA_COUNT_PER_LINE;i++)
 	{
 		unsigned long sum=0;
@@ -743,7 +722,6 @@ double* CCapturePixels::GetAvgPixelDataBuf(void)
 		}
 		m_pBufAvgPixelData[i]=(double)sum/m_nLineCount;
 	}
-
 	return m_pBufAvgPixelData;
 }
 

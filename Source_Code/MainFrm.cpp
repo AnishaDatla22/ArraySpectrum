@@ -797,21 +797,6 @@ void CMainFrame::OnSnapShot(void)
 	AfxMessageBox(_T("Please Connect the Communication Port"));
 	return;
 	}*/
-#ifdef _SA165
-	if(pDoc->m_strSelectedCommPortName.IsEmpty() == TRUE)
-	{
-		AfxMessageBox(_T("Please Connect the Communication Port"));
-		return;
-	}
-#endif
-	//else
-	//{
-	//	if(pDoc->m_objSerialComm.Open(pDoc->m_strSelectedCommPortName) == FALSE)
-	//	{
-	//		AfxMessageBox(_T("Failed to Open the Communication Port"));
-	//		return;
-	//	}
-	//}
 #ifdef _SIM
 	//prompt the user to provide the pixel data in a csv format for a sigle line count
 	// Create an Open dialog; the default file name extension is ".my".
@@ -884,7 +869,6 @@ void CMainFrame::OnSnapShot(void)
 	}
 
 #else
-	
 	pDoc->AcquireSnapShotData();
 	m_bSnapShot=TRUE;
 #endif
