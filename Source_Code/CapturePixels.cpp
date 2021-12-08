@@ -629,7 +629,7 @@ UINT CaptureSnapShotThread(LPVOID param)
 		AfxGetApp()->m_pMainWnd->PostMessage(WM_SNAPSHOT_COMPLETED,0,FALSE);
 		pObjPixelBuff->m_bSnapShot=FALSE;
 	}
-	AfxMessageBox(_T("5"));
+	
 	return 0;
 }
 
@@ -756,27 +756,12 @@ double* CCapturePixels::GetRSDPixelBuffer(void)
 //Start the Capturing of Pixel Buffer as per the given Line Count
 void CCapturePixels::CaptureSnapShot()
 {
-	//<--1.3--
-	/*CMainFrame * pFrame = (CMainFrame*)AfxGetMainWnd();
-	CArraySpectrumDoc* pDoc = NULL;
-	pDoc = (CArraySpectrumDoc*)(pFrame->GetActiveDocument());
-	if(pDoc == NULL)
-		return;*/
-	//--1.3-->
 
 	m_bSnapShot = TRUE;
 	m_bContinuousCapture = FALSE;
 	ClearPixelBuffer();
 	NotifyToClearAllViews();
-
-	//<--1.3--
-	//CAPTURE_SNAP_FROM_DA_PARAMS* ptrThreadParams = new CAPTURE_SNAP_FROM_DA_PARAMS();
-	//ptrThreadParams->ptrPixelBuff = this;
-	//ptrThreadParams->ptrDoc = pDoc;
-	//--1.3-->
-	
 	AfxBeginThread(CaptureSnapShotThread,this);
-	//AfxBeginThread(CaptureSnapShotThread,ptrThreadParams);//<--Added for 1.2-->
 
 }
 
@@ -792,12 +777,6 @@ void CCapturePixels::StartCapture(void)
 	m_bContinuousCapture=TRUE;
 	m_bSnapShot=FALSE;
 	ClearPixelBuffer();  
-
-	//<--1.3
-	//CAPTURE_SNAP_FROM_DA_PARAMS* ptrThreadParams = new CAPTURE_SNAP_FROM_DA_PARAMS();
-	//ptrThreadParams->ptrPixelBuff = this;
-	//ptrThreadParams->ptrDoc = pDoc;
-	//--1.3->
 
 	AfxBeginThread(CaptureSnapShotThread,this);
 }
