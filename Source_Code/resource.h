@@ -32,6 +32,7 @@
 #define ID_VIEW_DATA_SHOW               28
 #define IDS_RIBBON_LASER                29
 #define ID_LASER_SETTINGS               30
+#define ID_FILE_RAMANSHIFT              31
 #define IDD_ABOUTBOX                    100
 #define IDP_OLE_INIT_FAILED             100
 #define IDB_WRITESMALL                  110

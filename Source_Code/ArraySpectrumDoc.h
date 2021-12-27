@@ -30,7 +30,7 @@ protected: // create from serialization only
 public:
 	///
     double m_bufWLDataPoints[MAX_PIXEL_DATA_COUNT_PER_LINE];
-
+	double m_bufRSDataPoints[MAX_PIXEL_DATA_COUNT_PER_LINE];
 	////Each item in 
  //   CArray<double*,double*> m_PixelDataLines;
 	///

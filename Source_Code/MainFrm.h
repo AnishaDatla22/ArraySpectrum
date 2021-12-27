@@ -32,7 +32,7 @@ protected:
 	
 // Attributes
 public:
-  enum VIEW_MODE {PIXEL_MODE,WAVELENGTH_MODE};
+  enum VIEW_MODE {PIXEL_MODE,WAVELENGTH_MODE,RAMANSHIFT_MODE};
 
 public:
 	///
@@ -113,6 +113,8 @@ public:
 	// Event Handler for WL Mode Selection Event (Presents the Views w.r.t WL)
 	void OnSelectWLMode(void);
 	void OnUpdateSelectWLMode(CCmdUI* pCmdUI);
+	void OnSelectRSMode(void);
+	void OnUpdateSelectRSMode(CCmdUI* pCmdUI);
 	
 	// Update the  Properties Pane with iniial values present in the CapturePixels Data object
 	LRESULT OnUpdateProperties(WPARAM wp, LPARAM lp);

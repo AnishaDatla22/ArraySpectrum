@@ -503,6 +503,7 @@ double * CArraySpectrumDoc::ConvertPixelNumbersToWL()
 		double bfact=m_dblCoeffB*x;
 		double cfact=m_dblCoeffC;
 		m_bufWLDataPoints[i]=afact+bfact+cfact;
+		m_bufRSDataPoints[i] = ((1 / 785) - (1 /m_bufWLDataPoints[i])) * pow(10, 7);
 	}
    return m_bufWLDataPoints;
 }

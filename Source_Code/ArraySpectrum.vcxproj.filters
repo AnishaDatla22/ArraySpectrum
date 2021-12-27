@@ -105,6 +105,12 @@
     <ClCompile Include="WLSpectrumView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="RSDataView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RSSpectrumView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ArraySpectrum.h">
@@ -204,6 +210,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="WLSpectrumView.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RSDataView.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RSSpectrumView.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

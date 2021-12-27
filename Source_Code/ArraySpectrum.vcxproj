@@ -135,6 +135,8 @@
     <ClCompile Include="PropertiesPane.cpp" />
     <ClCompile Include="PropertiesPaneDlg.cpp" />
     <ClCompile Include="QudraticFit.cpp" />
+    <ClCompile Include="RSDataView.cpp" />
+    <ClCompile Include="RSSpectrumView.cpp" />
     <ClCompile Include="SerialComm.cpp" />
     <ClCompile Include="Settings.cpp" />
     <ClCompile Include="SettingsDlg.cpp" />
@@ -172,6 +174,8 @@
     <ClInclude Include="PropertiesPaneDlg.h" />
     <ClInclude Include="QuadraticFit.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="RSDataView.h" />
+    <ClInclude Include="RSSpectrumView.h" />
     <ClInclude Include="SerialComm.h" />
     <ClInclude Include="Settings.h" />
     <ClInclude Include="SettingsDlg.h" />

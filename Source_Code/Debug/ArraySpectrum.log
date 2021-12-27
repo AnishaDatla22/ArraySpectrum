@@ -1,1 +1,60 @@
-﻿  ArraySpectrum.vcxproj -> C:\Users\anisha\Desktop\ArraySpectrum\Source_Code\Debug\ArraySpectrum.exe
+﻿  stdafx.cpp
+  ArraySpectrum.cpp
+  ArraySpectrumDoc.cpp
+  ArraySpectrumView.cpp
+  BasePlotView.cpp
+  CalibDataDlg.cpp
+C:\Users\anisha\Desktop\ArraySpectrum\Source_Code\CalibDataDlg.cpp(159,15): warning C4996: '_wcstok': This function or variable may be unsafe. Consider using wcstok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\anisha\Desktop\ArraySpectrum\Source_Code\CalibDataDlg.cpp(161,14): warning C4996: '_wcstok': This function or variable may be unsafe. Consider using wcstok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\anisha\Desktop\ArraySpectrum\Source_Code\CalibDataDlg.cpp(335,4): warning C4996: 'swscanf': This function or variable may be unsafe. Consider using swscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\anisha\Desktop\ArraySpectrum\Source_Code\CalibDataDlg.cpp(340,4): warning C4996: 'swscanf': This function or variable may be unsafe. Consider using swscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  CapturePixels.cpp
+C:\Users\anisha\Desktop\ArraySpectrum\Source_Code\CapturePixels.cpp(20,7): warning C4996: '_wfopen': This function or variable may be unsafe. Consider using _wfopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\anisha\Desktop\ArraySpectrum\Source_Code\CapturePixels.cpp(29,2): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\anisha\Desktop\ArraySpectrum\Source_Code\CapturePixels.cpp(32,2): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\anisha\Desktop\ArraySpectrum\Source_Code\CapturePixels.cpp(35,2): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\anisha\Desktop\ArraySpectrum\Source_Code\CapturePixels.cpp(38,2): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\anisha\Desktop\ArraySpectrum\Source_Code\CapturePixels.cpp(143,7): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  CCubicSplineInterpolation.cpp
+  CommPortSettings.cpp
+  CompoundSettings.cpp
+  CustomBitmapButton.cpp
+  CustomSplitterWnd.cpp
+  DataView.cpp
+  EsdAdvancedGraphControl.cpp
+  FlameSettings.cpp
+  font.cpp
+  LevelIndicator.cpp
+C:\Users\anisha\Desktop\ArraySpectrum\Source_Code\LevelIndicator.cpp(197,20): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\anisha\Desktop\ArraySpectrum\Source_Code\LevelIndicator.cpp(248,20): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  MainFrm.cpp
+C:\Users\anisha\Desktop\ArraySpectrum\Source_Code\MainFrm.cpp(116,7): warning C4101: 'bNameValid': unreferenced local variable
+  picture.cpp
+  PixelDataView.cpp
+  PropertiesPane.cpp
+  Generating Code...
+  Compiling...
+  PropertiesPaneDlg.cpp
+  QudraticFit.cpp
+  RSDataView.cpp
+  RSSpectrumView.cpp
+  SerialComm.cpp
+C:\Users\anisha\Desktop\ArraySpectrum\Source_Code\SerialComm.cpp(165,28): warning C4244: 'initializing': conversion from 'LONGLONG' to 'LONG', possible loss of data
+  Settings.cpp
+  SettingsDlg.cpp
+C:\Users\anisha\Desktop\ArraySpectrum\Source_Code\SettingsDlg.cpp(714,146): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\anisha\Desktop\ArraySpectrum\Source_Code\SettingsDlg.cpp(714,85): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\anisha\Desktop\ArraySpectrum\Source_Code\SettingsDlg.cpp(725,146): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\anisha\Desktop\ArraySpectrum\Source_Code\SettingsDlg.cpp(725,85): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\anisha\Desktop\ArraySpectrum\Source_Code\SettingsDlg.cpp(736,147): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\anisha\Desktop\ArraySpectrum\Source_Code\SettingsDlg.cpp(736,86): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\anisha\Desktop\ArraySpectrum\Source_Code\SettingsDlg.cpp(747,148): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\anisha\Desktop\ArraySpectrum\Source_Code\SettingsDlg.cpp(747,87): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  Spreadsheet.cpp
+  TChart.cpp
+  WLDataView.cpp
+  WLSpectrumView.cpp
+  Generating Code...
+C:\Users\anisha\Desktop\ArraySpectrum\Source_Code\SerialComm.cpp(204): warning C4715: 'CSerialComm::Receive': not all control paths return a value
+ArraySpectrum.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
+  ArraySpectrum.vcxproj -> C:\Users\anisha\Desktop\ArraySpectrum\Source_Code\Debug\ArraySpectrum.exe

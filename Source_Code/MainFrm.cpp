@@ -19,6 +19,8 @@
 #include "pixeldataview.h"
 #include "wldataview.h"
 #include "wlspectrumview.h"
+#include "rsdataview.h"
+#include "RSSpectrumView.h"
 #include "constants.h"
 #include "CommPortSettings.h"
 #include "DcIcUSB.h"
@@ -51,6 +53,9 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWndEx)
 	ON_COMMAND(ID_FILE_WAVELENGTH,OnSelectWLMode)
 	ON_UPDATE_COMMAND_UI(ID_FILE_WAVELENGTH, &CMainFrame::OnUpdateSelectWLMode)
 
+	ON_COMMAND(ID_FILE_RAMANSHIFT, OnSelectRSMode)
+	ON_UPDATE_COMMAND_UI(ID_FILE_RAMANSHIFT, &CMainFrame::OnUpdateSelectRSMode)
+
 	ON_COMMAND(ID_FILE_CALIB, OnCalibration)
 	ON_UPDATE_COMMAND_UI(ID_FILE_CALIB,OnUpdateCalibration)
 
@@ -59,10 +64,6 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWndEx)
 
 	ON_COMMAND(ID_FILE_CONNECT,OnConnectOrDisconnect)
 	ON_UPDATE_COMMAND_UI(ID_FILE_CONNECT,OnUpdateConnectOrDisconnect)
-	//	ON_COMMAND(ID_FILE_PRINT, &CMainFrame::OnFilePrint)
-	//ON_COMMAND(ID_FILE_PRINT_DIRECT, &CMainFrame::OnFilePrint)
-	//ON_COMMAND(ID_FILE_PRINT_PREVIEW, &CMainFrame::OnFilePrintPreview)
-	//ON_UPDATE_COMMAND_UI(ID_FILE_PRINT_PREVIEW, &CMainFrame::OnUpdateFilePrintPreview)
 	ON_WM_SIZE()
 
 
@@ -187,51 +188,7 @@ void CMainFrame::InitializeRibbon()
 	m_MainButton.SetToolTipText(strTemp);
 
 	m_wndRibbonBar.SetApplicationButton(&m_MainButton, CSize (45, 45));
-	/*CMFCRibbonMainPanel* pMainPanel = m_wndRibbonBar.AddMainCategory(strTemp, IDB_FILESMALL, IDB_FILELARGE);
-
-	bNameValid = strTemp.LoadString(IDS_RIBBON_NEW);
-	ASSERT(bNameValid);
-	pMainPanel->Add(new CMFCRibbonButton(ID_FILE_NEW, strTemp, 0, 0));
-	bNameValid = strTemp.LoadString(IDS_RIBBON_OPEN);
-	ASSERT(bNameValid);
-	pMainPanel->Add(new CMFCRibbonButton(ID_FILE_OPEN, strTemp, 1, 1));
-	bNameValid = strTemp.LoadString(IDS_RIBBON_SAVE);
-	ASSERT(bNameValid);
-	pMainPanel->Add(new CMFCRibbonButton(ID_FILE_SAVE, strTemp, 2, 2));
-	bNameValid = strTemp.LoadString(IDS_RIBBON_SAVEAS);
-	ASSERT(bNameValid);
-	pMainPanel->Add(new CMFCRibbonButton(ID_FILE_SAVE_AS, strTemp, 3, 3));
-
-	bNameValid = strTemp.LoadString(IDS_RIBBON_PRINT);
-	ASSERT(bNameValid);
-	CMFCRibbonButton* pBtnPrint = new CMFCRibbonButton(ID_FILE_PRINT, strTemp, 6, 6);
-	pBtnPrint->SetKeys(_T("p"), _T("w"));
-	bNameValid = strTemp.LoadString(IDS_RIBBON_PRINT_LABEL);
-	ASSERT(bNameValid);
-	pBtnPrint->AddSubItem(new CMFCRibbonLabel(strTemp));
-	bNameValid = strTemp.LoadString(IDS_RIBBON_PRINT_QUICK);
-	ASSERT(bNameValid);
-	pBtnPrint->AddSubItem(new CMFCRibbonButton(ID_FILE_PRINT_DIRECT, strTemp, 7, 7, TRUE));
-	bNameValid = strTemp.LoadString(IDS_RIBBON_PRINT_PREVIEW);
-	ASSERT(bNameValid);
-	pBtnPrint->AddSubItem(new CMFCRibbonButton(ID_FILE_PRINT_PREVIEW, strTemp, 8, 8, TRUE));
-	bNameValid = strTemp.LoadString(IDS_RIBBON_PRINT_SETUP);
-	ASSERT(bNameValid);
-	pBtnPrint->AddSubItem(new CMFCRibbonButton(ID_FILE_PRINT_SETUP, strTemp, 11, 11, TRUE));
-	pMainPanel->Add(pBtnPrint);
-	pMainPanel->Add(new CMFCRibbonSeparator(TRUE));
-
-	bNameValid = strTemp.LoadString(IDS_RIBBON_CLOSE);
-	ASSERT(bNameValid);
-	pMainPanel->Add(new CMFCRibbonButton(ID_FILE_CLOSE, strTemp, 9, 9));
-
-	bNameValid = strTemp.LoadString(IDS_RIBBON_RECENT_DOCS);
-	ASSERT(bNameValid);
-	pMainPanel->AddRecentFilesList(strTemp);
-
-	bNameValid = strTemp.LoadString(IDS_RIBBON_EXIT);
-	ASSERT(bNameValid);
-	pMainPanel->AddToBottom(new CMFCRibbonMainPanelButton(ID_APP_EXIT, strTemp, 15));*/
+	
 
 	// Add "Home" category with "Clipboard" panel:
 	bNameValid = strTemp.LoadString(IDS_RIBBON_HOME);
@@ -308,6 +265,12 @@ void CMainFrame::InitializeRibbon()
 	ASSERT(bNameValid);
 	CMFCRibbonButton* pBtnWL = new CMFCRibbonButton(ID_FILE_WAVELENGTH,strTemp, -1, 8);
 	pPanelView->Add(pBtnWL);
+
+
+	bNameValid = strTemp.LoadString(ID_FILE_RAMANSHIFT);
+	ASSERT(bNameValid);
+	CMFCRibbonButton* pBtnRS = new CMFCRibbonButton(ID_FILE_RAMANSHIFT, strTemp, -1, 8);
+	pPanelView->Add(pBtnRS);
 
 	//#ifdef _SA165
 	//Calib Panel
@@ -394,42 +357,10 @@ void CMainFrame::InitializeRibbon()
 	//Laser Settings Button
 	bNameValid = strTemp.LoadString(ID_LASER_SETTINGS);
 	ASSERT(bNameValid);
-	CMFCRibbonButton* pBtnLaser = new CMFCRibbonButton(ID_LASER_SETTINGS, strTemp, -1, 17);
+	CMFCRibbonButton* pBtnLaser = new CMFCRibbonButton(ID_LASER_SETTINGS, strTemp, -1, 15);
 
 	pPanelLaser->Add(pBtnLaser);
 
-	//   //Properties Panel
-
-	//bNameValid = strTemp.LoadString(IDS_RIBBON_SHOW_PROPERTIES);
-	//ASSERT(bNameValid);
-	//CMFCRibbonPanel* pPanelProps = pCategoryHome->AddPanel(strTemp, m_PanelImages.ExtractIcon(27));
-
-	////Show Properties PAne
-	//bNameValid = strTemp.LoadString(ID_FILE_SHOW_PROPERTIES);
-	//ASSERT(bNameValid);
-	//CMFCRibbonButton* pBtnShowPropPane = new CMFCRibbonButton(ID_FILE_SHOW_PROPERTIES,strTemp, 0, 0);
-	//pPanelProps->Add(pBtnShowPropPane);
-
-
-	//bNameValid = strTemp.LoadString(IDS_RIBBON_OPEN);
-	//ASSERT(bNameValid);
-	//pPanelClipboard->Add(new CMFCRibbonButton(ID_FILE_OPEN, strTemp, 1));
-	//bNameValid = strTemp.LoadString(IDS_RIBBON_COPY);
-	//ASSERT(bNameValid);
-	//pPanelClipboard->Add(new CMFCRibbonButton(ID_EDIT_COPY, strTemp, 2));
-	//bNameValid = strTemp.LoadString(IDS_RIBBON_SELECTALL);
-	//ASSERT(bNameValid);
-	//pPanelClipboard->Add(new CMFCRibbonButton(ID_EDIT_SELECT_ALL, strTemp, -1));
-
-	//// Create and add a "View" panel:
-	//bNameValid = strTemp.LoadString(IDS_RIBBON_VIEW);
-	//ASSERT(bNameValid);
-	//CMFCRibbonPanel* pPanelView = pCategoryHome->AddPanel(strTemp, m_PanelImages.ExtractIcon (7));
-
-	//bNameValid = strTemp.LoadString(IDS_RIBBON_STATUSBAR);
-	//ASSERT(bNameValid);
-	//CMFCRibbonButton* pBtnStatusBar = new CMFCRibbonCheckBox(ID_VIEW_STATUS_BAR, strTemp);
-	//pPanelView->Add(pBtnStatusBar);
 
 	// Add elements to the right side of tabs:
 	bNameValid = strTemp.LoadString(IDS_RIBBON_STYLE);
@@ -446,16 +377,6 @@ void CMainFrame::InitializeRibbon()
 	pVisualStyleButton->SetDescription(strTemp);
 	m_wndRibbonBar.AddToTabs(pVisualStyleButton);
 
-	// Add quick access toolbar commands:
-	//CList<UINT, UINT> lstQATCmds;
-
-	/*lstQATCmds.AddTail(ID_FILE_NEW);
-	lstQATCmds.AddTail(ID_FILE_OPEN);
-	lstQATCmds.AddTail(ID_FILE_SAVE);
-	lstQATCmds.AddTail(ID_FILE_PRINT_DIRECT);
-
-	m_wndRibbonBar.SetQuickAccessCommands(lstQATCmds);
-	m_wndRibbonBar.AddToTabs(new CMFCRibbonButton(ID_APP_ABOUT, _T("\na"), m_PanelImages.ExtractIcon (0)));*/
 }
 
 BOOL CMainFrame::CreateDockingWindows()
@@ -570,74 +491,8 @@ void CMainFrame::OnUpdateApplicationLook(CCmdUI* pCmdUI)
 	pCmdUI->SetRadio(theApp.m_nAppLook == pCmdUI->m_nID);
 }
 
-//void CMainFrame::OnFilePrint()
-//{
-//	if (IsPrintPreview())
-//	{
-//		PostMessage(WM_COMMAND, AFX_ID_PREVIEW_PRINT);
-//	}
-//}
-
-//void CMainFrame::OnFilePrintPreview()
-//{
-//	if (IsPrintPreview())
-//	{
-//		PostMessage(WM_COMMAND, AFX_ID_PREVIEW_CLOSE);  // force Print Preview mode closed
-//	}
-//}
-
-//void CMainFrame::OnUpdateFilePrintPreview(CCmdUI* pCmdUI)
-//{
-//	pCmdUI->SetCheck(IsPrintPreview());
-//}
-
 BOOL CMainFrame::OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext)
 {
-	// TODO: Add your specialized code here and/or call the base class
-	////////if(!m_wndSplitter.CreateStatic(this,1,2))
-	////////{
-	////////	return FALSE;
-	////////}
-
-	////////CRect rect;
-	////////GetClientRect(&rect);
-	////////m_CC=*pContext;
-	//////////if ( !m_wndSplitter.CreateView( 0, 1,RUNTIME_CLASS(CPixelDataView),CSize(rect.Width()/2, rect.Height()), pContext )) 
-	////////   CSize sz;
-	////////if(m_bShowViewData == false)
-	////////{
-	////////	sz.cx = rect.Width();
-	////////	sz.cy = rect.Height();
-	////////}
-	////////else
-	////////{
-	////////	sz.cx = rect.Width()/2;
-	////////	sz.cy = rect.Height();
-	////////}
-	////////if ( !m_wndSplitter.CreateView( 0, 0,RUNTIME_CLASS(CArraySpectrumView),sz, pContext )) 
-	////////{ 
-	////////	AfxMessageBox(_T("Splitter Creation Failed"));
-	////////	return FALSE; 
-	////////}
-	////////
-
-	//////////CArraySpectrumView
-	//////////
-	////////if(m_bShowViewData == false)
-	////////{
-	////////	sz.cx = 0;
-	////////	sz.cy = rect.Height();
-	////////}
-	////////else
-	////////{
-	////////	sz.cx = rect.Width()/2;
-	////////	sz.cy = rect.Height();
-	////////}
-	////////if ( !m_wndSplitter.CreateView( 0,1,RUNTIME_CLASS(CPixelDataView),CSize(rect.Width()/2, rect.Height()), pContext )) 
-	////////{ 
-	////////	AfxMessageBox(_T("Splitter Creation Failed"));
-	////////	return FALSE; 
-	////////}
 
 	m_CC = *pContext;
 	if(m_bShowViewData == TRUE)//Show Graph and DGrid Data Views in Splitter
@@ -682,8 +537,6 @@ BOOL CMainFrame::OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext)
 		return TRUE;
 	}
 
-	//OnDisplaySettings();
-	//return CFrameWndEx::OnCreateClient(lpcs, pContext);
 	return TRUE;
 }
 
@@ -774,7 +627,6 @@ void CMainFrame::OnUpdateStopCapture(CCmdUI* pCmdUI)
 	else
 		pCmdUI->Enable(FALSE);
 }
-
 
 
 void CMainFrame::OnUpdateSnapShot(CCmdUI* pCmdUI)
@@ -877,42 +729,6 @@ void CMainFrame::OnSnapShot(void)
 // Event Handler for Pixel Mode Selection event 
 void CMainFrame::OnSelectPixelMode(void)
 {
-	//////m_PresentationMode=PIXEL_MODE;
-	//////CRect rect;
-	//////GetClientRect(&rect);
-
-	//////m_wndSplitter.DeleteView(0,0);
-	//////CSize sz;
-	//////if(m_bShowViewData == false)
-	//////{
-	//////	sz.cx = rect.Width();
-	//////	sz.cy = rect.Height();
-	//////}
-	//////else
-	//////{
-	//////	sz.cx = rect.Width()/2;
-	//////	sz.cy = rect.Height();
-	//////}
-	//////m_wndSplitter.CreateView(0,0,RUNTIME_CLASS(CArraySpectrumView),sz,&m_CC);
-	//////m_wndSplitter.RecalcLayout();
-	////////m_wndSplitter.RedrawWindow();
-
-	//////m_wndSplitter.DeleteView(0,1);
-	////////CSize sz;
-	//////if(m_bShowViewData == false)
-	//////{
-	//////	sz.cx = rect.Width();
-	//////	sz.cy = rect.Height();
-	//////}
-	//////else
-	//////{
-	//////	sz.cx = 0;
-	//////	sz.cy = rect.Height();
-	//////}
-	//////m_wndSplitter.CreateView(0,1,RUNTIME_CLASS(CPixelDataView),sz,&m_CC);
-	//////m_wndSplitter.RecalcLayout();
-	////////m_wndSplitter.RedrawWindow();
-
 	if(m_PresentationMode==PIXEL_MODE)
 		return;
 	m_PresentationMode=PIXEL_MODE;
@@ -930,64 +746,41 @@ void CMainFrame::OnUpdateSelectPixelMode(CCmdUI* pCmdUI)
 }
 
 // Event Handler for WL Mode Selection Event (Presents the Views w.r.t WL)
-void CMainFrame::OnSelectWLMode(void)
+void CMainFrame::OnSelectRSMode(void)
 {
-	////m_PresentationMode=WAVELENGTH_MODE;
-	////CRect rect;
-	////GetClientRect(&rect);
-
-	////m_wndSplitter.DeleteView(0,0);
-	////CSize sz;
-	////if(m_bShowViewData == false)
-	////{
-	////	sz.cx = rect.Width();
-	////	sz.cy = rect.Height();
-	////}
-	////else
-	////{
-	////	sz.cx = rect.Width()/2;
-	////	sz.cy = rect.Height();
-	////}
-	////m_wndSplitter.CreateView(0,0,RUNTIME_CLASS(CWLSpectrumView),sz,&m_CC);
-	//////m_wndSplitter.RecalcLayout();
-	//////m_wndSplitter.RedrawWindow();
-
-	////m_wndSplitter.DeleteView(0,1);
-	//////CSize sz;
-	////if(m_bShowViewData == false)
-	////{
-	////	sz.cx = rect.Width();
-	////	sz.cy = rect.Height();
-	////}
-	////else
-	////{
-	////	sz.cx = 0;
-	////	sz.cy = rect.Height();
-	////}
-	////m_wndSplitter.CreateView(0,1,RUNTIME_CLASS(CWLDataView),sz,&m_CC);
-	////
-	////m_wndSplitter.RecalcLayout();
-	//////m_wndSplitter.RedrawWindow();
-
-
-	if(m_PresentationMode==WAVELENGTH_MODE)
+	if(m_PresentationMode== RAMANSHIFT_MODE)
 		return;
-	m_PresentationMode=WAVELENGTH_MODE;
+	m_PresentationMode= RAMANSHIFT_MODE;
 	ShowGraphViewORGraph_DataSplitView();
 
 	GetActiveDocument()->UpdateAllViews(NULL);
-	//m_wndSplitter.RecalcLayout();
-	//RecalcLayout();
-	//m_wndSplitter.Invalidate();
-	//Invalidate();
-	//OnGetviewGetallviews();
-	//int i;
+	RedrawGraphCtrl();
+}
+
+void CMainFrame::OnUpdateSelectRSMode(CCmdUI* pCmdUI)
+{
+	if(m_PresentationMode== RAMANSHIFT_MODE)
+		pCmdUI->Enable(FALSE);
+	else
+		pCmdUI->Enable(TRUE);
+}
+
+// Event Handler for WL Mode Selection Event (Presents the Views w.r.t WL)
+void CMainFrame::OnSelectWLMode(void)
+{
+	
+	if (m_PresentationMode == WAVELENGTH_MODE)
+		return;
+	m_PresentationMode = WAVELENGTH_MODE;
+	ShowGraphViewORGraph_DataSplitView();
+
+	GetActiveDocument()->UpdateAllViews(NULL);
 	RedrawGraphCtrl();
 }
 
 void CMainFrame::OnUpdateSelectWLMode(CCmdUI* pCmdUI)
 {
-	if(m_PresentationMode==WAVELENGTH_MODE)
+	if (m_PresentationMode == WAVELENGTH_MODE)
 		pCmdUI->Enable(FALSE);
 	else
 		pCmdUI->Enable(TRUE);
@@ -1060,27 +853,6 @@ void CMainFrame::OnConnectOrDisconnect(void)
 		dlgCommPortSettings.ShowWindow(SW_SHOW);*/
 		dlgCommPortSettings.DoModal();
 
-
-		/*pDoc->m_strSelectedCommPortName = dlgCommPortSettings.GetSelectedCommPortName();
-
-		if(pDoc->m_strSelectedCommPortName.IsEmpty() == FALSE)
-		{
-			if(pDoc->m_objSerialComm.Open(pDoc->m_strSelectedCommPortName) == FALSE)
-			{
-				AfxMessageBox(_T("Failed to Open the Communication Port"));
-				m_bConnected = FALSE;
-				pDoc->m_strSelectedCommPortName = _T("");
-			}
-			else
-			{
-				m_bConnected = TRUE;
-				//pDoc->m_objSerialComm.Close();//to use the serial port in the background thread we have close the port temporiarly.
-				//change the text to disconnect
-				bNameValid = strResource.LoadString(IDS_FILE_DISCONNECT);
-				if(bNameValid)
-					pBtnConnectOrDisconnect->SetText(strResource);
-			}
-		}*/
 		// Init library and create device information array.
 		
 		bStat = DcIc_Initialize();		// Initialize library(DLL).
@@ -1143,33 +915,6 @@ void CMainFrame::OnUpdateConnectOrDisconnect(CCmdUI* pCmdUI)
 
 void CMainFrame::OnFileExportPixelData()
 {
-	//Test Code for importing the the Pixel data from a CSV
-	//CArraySpectrumDoc* pDoc=NULL;
-	//pDoc=(CArraySpectrumDoc*)GetActiveDocument();
-
-	//pDoc->m_objCapturePixelBuff.ClearPixelBuffer();
-	//pDoc->m_objCapturePixelBuff.m_pBuffPixelData = new WORD[MAX_PIXEL_DATA_COUNT_PER_LINE];
-
-	//FILE* fp= fopen("C:\\Documents and Settings\\srinivasn\\Desktop\\data.csv","r");
-	//int d,i=0;
-	//pDoc->m_objCapturePixelBuff.m_nLineCount=1;
-	//pDoc->m_objCapturePixelBuff.m_bShowAvg=FALSE;
-	//pDoc->m_objCapturePixelBuff.m_bShowSD=FALSE;
-	//pDoc->m_objCapturePixelBuff.m_bShowRSD=FALSE;
-
-
-	//while(!feof(fp))
-	//{
-	//	fscanf(fp,"%d",&d);
-	//	pDoc->m_objCapturePixelBuff.m_pBuffPixelData[i]=d;
-	//	i++;
-
-	//}
-	//fclose(fp);
-	//pDoc->m_objCapturePixelBuff.PreparePixelLineBuffFromSnapShot();
-	//pDoc->UpdateAllViews(NULL);
-	//return;
-
 	CArraySpectrumDoc* pDoc=NULL;
 	pDoc=(CArraySpectrumDoc*)GetActiveDocument();
 
@@ -1257,11 +1002,6 @@ void CMainFrame::OnAbout(void)
 	//m_ptrSettingsDlg->OnBnClickedBtnApply();
 }
 
-//void CMainFrame::UpdateView()
-//{
-//	pDoc->UpdateAllViews(NULL);
-//}
-
 void CMainFrame::UpdateSettingsDlg()
 {
 	if((m_ptrSettingsDlg != NULL) && (m_ptrSettingsDlg->m_hWnd != NULL))
@@ -1315,105 +1055,6 @@ void CMainFrame::OnViewDataShow(void)
 		m_bShowViewData = false;
 	}
 
-
-	//////////CRect rect;
-	////////////GetClientRect(&rect);
-	//////////m_wndSplitter.GetClientRect(&rect);
-	//////////CSize sz;
-	//////////	
-	//////////CDocTemplate *pTempl = NULL;
-	//////////CDocument *pDoc = NULL;
-	//////////CView *pView = NULL;
-
-	//////////if(m_bShowViewData == false)
-	//////////{
-	//////////	sz.cx = rect.Width();
-	//////////	sz.cy = rect.Height();
-	//////////
-
-	//////////	POSITION posT = theApp.GetFirstDocTemplatePosition();
-
-	//////////	while(posT) 
-	//////////	{
-	//////////		pTempl = theApp.GetNextDocTemplate(posT);
-
-	//////////		POSITION posD = pTempl->GetFirstDocPosition();
-	//////////		while(posD) 
-	//////////		{
-	//////////			pDoc = pTempl->GetNextDoc(posD);
-
-	//////////			POSITION posV = pDoc->GetFirstViewPosition();
-	//////////			while(posV) 
-	//////////			{
-	//////////				pView = pDoc->GetNextView(posV);
-	//////////				if(pView->IsKindOf(RUNTIME_CLASS(CDataView)) == true)
-	//////////				{
-	//////////					pView->MoveWindow(0,0,0,sz.cy);
-	//////////					CRect rc;
-	//////////					pView->GetWindowRect(&rc);
-	//////////					pView->RedrawWindow(&rc);
-	//////////					//break;
-	//////////				}
-	//////////				else if(pView->IsKindOf(RUNTIME_CLASS(CBasePlotView)) == true)
-	//////////				{
-	//////////					pView->MoveWindow(0,0,sz.cx,sz.cy);
-	//////////					CRect rc;
-	//////////					pView->GetWindowRect(&rc);
-	//////////					pView->RedrawWindow(&rc);
-	//////////				}
-	//////////				//pView->Invalidate();
-	//////////			} 
-	//////////		}
-	//////////	}
-	//////////}
-	//////////else
-	//////////{
-	//////////	sz.cx = rect.Width();
-	//////////	sz.cy = rect.Height();
-	//////////
-
-	//////////	POSITION posT = theApp.GetFirstDocTemplatePosition();
-
-	//////////	while(posT) 
-	//////////	{
-	//////////		pTempl = theApp.GetNextDocTemplate(posT);
-
-	//////////		POSITION posD = pTempl->GetFirstDocPosition();
-	//////////		while(posD) 
-	//////////		{
-	//////////			pDoc = pTempl->GetNextDoc(posD);
-
-	//////////			POSITION posV = pDoc->GetFirstViewPosition();
-	//////////			while(posV) 
-	//////////			{
-	//////////				pView = pDoc->GetNextView(posV);
-	//////////				if(pView->IsKindOf(RUNTIME_CLASS(CDataView)) == true)
-	//////////				{
-	//////////					pView->MoveWindow((rect.left+(sz.cx/2)),0,sz.cx/2,sz.cy);
-	//////////					CRect rc;
-	//////////					pView->GetWindowRect(&rc);
-	//////////					pView->RedrawWindow(&rc);
-	//////////					//break;
-	//////////				}
-	//////////				else if(pView->IsKindOf(RUNTIME_CLASS(CBasePlotView)) == true)
-	//////////				{
-	//////////					pView->MoveWindow(0,0,sz.cx/2,sz.cy);
-	//////////					CRect rc;
-	//////////					pView->GetWindowRect(&rc);
-	//////////					pView->RedrawWindow(&rc);
-	//////////				}
-	//////////				//pView->Invalidate();
-	//////////			} 
-	//////////		}
-	//////////	}
-	//////////}
-	//////////
-	////////////CArraySpectrumDoc* pDoc=NULL;
-	////////////pDoc=(CArraySpectrumDoc*)GetActiveDocument();
-	////////////m_wndSplitter.RecalcLayout();
-	//////////pDoc->UpdateAllViews(NULL);
-
-
 	ShowGraphViewORGraph_DataSplitView();
 	RedrawGraphCtrl();
 
@@ -1429,24 +1070,19 @@ void CMainFrame::ShowGraphViewORGraph_DataSplitView()
 
 	if(m_bShowViewData ==TRUE)//Show Graph and Data Grid Views in Splitter
 	{
-		//CView * pv=GetActiveView();
-
 		POSITION pos=pDoc->GetFirstViewPosition();
 		while(pos!=NULL)
 		{
 			CView * pv= pDoc->GetNextView(pos);
 			pDoc->RemoveView(pv);
 
-			// delete pv;
 		}
 		GetDlgItem(AFX_IDW_PANE_FIRST)->DestroyWindow();
 		SetActiveView(NULL);
-		//RecalcLayout();
 		if(!m_wndSplitter.CreateStatic(this,1,2))
 		{
 			return ;
 		}
-
 
 		CCreateContext cc;
 		cc.m_pCurrentDoc=NULL;//GetActiveDocument();
@@ -1485,6 +1121,21 @@ void CMainFrame::ShowGraphViewORGraph_DataSplitView()
 				return; 
 			}
 		}
+		if (RAMANSHIFT_MODE == m_PresentationMode)
+		{
+			//CArraySpectrumView
+			if (!m_wndSplitter.CreateView(0, 0, RUNTIME_CLASS(CRSSpectrumView), CSize(rect.Width() / 2, rect.Height()), &cc))
+			{
+				AfxMessageBox(_T("Splitter Creation Failed"));
+				return;
+			}
+
+			if (!m_wndSplitter.CreateView(0, 1, RUNTIME_CLASS(CRSDataView), CSize(rect.Width() / 2, rect.Height()), &cc))
+			{
+				AfxMessageBox(_T("Splitter Creation Failed"));
+				return;
+			}
+		}
 		pDoc->AddView((CView*)m_wndSplitter.GetPane(0,0));
 		pDoc->AddView((CView*)m_wndSplitter.GetPane(0,1));
 		this->SetActiveView((CView*)m_wndSplitter.GetPane(0,0));
@@ -1510,10 +1161,12 @@ void CMainFrame::ShowGraphViewORGraph_DataSplitView()
 		SetActiveView(NULL);
 		//RecalcLayout();
 		CView * pv=NULL;
-		if(m_PresentationMode==PIXEL_MODE)
-			pv =new CArraySpectrumView();
+		if (m_PresentationMode == PIXEL_MODE)
+			pv = new CArraySpectrumView();
+		else if (m_PresentationMode == WAVELENGTH_MODE)
+			pv = new CWLSpectrumView();
 		else
-			pv =new CWLSpectrumView();
+			pv = new CRSSpectrumView();
 		pv->Create(NULL,_T(""),WS_CHILD|WS_VISIBLE,rect,this,AFX_IDW_PANE_FIRST,NULL);
 		pDoc->AddView(pv);
 		SetActiveView(pv);
@@ -1553,7 +1206,6 @@ void CMainFrame::RedrawGraphCtrl()
 		}
 	}	
 }
-
 void CMainFrame::CalculateArea()
 {
 	CDocTemplate *pTempl = NULL;

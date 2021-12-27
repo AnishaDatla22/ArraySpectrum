@@ -9,6 +9,7 @@
 #include "CubicSplineInterpolation.h"
 #include "quadraticfit.h"
 #include "ArraySpectrumDoc.h"
+#include <cmath>
 
 // CCalibDataDlg dialog
 
@@ -291,13 +292,6 @@ void CCalibDataDlg::OnBnClickedOk()
 
 	for(int i=0;i<MAX_PIXEL_DATA_COUNT_PER_LINE;i++)
 	{
-		/*double x=i;
-		double x3=x*x*x;
-		double x2=x*x;
-		double afact=m_dblCoeffA*x3;
-		double bfact=m_dblCoeffB*x2;
-		double cfact=m_dblCoeffC*x;
-		m_bufWLDataPoints[i]=afact+bfact+cfact+m_dblCoeffD;*/
 
         double x=i;
 		double x2=x*x;
@@ -306,6 +300,8 @@ void CCalibDataDlg::OnBnClickedOk()
 		double cfact=m_dblC;
 
 		m_pDoc->m_bufWLDataPoints[i]=afact+bfact+cfact;
+		//Convert WL to Raman Shift
+		m_pDoc->m_bufRSDataPoints[i] = ((1 / 785) - (1 / m_pDoc->m_bufWLDataPoints[i])) * pow(10, 7);
 	}
 
 	DestroyWindow();

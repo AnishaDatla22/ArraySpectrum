@@ -335,8 +335,9 @@ void CaptureSnapFromCCD(CCapturePixels* pObjPixelData) {
 			delete[] pDataBuff;
 			pDataBuff = NULL;
 		}
+
 		DcIc_Disconnect(nDevID);
-		DcIc_Terminate();	// Termifnate process of library.
+		DcIc_Terminate();	// Terminate process of library.
 		return;
 	}
 	END_CATCH
@@ -361,13 +362,13 @@ void CaptureSnapFromCCD(CCapturePixels* pObjPixelData) {
 	
 	while (TRUE)
 	{
-		::Sleep(2000);
+		::Sleep(200);
 		nRsltStat = DcIc_Wait(nDevID);
 		
 		if (nRsltStat == DcIc_WAITSTATUS_CAPTURED)
 		{
 			// Data process
-			SaveData("Sample.csv", pDataBuff, wPixels, wLines, nFrameCount, 0);
+			//SaveData("Sample.csv", pDataBuff, wPixels, wLines, nFrameCount, 0);
 			break;
 		}
 	}
